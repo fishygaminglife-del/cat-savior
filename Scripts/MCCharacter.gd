@@ -12,11 +12,12 @@ func _physics_process(delta: float) -> void:
 		velocity.y = directiony * SPEED
 		if directiony < 0:
 			$MCCharater.play("up")
+		
 		else:
 			$MCCharater.play("down")
-
 	else:
 		velocity.y = move_toward(velocity.y, 0, SPEED)
+	
 
 
 	var directionx := Input.get_axis("left", "right")
@@ -24,9 +25,13 @@ func _physics_process(delta: float) -> void:
 		velocity.x = directionx * SPEED
 		if directionx < 0:
 			$MCCharater.play("side")
+		
 		else:
 			$MCCharater.play("side2")
+
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
-
+	
+	if directionx == 0 and directiony == 0:
+		$MCCharater.play("downidle")
 	move_and_slide()
