@@ -11,6 +11,8 @@
 [ext_resource type="Texture2D" uid="uid://cdcx0jufue3hc" path="res://People/MCBackwardsIdle.png" id="9_lkiy7"]
 [ext_resource type="Texture2D" uid="uid://c6yfb6oltcqse" path="res://images/TextBox.png" id="10_dfeyu"]
 [ext_resource type="FontFile" uid="uid://c8uge3jdhs8qm" path="res://fonts/pixel_operator/PixelOperator8.ttf" id="11_r68wp"]
+[ext_resource type="Texture2D" uid="uid://dsrvwq8cgs0dh" path="res://images/MenuScreen.png" id="12_q6urs"]
+[ext_resource type="FontFile" uid="uid://crprgneoqco73" path="res://fonts/pixel_operator/PixelOperator8-Bold.ttf" id="13_ftwfq"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3i3nt"]
 atlas = ExtResource("1_53v7d")
@@ -412,10 +414,10 @@ script = ExtResource("1_3i3nt")
 
 [node name="MCCharater" type="AnimatedSprite2D" parent="." unique_id=1546092177]
 sprite_frames = SubResource("SpriteFrames_fwsyb")
-animation = &"downidle"
+animation = &"down"
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=758065340]
-polygon = PackedVector2Array(-5, -15, 5, -15, 5, -4, 8, -2, 9, 0, 9, 4, 5, 5, 5, 15, -5, 15, -5, 4, -8, 4, -8, -2, -7, -3, -5, -3, -5, -4, -4, -4, -4, -9, -5, -9)
+polygon = PackedVector2Array(-5, -15, 5, -15, 5, -4, 8, -3, 8, 0, 7, 2, 5, 7, 5, 15, -5, 15, -5, 7, -8, 1, -9, -2, -7, -3, -5, -3, -5, -4, -5, -5, -5, -8, -5, -9)
 
 [node name="TextBox" type="Sprite2D" parent="." unique_id=119999252]
 position = Vector2(6, 58)
@@ -449,5 +451,59 @@ visible_ratio = 0.0
 [node name="PlayerAnimationPlayer" type="AnimationPlayer" parent="." unique_id=1966675699]
 libraries/ = SubResource("AnimationLibrary_q6urs")
 
+[node name="MenuScreen" type="Sprite2D" parent="." unique_id=457026694]
+process_mode = 3
+position = Vector2(-4.999996, -0.24999893)
+scale = Vector2(1.9374999, 1.9218748)
+texture = ExtResource("12_q6urs")
+
+[node name="MenuL" type="Label" parent="MenuScreen" unique_id=1369887723]
+process_mode = 3
+offset_left = -13.935486
+offset_top = -35.252037
+offset_right = 19.064514
+offset_bottom = -12.252037
+theme_override_fonts/font = ExtResource("13_ftwfq")
+theme_override_font_sizes/font_size = 8
+text = "Menu"
+
+[node name="InstL" type="Label" parent="MenuScreen" unique_id=1083000120]
+process_mode = 3
+offset_left = -13.935487
+offset_top = 9.495935
+offset_right = 78.96774
+offset_bottom = 73.23579
+scale = Vector2(0.4, 0.4)
+theme_override_fonts/font = ExtResource("11_r68wp")
+theme_override_font_sizes/font_size = 8
+text = "You are here because you either died, or paused, or something else..."
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="ResumeB" type="Button" parent="MenuScreen" unique_id=1349071265]
+process_mode = 3
+offset_left = -8.258066
+offset_top = -20.68293
+offset_right = 43.741936
+offset_bottom = -4.68293
+scale = Vector2(0.5, 0.5)
+theme_override_fonts/font = ExtResource("11_r68wp")
+theme_override_font_sizes/font_size = 8
+text = "RESUME"
+
+[node name="HomeB" type="Button" parent="MenuScreen" unique_id=277495167]
+process_mode = 3
+offset_left = -7.2258086
+offset_top = -6.6341476
+offset_right = 44.774193
+offset_bottom = 9.365852
+scale = Vector2(0.5, 0.5)
+theme_override_fonts/font = ExtResource("11_r68wp")
+theme_override_font_sizes/font_size = 8
+text = "HOME"
+
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1046181998]
 zoom = Vector2(3.5, 3.5)
+
+[connection signal="pressed" from="MenuScreen/ResumeB" to="." method="_on_resume_b_pressed"]
+[connection signal="pressed" from="MenuScreen/HomeB" to="." method="_on_home_b_pressed"]

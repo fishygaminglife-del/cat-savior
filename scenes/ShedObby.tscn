@@ -1,8 +1,24 @@
 [gd_scene format=3 uid="uid://cbtua8fdl75xg"]
 
+[ext_resource type="Script" uid="uid://b28hsqodlip2e" path="res://Scripts/shed_obby.gd" id="1_1uhm5"]
 [ext_resource type="Texture2D" uid="uid://eacbclhdvdjq" path="res://images/ShedObbyBG.png" id="1_sycjd"]
 [ext_resource type="Texture2D" uid="uid://bydfq60lc5doc" path="res://tiles/BasicTLMap.png" id="2_1uhm5"]
 [ext_resource type="Texture2D" uid="uid://pgo3g8mh5pib" path="res://tiles/ShedTLMap.png" id="3_yhkts"]
+[ext_resource type="Script" uid="uid://bwewddphct3lp" path="res://Scripts/MCCharacter.gd" id="5_nooa1"]
+[ext_resource type="Texture2D" uid="uid://b7126e0r2u342" path="res://images/FireAnimation.png" id="5_rulr0"]
+[ext_resource type="Texture2D" uid="uid://cho80ec250rt4" path="res://People/MCForward.png" id="6_rulr0"]
+[ext_resource type="Texture2D" uid="uid://cwfnrl88jh7n1" path="res://People/MCForwardIdle.png" id="7_pfpgu"]
+[ext_resource type="Texture2D" uid="uid://b25d3wgr7qmxy" path="res://People/MCSide.png" id="8_8d0jg"]
+[ext_resource type="Texture2D" uid="uid://4r318wuiepn5" path="res://People/MCSide2.png" id="9_ek723"]
+[ext_resource type="Texture2D" uid="uid://cgsrux7206d53" path="res://People/MCSideIdle.png" id="10_0st3l"]
+[ext_resource type="Texture2D" uid="uid://c3m6ejl1v1qp0" path="res://People/MCSide2Idle.png" id="11_4sfld"]
+[ext_resource type="Texture2D" uid="uid://dg72cxs7106y7" path="res://People/MCBackwards.png" id="12_8krx4"]
+[ext_resource type="Texture2D" uid="uid://cdcx0jufue3hc" path="res://People/MCBackwardsIdle.png" id="13_kki2j"]
+[ext_resource type="Texture2D" uid="uid://c6yfb6oltcqse" path="res://images/TextBox.png" id="14_jxxnc"]
+[ext_resource type="FontFile" uid="uid://c8uge3jdhs8qm" path="res://fonts/pixel_operator/PixelOperator8.ttf" id="15_j8eda"]
+[ext_resource type="Texture2D" uid="uid://dsrvwq8cgs0dh" path="res://images/MenuScreen.png" id="17_8d0jg"]
+[ext_resource type="FontFile" uid="uid://crprgneoqco73" path="res://fonts/pixel_operator/PixelOperator8-Bold.ttf" id="18_ek723"]
+[ext_resource type="Texture2D" uid="uid://c1jcxel3qoy1r" path="res://images/Checkpoint.png" id="19_ek723"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0a6m6"]
 texture = ExtResource("2_1uhm5")
@@ -76,7 +92,504 @@ texture = ExtResource("3_yhkts")
 sources/0 = SubResource("TileSetAtlasSource_0a6m6")
 sources/1 = SubResource("TileSetAtlasSource_4tbp7")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1uhm5"]
+size = Vector2(192, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8d0jg"]
+size = Vector2(700, 31)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yhkts"]
+size = Vector2(32, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0a6m6"]
+size = Vector2(20, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hgbdg"]
+size = Vector2(16, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cm5fo"]
+size = Vector2(32, 16)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0a6m6"]
+radius = 16.0
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_yhkts"]
+a = Vector2(4, 0)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_0a6m6"]
+a = Vector2(12, 4)
+b = Vector2(0, 9)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4tbp7"]
+size = Vector2(160, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pfpgu"]
+size = Vector2(2329, 20)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nooa1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8d0jg"]
+atlas = ExtResource("5_rulr0")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ek723"]
+atlas = ExtResource("5_rulr0")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0st3l"]
+atlas = ExtResource("5_rulr0")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4sfld"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8d0jg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ek723")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0st3l")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8krx4"]
+atlas = ExtResource("5_rulr0")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kki2j"]
+atlas = ExtResource("5_rulr0")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jxxnc"]
+atlas = ExtResource("5_rulr0")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_j8eda"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8krx4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kki2j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jxxnc")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rulr0"]
+size = Vector2(2305, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ek723"]
+size = Vector2(2333, 2)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3i3nt"]
+atlas = ExtResource("6_rulr0")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_apuoc"]
+atlas = ExtResource("6_rulr0")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rguqb"]
+atlas = ExtResource("6_rulr0")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pry4r"]
+atlas = ExtResource("6_rulr0")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6q5bf"]
+atlas = ExtResource("7_pfpgu")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8a18t"]
+atlas = ExtResource("7_pfpgu")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dfeyu"]
+atlas = ExtResource("8_8d0jg")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r68wp"]
+atlas = ExtResource("8_8d0jg")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lkiy7"]
+atlas = ExtResource("8_8d0jg")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q6urs"]
+atlas = ExtResource("8_8d0jg")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ftwfq"]
+atlas = ExtResource("9_ek723")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4yo34"]
+atlas = ExtResource("9_ek723")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_smtlo"]
+atlas = ExtResource("9_ek723")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_356g5"]
+atlas = ExtResource("9_ek723")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wllim"]
+atlas = ExtResource("10_0st3l")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2gnyt"]
+atlas = ExtResource("10_0st3l")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ebki3"]
+atlas = ExtResource("11_4sfld")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l4twv"]
+atlas = ExtResource("11_4sfld")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fwsyb"]
+atlas = ExtResource("12_8krx4")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_25pii"]
+atlas = ExtResource("12_8krx4")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_exdhi"]
+atlas = ExtResource("12_8krx4")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r87yu"]
+atlas = ExtResource("12_8krx4")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s7yyj"]
+atlas = ExtResource("13_kki2j")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mcg62"]
+atlas = ExtResource("13_kki2j")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fwsyb"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3i3nt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_apuoc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rguqb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pry4r")
+}],
+"loop": true,
+"name": &"down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_6q5bf")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_8a18t")
+}],
+"loop": true,
+"name": &"downidle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dfeyu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r68wp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lkiy7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q6urs")
+}],
+"loop": true,
+"name": &"side",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ftwfq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4yo34")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_smtlo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_356g5")
+}],
+"loop": true,
+"name": &"side2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wllim")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2gnyt")
+}],
+"loop": true,
+"name": &"sideidle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ebki3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l4twv")
+}],
+"loop": true,
+"name": &"sideidle2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fwsyb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_25pii")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_exdhi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r87yu")
+}],
+"loop": true,
+"name": &"up",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s7yyj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mcg62")
+}],
+"loop": true,
+"name": &"upidle",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_r68wp"]
+length = 0.001
+
+[sub_resource type="Animation" id="Animation_q6urs"]
+resource_name = "texp_play2"
+length = 3.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Name:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Text:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("TextBox:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Text:visible_ratio")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_ftwfq"]
+resource_name = "text_play"
+length = 3.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Name:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Text:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Text:visible_ratio")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("TextBox:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_lkiy7"]
+resource_name = "textplay"
+length = 3.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextBox:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Name:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 3.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Text:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 3.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Name:visible_ratio")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Text:visible_ratio")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_q6urs"]
+_data = {
+&"RESET": SubResource("Animation_r68wp"),
+&"texp_play2": SubResource("Animation_q6urs"),
+&"text_play": SubResource("Animation_ftwfq"),
+&"textplay": SubResource("Animation_lkiy7")
+}
+
 [node name="Node2D" type="Node2D" unique_id=1613556926]
+position = Vector2(-45, 37)
+script = ExtResource("1_1uhm5")
 
 [node name="BG" type="Node2D" parent="." unique_id=1780740072]
 
@@ -120,7 +633,890 @@ position = Vector2(1029, 207)
 scale = Vector2(2.296875, 2.296875)
 texture = ExtResource("1_sycjd")
 
+[node name="ShedObbyBg9" type="Sprite2D" parent="BG" unique_id=1203474578]
+position = Vector2(147.00002, 1089)
+scale = Vector2(2.296875, 2.296875)
+texture = ExtResource("1_sycjd")
+
+[node name="ShedObbyBg26" type="Sprite2D" parent="BG" unique_id=1406914625]
+position = Vector2(-1029, 1089)
+scale = Vector2(2.296875, 2.296875)
+texture = ExtResource("1_sycjd")
+
+[node name="ShedObbyBg27" type="Sprite2D" parent="BG" unique_id=1548813349]
+position = Vector2(-735, 1089)
+scale = Vector2(2.296875, 2.296875)
+texture = ExtResource("1_sycjd")
+
+[node name="ShedObbyBg28" type="Sprite2D" parent="BG" unique_id=1754565315]
+position = Vector2(-1029, 795)
+scale = Vector2(2.296875, 2.296875)
+texture = ExtResource("1_sycjd")
+
+[node name="ShedObbyBg29" type="Sprite2D" parent="BG" unique_id=439135018]
+position = Vector2(-735, 795)
+scale = Vector2(2.296875, 2.296875)
+texture = ExtResource("1_sycjd")
+
+[node name="ShedObbyBg30" type="Sprite2D" parent="BG" unique_id=1499724374]
+position = Vector2(-441, 1089)
+scale = Vector2(2.296875, 2.296875)
+texture = ExtResource("1_sycjd")
+
+[node name="ShedObbyBg31" type="Sprite2D" parent="BG" unique_id=1240460366]
+position = Vector2(-147, 1089)
+scale = Vector2(2.296875, 2.296875)
+texture = ExtResource("1_sycjd")
+
+[node name="ShedObbyBg32" type="Sprite2D" parent="BG" unique_id=239501022]
+position = Vector2(-441, 795)
+scale = Vector2(2.296875, 2.296875)
+texture = ExtResource("1_sycjd")
+
+[node name="ShedObbyBg33" type="Sprite2D" parent="BG" unique_id=1570851605]
+position = Vector2(-147, 795)
+scale = Vector2(2.296875, 2.296875)
+texture = ExtResource("1_sycjd")
+
+[node name="ShedObbyBg17" type="Sprite2D" parent="BG" unique_id=625564141]
+position = Vector2(-1029, 501.00003)
+scale = Vector2(2.296875, 2.296875)
+texture = ExtResource("1_sycjd")
+
+[node name="ShedObbyBg18" type="Sprite2D" parent="BG" unique_id=1427746567]
+position = Vector2(-735, 501.00003)
+scale = Vector2(2.296875, 2.296875)
+texture = ExtResource("1_sycjd")
+
+[node name="ShedObbyBg19" type="Sprite2D" parent="BG" unique_id=660051003]
+position = Vector2(-1029, 207)
+scale = Vector2(2.296875, 2.296875)
+texture = ExtResource("1_sycjd")
+
+[node name="ShedObbyBg20" type="Sprite2D" parent="BG" unique_id=1302763511]
+position = Vector2(-735, 207)
+scale = Vector2(2.296875, 2.296875)
+texture = ExtResource("1_sycjd")
+
+[node name="ShedObbyBg21" type="Sprite2D" parent="BG" unique_id=573331395]
+position = Vector2(-441, 501)
+scale = Vector2(2.296875, 2.296875)
+texture = ExtResource("1_sycjd")
+
+[node name="ShedObbyBg22" type="Sprite2D" parent="BG" unique_id=1345794615]
+position = Vector2(-147, 501)
+scale = Vector2(2.296875, 2.296875)
+texture = ExtResource("1_sycjd")
+
+[node name="ShedObbyBg23" type="Sprite2D" parent="BG" unique_id=2022005622]
+position = Vector2(-441, 207)
+scale = Vector2(2.296875, 2.296875)
+texture = ExtResource("1_sycjd")
+
+[node name="ShedObbyBg24" type="Sprite2D" parent="BG" unique_id=1050524591]
+position = Vector2(-147, 207)
+scale = Vector2(2.296875, 2.296875)
+texture = ExtResource("1_sycjd")
+
+[node name="ShedObbyBg25" type="Sprite2D" parent="BG" unique_id=540198711]
+position = Vector2(-1029, 1089)
+scale = Vector2(2.296875, 2.296875)
+texture = ExtResource("1_sycjd")
+
+[node name="ShedObbyBg34" type="Sprite2D" parent="BG" unique_id=436370672]
+position = Vector2(-1323, 795)
+scale = Vector2(2.296875, 2.296875)
+texture = ExtResource("1_sycjd")
+
+[node name="ShedObbyBg35" type="Sprite2D" parent="BG" unique_id=323937818]
+position = Vector2(-1323, 501)
+scale = Vector2(2.296875, 2.296875)
+texture = ExtResource("1_sycjd")
+
+[node name="ShedObbyBg36" type="Sprite2D" parent="BG" unique_id=165913173]
+position = Vector2(-1323, 207)
+scale = Vector2(2.296875, 2.296875)
+texture = ExtResource("1_sycjd")
+
+[node name="ShedObbyBg37" type="Sprite2D" parent="BG" unique_id=158333681]
+position = Vector2(-1323, 1089)
+scale = Vector2(2.296875, 2.296875)
+texture = ExtResource("1_sycjd")
+
+[node name="ShedObbyBg38" type="Sprite2D" parent="BG" unique_id=1648832783]
+position = Vector2(1323, 795)
+scale = Vector2(2.296875, 2.296875)
+texture = ExtResource("1_sycjd")
+
+[node name="ShedObbyBg39" type="Sprite2D" parent="BG" unique_id=878306828]
+position = Vector2(1323, 501)
+scale = Vector2(2.296875, 2.296875)
+texture = ExtResource("1_sycjd")
+
+[node name="ShedObbyBg40" type="Sprite2D" parent="BG" unique_id=1613633498]
+position = Vector2(1323, 207)
+scale = Vector2(2.296875, 2.296875)
+texture = ExtResource("1_sycjd")
+
+[node name="ShedObbyBg41" type="Sprite2D" parent="BG" unique_id=433287729]
+position = Vector2(1323, 1089)
+scale = Vector2(2.296875, 2.296875)
+texture = ExtResource("1_sycjd")
+
+[node name="ShedObbyBg10" type="Sprite2D" parent="BG" unique_id=1394690863]
+position = Vector2(441.00003, 1089)
+scale = Vector2(2.296875, 2.296875)
+texture = ExtResource("1_sycjd")
+
+[node name="ShedObbyBg11" type="Sprite2D" parent="BG" unique_id=1860134731]
+position = Vector2(147, 795)
+scale = Vector2(2.296875, 2.296875)
+texture = ExtResource("1_sycjd")
+
+[node name="ShedObbyBg12" type="Sprite2D" parent="BG" unique_id=989318954]
+position = Vector2(441, 795)
+scale = Vector2(2.296875, 2.296875)
+texture = ExtResource("1_sycjd")
+
+[node name="ShedObbyBg13" type="Sprite2D" parent="BG" unique_id=709166012]
+position = Vector2(735, 1089)
+scale = Vector2(2.296875, 2.296875)
+texture = ExtResource("1_sycjd")
+
+[node name="ShedObbyBg14" type="Sprite2D" parent="BG" unique_id=1460714558]
+position = Vector2(1029, 1089)
+scale = Vector2(2.296875, 2.296875)
+texture = ExtResource("1_sycjd")
+
+[node name="ShedObbyBg15" type="Sprite2D" parent="BG" unique_id=830040147]
+position = Vector2(735, 795)
+scale = Vector2(2.296875, 2.296875)
+texture = ExtResource("1_sycjd")
+
+[node name="ShedObbyBg16" type="Sprite2D" parent="BG" unique_id=1780734916]
+position = Vector2(1029, 795)
+scale = Vector2(2.296875, 2.296875)
+texture = ExtResource("1_sycjd")
+
 [node name="TileMap" type="TileMap" parent="." unique_id=568053165]
 tile_set = SubResource("TileSet_hgbdg")
 rendering_quadrant_size = 32
 format = 2
+layer_0/tile_data = PackedInt32Array(2621385, 1, 0, 2686921, 1, 1, 2621386, 65537, 0, 2686922, 65537, 1, 2621387, 1, 0, 2686923, 1, 1, 2621388, 65537, 0, 2686924, 65537, 1, 2621389, 1, 0, 2686925, 1, 1, 2621390, 65537, 0, 2686926, 65537, 1, 2621391, 1, 0, 2686927, 1, 1, 2621392, 65537, 0, 2686928, 65537, 1, 2621393, 1, 0, 2686929, 1, 1, 2621394, 65537, 0, 2686930, 65537, 1, 2818005, 131073, 0, 2883541, 131073, 1, 2818006, 196609, 0, 2883542, 196609, 1, 2686936, 131073, 0, 2752472, 131073, 1, 2686937, 196609, 0, 2752473, 196609, 1, 2818012, 131073, 0, 2883548, 131073, 1, 2818013, 196609, 0, 2883549, 196609, 1, 2752485, 131073, 0, 2818021, 131073, 1, 2752486, 196609, 0, 2818022, 196609, 1, 2424809, 131073, 0, 2490345, 131073, 1, 2424810, 196609, 0, 2490346, 196609, 1, 2359277, 1, 2, 2424813, 1, 3, 2359278, 65537, 2, 2424814, 65537, 3, 2490352, 262145, 2, 2555888, 262145, 3, 2490353, 327681, 2, 2555889, 327681, 3, 2293747, 1, 2, 2359283, 1, 3, 2293748, 65537, 2, 2359284, 65537, 3, 2162678, 1, 2, 2228214, 1, 3, 2162679, 65537, 2, 2228215, 65537, 3, 2031610, 1, 2, 2097146, 1, 3, 2031611, 65537, 2, 2097147, 65537, 3, 1900543, 1, 2, 1966079, 1, 3, 1835008, 65537, 2, 1900544, 65537, 3, 1769477, 1, 2, 1835013, 1, 3, 1769478, 65537, 2, 1835014, 65537, 3, 1900555, 131073, 0, 1966091, 131073, 1, 1900556, 196609, 0, 1966092, 196609, 1, 1900557, 131073, 0, 1966093, 131073, 1, 1900558, 196609, 0, 1966094, 196609, 1, 1900559, 131073, 0, 1966095, 131073, 1, 1900560, 196609, 0, 1966096, 196609, 1, 1900561, 131073, 0, 1966097, 131073, 1, 1900562, 196609, 0, 1966098, 196609, 1, 1900563, 131073, 0, 1966099, 131073, 1, 1900564, 196609, 0, 1966100, 196609, 1, 1507339, 131073, 0, 1572875, 131073, 1, 1507340, 196609, 0, 1572876, 196609, 1, 1507341, 131073, 0, 1572877, 131073, 1, 1507342, 196609, 0, 1572878, 196609, 1, 1507343, 262145, 0, 1572879, 262145, 1, 1507344, 327681, 0, 1572880, 327681, 1, 1507345, 131073, 0, 1572881, 131073, 1, 1507346, 196609, 0, 1572882, 196609, 1, 1507347, 131073, 0, 1572883, 131073, 1, 1507348, 196609, 0, 1572884, 196609, 1, 1835019, 262145, 0, 1835020, 327681, 0, 1703947, 262145, 0, 1769483, 262145, 1, 1703948, 327681, 0, 1769484, 327681, 1, 1638411, 262145, 1, 1638412, 327681, 1, 1638413, 262145, 1, 1638414, 327681, 1, 1703949, 262145, 0, 1769485, 262145, 1, 1703950, 327681, 0, 1769486, 327681, 1, 1638415, 262145, 1, 1638416, 327681, 1, 1703951, 262145, 0, 1769487, 262145, 1, 1703952, 327681, 0, 1769488, 327681, 1, 1835021, 262145, 0, 1835022, 327681, 0, 1835023, 262145, 0, 1835024, 327681, 0, 1638417, 262145, 1, 1638418, 327681, 1, 1703953, 262145, 0, 1769489, 262145, 1, 1703954, 327681, 0, 1769490, 327681, 1, 1835025, 262145, 0, 1835026, 262145, 0, 1638419, 262145, 1, 1638420, 327681, 1, 1703955, 262145, 0, 1769491, 262145, 1, 1703956, 327681, 0, 1769492, 327681, 1, 1835027, 262145, 0, 1835028, 327681, 0, 1376271, 131073, 0, 1441807, 131073, 1, 1376272, 196609, 0, 1441808, 196609, 1, 1441805, 131073, 1, 1441806, 196609, 1, 1441809, 131073, 1, 1441810, 196609, 1, 1769497, 262145, 2, 1835033, 262145, 3, 1769498, 327681, 2, 1835034, 327681, 3, 2228268, 262145, 2, 2293804, 262145, 3, 2228269, 327681, 2, 2293805, 327681, 3, 2228275, 1, 0, 2293811, 1, 1, 2228276, 65537, 0, 2293812, 65537, 1, 2228277, 1, 0, 2293813, 1, 1, 2228278, 65537, 0, 2293814, 65537, 1, 2228279, 1, 0, 2293815, 1, 1, 2228280, 65537, 0, 2293816, 65537, 1, 2228281, 1, 0, 2293817, 1, 1, 2228282, 65537, 0, 2293818, 65537, 1, 2686943, 131073, 1, 2621408, 131073, 1, 2686944, 131073, 1, 2621415, 131073, 1, 2621416, 131073, 1, 1900567, 262145, 2, 1638430, 262145, 2, 1703966, 262145, 3, 1638431, 327681, 2, 1703967, 327681, 3, 1310759, 131073, 0, 1376295, 131073, 1, 1310760, 196609, 0, 1376296, 196609, 1, 1441825, 262145, 2, 1507361, 262145, 3, 1441826, 327681, 2, 1507362, 327681, 3, 1376294, 262145, 1, 2228283, 1, 0, 2293819, 1, 1, 2228284, 65537, 0, 2293820, 65537, 1, 2228285, 1, 0, 2293821, 1, 1, 2228286, 65537, 0, 2293822, 65537, 1, 2228287, 1, 0, 2293823, 1, 1, 2228288, 65537, 0, 2293824, 65537, 1, 917543, 131073, 2, 917544, 196609, 2, 917538, 131073, 2, 917539, 196609, 2, 917533, 131073, 2, 917534, 196609, 2, 917529, 131073, 2, 917530, 196609, 2, 917548, 131073, 2, 917549, 196609, 2, 917553, 131073, 2, 917554, 196609, 2, 917558, 131073, 2, 917559, 196609, 2, 786450, 262145, 0, 851986, 262145, 1, 786451, 327681, 0, 851987, 327681, 1, 786452, 262145, 0, 851988, 262145, 1, 786453, 327681, 0, 851989, 327681, 1, 786454, 262145, 0, 851990, 262145, 1, 786455, 327681, 0, 851991, 327681, 1, 786456, 262145, 0, 851992, 262145, 1, 786457, 327681, 0, 851993, 327681, 1, 786458, 262145, 0, 851994, 262145, 1, 786459, 327681, 0, 851995, 327681, 1, 786460, 262145, 0, 851996, 262145, 1, 786461, 327681, 0, 851997, 327681, 1, 786462, 262145, 0, 851998, 262145, 1, 786463, 327681, 0, 851999, 327681, 1, 786464, 262145, 0, 852000, 262145, 1, 786465, 327681, 0, 852001, 327681, 1, 786466, 262145, 0, 852002, 262145, 1, 786467, 327681, 0, 852003, 327681, 1, 786468, 262145, 0, 852004, 262145, 1, 786469, 327681, 0, 852005, 327681, 1, 786470, 262145, 0, 852006, 262145, 1, 786471, 327681, 0, 852007, 327681, 1, 786472, 262145, 0, 852008, 262145, 1, 786473, 327681, 0, 852009, 327681, 1, 786474, 262145, 0, 852010, 262145, 1, 786475, 327681, 0, 852011, 327681, 1, 786476, 262145, 0, 852012, 262145, 1, 786477, 327681, 0, 852013, 327681, 1, 786478, 262145, 0, 852014, 262145, 1, 786479, 327681, 0, 852015, 327681, 1, 786480, 262145, 0, 852016, 262145, 1, 786481, 327681, 0, 852017, 327681, 1, 786482, 262145, 0, 852018, 262145, 1, 786483, 327681, 0, 852019, 327681, 1, 786484, 262145, 0, 852020, 262145, 1, 786485, 327681, 0, 852021, 327681, 1, 786486, 262145, 0, 852022, 262145, 1, 786487, 327681, 0, 852023, 327681, 1, 786488, 262145, 0, 852024, 262145, 1, 786489, 327681, 0, 852025, 327681, 1, 786490, 262145, 0, 852026, 262145, 1, 786491, 327681, 0, 852027, 327681, 1, 786492, 262145, 0, 852028, 262145, 1, 786493, 262145, 0, 852029, 262145, 1, 655378, 262145, 0, 720914, 262145, 1, 655379, 327681, 0, 720915, 327681, 1, 655380, 262145, 0, 720916, 262145, 1, 655381, 327681, 0, 720917, 327681, 1, 655382, 262145, 0, 720918, 262145, 1, 655383, 327681, 0, 720919, 327681, 1, 655384, 262145, 0, 720920, 262145, 1, 655385, 327681, 0, 720921, 327681, 1, 655386, 262145, 0, 720922, 262145, 1, 655387, 327681, 0, 720923, 327681, 1, 655388, 262145, 0, 720924, 262145, 1, 655389, 327681, 0, 720925, 327681, 1, 655390, 262145, 0, 720926, 262145, 1, 655391, 327681, 0, 720927, 327681, 1, 655392, 262145, 0, 720928, 262145, 1, 655393, 327681, 0, 720929, 327681, 1, 655394, 262145, 0, 720930, 262145, 1, 655395, 327681, 0, 720931, 327681, 1, 655396, 262145, 0, 720932, 262145, 1, 655397, 327681, 0, 720933, 327681, 1, 655398, 262145, 0, 720934, 262145, 1, 655399, 327681, 0, 720935, 327681, 1, 655400, 262145, 0, 720936, 262145, 1, 655401, 327681, 0, 720937, 327681, 1, 655402, 262145, 0, 720938, 262145, 1, 655403, 327681, 0, 720939, 327681, 1, 655404, 262145, 0, 720940, 262145, 1, 655405, 327681, 0, 720941, 327681, 1, 655406, 262145, 0, 720942, 262145, 1, 655407, 262145, 0, 720943, 262145, 1, 655408, 327681, 0, 720944, 327681, 1, 655409, 262145, 0, 720945, 262145, 1, 655410, 327681, 0, 720946, 327681, 1, 655411, 262145, 0, 720947, 262145, 1, 655412, 327681, 0, 720948, 327681, 1, 655413, 262145, 0, 720949, 262145, 1, 655414, 327681, 0, 720950, 327681, 1, 655415, 262145, 0, 720951, 262145, 1, 655416, 327681, 0, 720952, 327681, 1, 655417, 262145, 0, 720953, 262145, 1, 655418, 327681, 0, 720954, 327681, 1, 655419, 262145, 0, 720955, 262145, 1, 655420, 327681, 0, 720956, 327681, 1, 655421, 262145, 0, 720957, 262145, 1, 655422, 327681, 0, 720958, 327681, 1, 524349, 262145, 0, 589885, 262145, 1, 524350, 327681, 0, 589886, 327681, 1, 524347, 262145, 0, 589883, 262145, 1, 524348, 327681, 0, 589884, 327681, 1, 524345, 262145, 0, 589881, 262145, 1, 524346, 327681, 0, 589882, 327681, 1, 524343, 262145, 0, 589879, 262145, 1, 524344, 327681, 0, 589880, 327681, 1, 524341, 262145, 0, 589877, 262145, 1, 524342, 327681, 0, 589878, 327681, 1, 524339, 262145, 0, 589875, 262145, 1, 524340, 327681, 0, 589876, 327681, 1, 524337, 262145, 0, 589873, 262145, 1, 524338, 327681, 0, 589874, 327681, 1, 524335, 262145, 0, 589871, 262145, 1, 524336, 327681, 0, 589872, 327681, 1, 524333, 262145, 0, 589869, 262145, 1, 524334, 327681, 0, 589870, 327681, 1, 524331, 262145, 0, 589867, 262145, 1, 524332, 327681, 0, 589868, 327681, 1, 786494, 327681, 0, 852030, 327681, 1, 524329, 262145, 0, 589865, 262145, 1, 524330, 327681, 0, 589866, 327681, 1, 524327, 262145, 0, 589863, 262145, 1, 524328, 327681, 0, 589864, 327681, 1, 524325, 262145, 0, 589861, 262145, 1, 524326, 327681, 0, 589862, 327681, 1, 524323, 262145, 0, 589859, 262145, 1, 524324, 327681, 0, 589860, 327681, 1, 524321, 262145, 0, 589857, 262145, 1, 524322, 327681, 0, 589858, 327681, 1, 524319, 262145, 0, 589855, 262145, 1, 524320, 327681, 0, 589856, 327681, 1, 524317, 262145, 0, 589853, 262145, 1, 524318, 327681, 0, 589854, 327681, 1, 524315, 262145, 0, 589851, 262145, 1, 524316, 327681, 0, 589852, 327681, 1, 524313, 262145, 0, 589849, 262145, 1, 524314, 327681, 0, 589850, 327681, 1, 524311, 262145, 0, 589847, 262145, 1, 524312, 327681, 0, 589848, 327681, 1, 524309, 262145, 0, 589845, 262145, 1, 524310, 327681, 0, 589846, 327681, 1, 524307, 327681, 0, 589843, 327681, 1, 524308, 327681, 0, 589844, 327681, 1, 524306, 262145, 0, 589842, 262145, 1, 2687026, 1, 0, 2752562, 1, 1, 2687027, 65537, 0, 2752563, 65537, 1, 2687028, 1, 0, 2752564, 1, 1, 2687029, 65537, 0, 2752565, 65537, 1, 2687030, 1, 0, 2752566, 1, 1, 2687031, 65537, 0, 2752567, 65537, 1, 2687032, 1, 0, 2752568, 1, 1, 2687033, 65537, 0, 2752569, 65537, 1, 2687034, 1, 0, 2752570, 1, 1, 2687035, 65537, 0, 2752571, 65537, 1, 2687036, 0, 0, 2752572, 0, 1, 2687037, 65536, 0, 2752573, 65536, 1, 2555966, 0, 0, 2621502, 0, 1, 2555967, 65536, 0, 2621503, 65536, 1, 2424894, 0, 0, 2490430, 0, 1, 2424895, 65536, 0, 2490431, 65536, 1, 2359356, 0, 0, 2424892, 0, 1, 2359357, 65536, 0, 2424893, 65536, 1, 2490428, 131072, 0, 2555964, 131072, 0, 2490429, 196608, 0, 2555965, 196608, 0, 2621500, 131072, 1, 2621501, 196608, 1, 2228289, 1, 0, 2293825, 1, 1, 2228290, 65537, 0, 2293826, 65537, 1, 2228291, 1, 0, 2293827, 1, 1, 2228292, 65537, 0, 2293828, 65537, 1, 2228293, 1, 0, 2293829, 1, 1, 2228294, 65537, 0, 2293830, 65537, 1, 2228295, 1, 0, 2293831, 1, 1, 2228296, 65537, 0, 2293832, 65537, 1, 2228297, 1, 0, 2293833, 1, 1, 2228298, 65537, 0, 2293834, 65537, 1, 2228299, 1, 0, 2293835, 1, 1, 2228300, 65537, 0, 2293836, 65537, 1, 2228301, 1, 0, 2293837, 1, 1, 2228302, 65537, 0, 2293838, 65537, 1, 2228303, 0, 0, 2293839, 0, 1, 2228304, 65536, 0, 2293840, 65536, 1, 2228305, 0, 0, 2293841, 0, 1, 2228306, 65536, 0, 2293842, 65536, 1, 2228307, 0, 0, 2293843, 0, 1, 2228308, 65536, 0, 2293844, 65536, 1, 2228309, 0, 0, 2293845, 0, 1, 2228310, 65536, 0, 2293846, 65536, 1, 2097237, 0, 0, 2162773, 0, 1, 2097238, 65536, 0, 2162774, 65536, 1, 1966165, 0, 0, 2031701, 0, 1, 1966166, 65536, 0, 2031702, 65536, 1, 1835093, 0, 0, 1900629, 0, 1, 1835094, 65536, 0, 1900630, 65536, 1, 1704021, 0, 0, 1769557, 0, 1, 1704022, 65536, 0, 1769558, 65536, 1, 1704019, 0, 0, 1769555, 0, 1, 1704020, 65536, 0, 1769556, 65536, 1, 1704017, 0, 0, 1769553, 0, 1, 1704018, 65536, 0, 1769554, 65536, 1, 1704015, 0, 0, 1769551, 0, 1, 1704016, 65536, 0, 1769552, 65536, 1, 2097234, 196608, 0, 2162770, 196608, 1, 2097235, 131072, 0, 2162771, 131072, 1, 2031698, 196608, 1, 1966163, 131072, 0, 2031699, 131072, 1, 2097236, 196608, 0, 2162772, 196608, 1, 1966164, 196608, 0, 2031700, 196608, 1, 1900628, 196608, 1, 2097233, 196608, 0, 2162769, 196608, 1, 2162768, 196608, 1, 3735480, 262145, 0, 3801016, 262145, 1, 3735481, 262145, 0, 3801017, 262145, 1, 3735482, 327681, 0, 3801018, 327681, 1, 3735483, 262145, 0, 3801019, 262145, 1, 3735484, 327681, 0, 3801020, 327681, 1, 3735485, 262145, 0, 3801021, 262145, 1, 3735486, 327681, 0, 3801022, 327681, 1, 3735487, 262145, 0, 3801023, 262145, 1, 3735488, 327681, 0, 3801024, 327681, 1, 3735489, 262145, 0, 3801025, 262145, 1, 3735490, 327681, 0, 3801026, 327681, 1, 3735491, 262145, 0, 3801027, 262145, 1, 3735492, 327681, 0, 3801028, 327681, 1, 3735493, 262145, 0, 3801029, 262145, 1, 3735494, 327681, 0, 3801030, 327681, 1, 3735495, 262145, 0, 3801031, 262145, 1, 3735496, 262145, 0, 3801032, 262145, 1, 3735497, 327681, 0, 3801033, 327681, 1, 3735498, 262145, 0, 3801034, 262145, 1, 3735499, 327681, 0, 3801035, 327681, 1, 3735500, 262145, 0, 3801036, 262145, 1, 3735501, 327681, 0, 3801037, 327681, 1, 3735502, 262145, 0, 3801038, 262145, 1, 3735503, 327681, 0, 3801039, 327681, 1, 3735504, 262145, 0, 3801040, 262145, 1, 3735505, 327681, 0, 3801041, 327681, 1, 3735506, 262145, 0, 3801042, 262145, 1, 3735507, 327681, 0, 3801043, 327681, 1, 3735508, 262145, 0, 3801044, 262145, 1, 3735509, 327681, 0, 3801045, 327681, 1, 3735510, 262145, 0, 3801046, 262145, 1, 3735511, 327681, 0, 3801047, 327681, 1, 3735512, 262145, 0, 3801048, 262145, 1, 3735513, 327681, 0, 3801049, 327681, 1, 3735514, 262145, 0, 3801050, 262145, 1, 3735515, 327681, 0, 3801051, 327681, 1, 3735516, 262145, 0, 3801052, 262145, 1, 3735517, 327681, 0, 3801053, 327681, 1, 3735518, 262145, 0, 3801054, 262145, 1, 3735519, 327681, 0, 3801055, 327681, 1, 3735520, 262145, 0, 3801056, 262145, 1, 3735521, 262145, 0, 3801057, 262145, 1, 3735522, 327681, 0, 3801058, 327681, 1, 3735523, 262145, 0, 3801059, 262145, 1, 3735524, 327681, 0, 3801060, 327681, 1, 3735525, 262145, 0, 3801061, 262145, 1, 3735526, 327681, 0, 3801062, 327681, 1, 3735527, 262145, 0, 3801063, 262145, 1, 3735528, 327681, 0, 3801064, 327681, 1, 3735529, 262145, 0, 3801065, 262145, 1, 3735530, 327681, 0, 3801066, 327681, 1, 3735531, 262145, 0, 3801067, 262145, 1, 3735532, 327681, 0, 3801068, 327681, 1, 3735533, 262145, 0, 3801069, 262145, 1, 3735534, 327681, 0, 3801070, 327681, 1, 3735535, 262145, 0, 3801071, 262145, 1, 3735536, 327681, 0, 3801072, 327681, 1, 3735537, 262145, 0, 3801073, 262145, 1, 3735538, 327681, 0, 3801074, 327681, 1, 3735539, 262145, 0, 3801075, 262145, 1, 3735540, 327681, 0, 3801076, 327681, 1, 3735541, 262145, 0, 3801077, 262145, 1, 3735542, 327681, 0, 3801078, 327681, 1, 3735543, 262145, 0, 3801079, 262145, 1, 3735544, 327681, 0, 3801080, 327681, 1, 3735545, 262145, 0, 3801081, 262145, 1, 3735546, 327681, 0, 3801082, 327681, 1, 3735547, 262145, 0, 3801083, 262145, 1, 3735548, 327681, 0, 3801084, 327681, 1, 3735549, 262145, 0, 3801085, 262145, 1, 3735550, 327681, 0, 3801086, 327681, 1, 3735551, 262145, 0, 3801087, 262145, 1, 3670016, 327681, 0, 3735552, 327681, 1, 3670017, 262145, 0, 3735553, 262145, 1, 3670018, 327681, 0, 3735554, 327681, 1, 3670019, 262145, 0, 3735555, 262145, 1, 3670020, 327681, 0, 3735556, 327681, 1, 3670021, 262145, 0, 3735557, 262145, 1, 3670022, 327681, 0, 3735558, 327681, 1, 3670023, 262145, 0, 3735559, 262145, 1, 3670024, 327681, 0, 3735560, 327681, 1, 3670025, 262145, 0, 3735561, 262145, 1, 3670026, 327681, 0, 3735562, 327681, 1, 3670027, 262145, 0, 3735563, 262145, 1, 3670028, 327681, 0, 3735564, 327681, 1, 3670029, 262145, 0, 3735565, 262145, 1, 3670030, 327681, 0, 3735566, 327681, 1, 3670031, 262145, 0, 3735567, 262145, 1, 3670032, 327681, 0, 3735568, 327681, 1, 3670033, 262145, 0, 3735569, 262145, 1, 3670034, 327681, 0, 3735570, 327681, 1, 3670035, 262145, 0, 3735571, 262145, 1, 3670036, 327681, 0, 3735572, 327681, 1, 3670037, 262145, 0, 3735573, 262145, 1, 3670038, 327681, 0, 3735574, 327681, 1, 3670039, 262145, 0, 3735575, 262145, 1, 3670040, 327681, 0, 3735576, 327681, 1, 3670041, 262145, 0, 3735577, 262145, 1, 3670042, 327681, 0, 3735578, 327681, 1, 3670043, 262145, 0, 3735579, 262145, 1, 3670044, 327681, 0, 3735580, 327681, 1, 3670045, 262145, 0, 3735581, 262145, 1, 3670046, 327681, 0, 3735582, 327681, 1, 3670047, 262145, 0, 3735583, 262145, 1, 3670048, 327681, 0, 3735584, 327681, 1, 3670049, 262145, 0, 3735585, 262145, 1, 3670050, 327681, 0, 3735586, 327681, 1, 3670051, 262145, 0, 3735587, 262145, 1, 3670052, 327681, 0, 3735588, 327681, 1, 3670053, 262145, 0, 3735589, 262145, 1, 3670054, 327681, 0, 3735590, 327681, 1, 3670055, 262145, 0, 3735591, 262145, 1, 3670056, 327681, 0, 3735592, 327681, 1, 3670057, 262145, 0, 3735593, 262145, 1, 3670058, 327681, 0, 3735594, 327681, 1, 3670059, 262145, 0, 3735595, 262145, 1, 3670060, 327681, 0, 3735596, 327681, 1, 3670061, 262145, 0, 3735597, 262145, 1, 3670062, 327681, 0, 3735598, 327681, 1, 3670063, 262145, 0, 3735599, 262145, 1, 3670064, 327681, 0, 3735600, 327681, 1, 3670065, 262145, 0, 3735601, 262145, 1, 3670066, 327681, 0, 3735602, 327681, 1, 3670067, 262145, 0, 3735603, 262145, 1, 3670068, 327681, 0, 3735604, 327681, 1, 3670069, 262145, 0, 3735605, 262145, 1, 3670070, 327681, 0, 3735606, 327681, 1, 3670071, 262145, 0, 3735607, 262145, 1, 3670072, 327681, 0, 3735608, 327681, 1, 3670073, 262145, 0, 3735609, 262145, 1, 3670074, 327681, 0, 3735610, 327681, 1, 3670075, 262145, 0, 3735611, 262145, 1, 3670076, 327681, 0, 3735612, 327681, 1, 3670077, 262145, 0, 3735613, 262145, 1, 3670078, 327681, 0, 3735614, 327681, 1, 3670079, 262145, 0, 3735615, 262145, 1, 3670080, 327681, 0, 3735616, 327681, 1, 3670081, 262145, 0, 3735617, 262145, 1, 3670082, 327681, 0, 3735618, 327681, 1, 3670083, 262145, 0, 3735619, 262145, 1, 3670084, 327681, 0, 3735620, 327681, 1, 3670085, 262145, 0, 3735621, 262145, 1, 3670086, 327681, 0, 3735622, 327681, 1, 3670087, 262145, 0, 3735623, 262145, 1, 3670088, 327681, 0, 3735624, 327681, 1)
+layer_1/name = "Layer1"
+layer_1/tile_data = PackedInt32Array(1507343, 131073, 2, 1507344, 196609, 2)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1598233784]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=768935135]
+position = Vector2(-816, 634)
+shape = SubResource("RectangleShape2D_1uhm5")
+
+[node name="CollisionShape2D28" type="CollisionShape2D" parent="StaticBody2D" unique_id=1388237854]
+position = Vector2(1166, 560)
+shape = SubResource("RectangleShape2D_8d0jg")
+
+[node name="CollisionShape2D29" type="CollisionShape2D" parent="StaticBody2D" unique_id=967564892]
+position = Vector2(1151, 672)
+shape = SubResource("RectangleShape2D_8d0jg")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=846687262]
+position = Vector2(-673, 687)
+shape = SubResource("RectangleShape2D_yhkts")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D" unique_id=230048345]
+position = Vector2(-623, 656)
+shape = SubResource("RectangleShape2D_yhkts")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D" unique_id=1941080476]
+position = Vector2(-561, 690)
+shape = SubResource("RectangleShape2D_yhkts")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="StaticBody2D" unique_id=559273316]
+position = Vector2(-518, 648)
+shape = SubResource("RectangleShape2D_0a6m6")
+
+[node name="CollisionShape2D21" type="CollisionShape2D" parent="StaticBody2D" unique_id=783172066]
+position = Vector2(-504, 640)
+shape = SubResource("RectangleShape2D_hgbdg")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="StaticBody2D" unique_id=1127600352]
+position = Vector2(-416, 672)
+shape = SubResource("RectangleShape2D_yhkts")
+
+[node name="CollisionShape2D25" type="CollisionShape2D" parent="StaticBody2D" unique_id=32963843]
+position = Vector2(640, 336)
+shape = SubResource("RectangleShape2D_yhkts")
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="StaticBody2D" unique_id=2073005062]
+position = Vector2(-352, 592)
+shape = SubResource("RectangleShape2D_yhkts")
+
+[node name="CollisionShape2D22" type="CollisionShape2D" parent="StaticBody2D" unique_id=1865063004]
+position = Vector2(-384, 632)
+shape = SubResource("RectangleShape2D_cm5fo")
+
+[node name="CollisionShape2D26" type="CollisionShape2D" parent="StaticBody2D" unique_id=812354962]
+position = Vector2(624, 344)
+shape = SubResource("RectangleShape2D_cm5fo")
+
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="StaticBody2D" unique_id=876654757]
+position = Vector2(-286, 577)
+shape = SubResource("CircleShape2D_0a6m6")
+
+[node name="CollisionShape2D9" type="CollisionShape2D" parent="StaticBody2D" unique_id=477082237]
+position = Vector2(-240, 608)
+shape = SubResource("CircleShape2D_0a6m6")
+
+[node name="CollisionShape2D10" type="CollisionShape2D" parent="StaticBody2D" unique_id=278209196]
+position = Vector2(-143, 528)
+shape = SubResource("CircleShape2D_0a6m6")
+
+[node name="CollisionShape2D11" type="CollisionShape2D" parent="StaticBody2D" unique_id=2108728835]
+position = Vector2(-1, 463)
+shape = SubResource("CircleShape2D_0a6m6")
+
+[node name="CollisionShape2D12" type="CollisionShape2D" parent="StaticBody2D" unique_id=1065018629]
+position = Vector2(-80, 496)
+shape = SubResource("CircleShape2D_0a6m6")
+
+[node name="CollisionShape2D13" type="CollisionShape2D" parent="StaticBody2D" unique_id=801454666]
+position = Vector2(-191, 559)
+shape = SubResource("CircleShape2D_0a6m6")
+
+[node name="CollisionShape2D14" type="CollisionShape2D" parent="StaticBody2D" unique_id=341692942]
+position = Vector2(95, 449)
+shape = SubResource("CircleShape2D_0a6m6")
+
+[node name="CollisionShape2D15" type="CollisionShape2D" parent="StaticBody2D" unique_id=958743648]
+position = Vector2(416, 448)
+shape = SubResource("CircleShape2D_0a6m6")
+
+[node name="CollisionShape2D23" type="CollisionShape2D" parent="StaticBody2D" unique_id=714741850]
+position = Vector2(369, 470)
+shape = SubResource("SegmentShape2D_yhkts")
+
+[node name="CollisionShape2D24" type="CollisionShape2D" parent="StaticBody2D" unique_id=972600223]
+position = Vector2(373, 461)
+shape = SubResource("SegmentShape2D_0a6m6")
+
+[node name="CollisionShape2D18" type="CollisionShape2D" parent="StaticBody2D" unique_id=1738669534]
+position = Vector2(496, 416)
+shape = SubResource("CircleShape2D_0a6m6")
+
+[node name="CollisionShape2D19" type="CollisionShape2D" parent="StaticBody2D" unique_id=1331849995]
+position = Vector2(720, 560)
+shape = SubResource("CircleShape2D_0a6m6")
+
+[node name="CollisionShape2D20" type="CollisionShape2D" parent="StaticBody2D" unique_id=260164722]
+position = Vector2(544, 368)
+shape = SubResource("CircleShape2D_0a6m6")
+
+[node name="CollisionShape2D16" type="CollisionShape2D" parent="StaticBody2D" unique_id=690298305]
+position = Vector2(256, 480)
+shape = SubResource("RectangleShape2D_4tbp7")
+
+[node name="CollisionShape2D17" type="CollisionShape2D" parent="StaticBody2D" unique_id=20746341]
+position = Vector2(257, 384)
+shape = SubResource("RectangleShape2D_4tbp7")
+
+[node name="CollisionShape2D27" type="CollisionShape2D" parent="StaticBody2D" unique_id=1563838657]
+position = Vector2(13.5, 906)
+shape = SubResource("RectangleShape2D_pfpgu")
+
+[node name="CheckPointArea" type="Area2D" parent="." unique_id=61827369]
+position = Vector2(-829, 581)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CheckPointArea" unique_id=1817680305]
+position = Vector2(1084, -133)
+shape = SubResource("CapsuleShape2D_nooa1")
+
+[node name="Fire" type="Node2D" parent="." unique_id=2133212507]
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="Fire" unique_id=960242488 groups=["fire_animation"]]
+process_mode = 3
+position = Vector2(-1135, 880)
+sprite_frames = SubResource("SpriteFrames_4sfld")
+frame_progress = 0.21591647
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Fire" unique_id=378901216 groups=["fire_animation"]]
+process_mode = 3
+position = Vector2(-1103, 880)
+sprite_frames = SubResource("SpriteFrames_j8eda")
+frame_progress = 0.28104484
+speed_scale = 0.7
+
+[node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="Fire" unique_id=575422831 groups=["fire_animation"]]
+process_mode = 3
+position = Vector2(-1071, 880)
+sprite_frames = SubResource("SpriteFrames_4sfld")
+frame_progress = 0.039478824
+
+[node name="AnimatedSprite2D4" type="AnimatedSprite2D" parent="Fire" unique_id=1095675478 groups=["fire_animation"]]
+process_mode = 3
+position = Vector2(-1039, 880)
+sprite_frames = SubResource("SpriteFrames_j8eda")
+frame_progress = 0.25309104
+speed_scale = 0.7
+
+[node name="AnimatedSprite2D5" type="AnimatedSprite2D" parent="Fire" unique_id=1038409845 groups=["fire_animation"]]
+process_mode = 3
+position = Vector2(-1007, 880)
+sprite_frames = SubResource("SpriteFrames_4sfld")
+frame_progress = 0.2709232
+
+[node name="AnimatedSprite2D6" type="AnimatedSprite2D" parent="Fire" unique_id=634881081 groups=["fire_animation"]]
+process_mode = 3
+position = Vector2(-975, 880)
+sprite_frames = SubResource("SpriteFrames_j8eda")
+frame_progress = 0.536909
+speed_scale = 0.7
+
+[node name="AnimatedSprite2D7" type="AnimatedSprite2D" parent="Fire" unique_id=709024492 groups=["fire_animation"]]
+process_mode = 3
+position = Vector2(-943, 880)
+sprite_frames = SubResource("SpriteFrames_4sfld")
+frame_progress = 0.6246809
+
+[node name="AnimatedSprite2D8" type="AnimatedSprite2D" parent="Fire" unique_id=1713312075 groups=["fire_animation"]]
+process_mode = 3
+position = Vector2(-911, 880)
+sprite_frames = SubResource("SpriteFrames_j8eda")
+frame_progress = 0.021012831
+speed_scale = 0.7
+
+[node name="AnimatedSprite2D9" type="AnimatedSprite2D" parent="Fire" unique_id=875481510 groups=["fire_animation"]]
+process_mode = 3
+position = Vector2(-879, 880)
+sprite_frames = SubResource("SpriteFrames_4sfld")
+frame_progress = 0.4232862
+
+[node name="AnimatedSprite2D10" type="AnimatedSprite2D" parent="Fire" unique_id=1856857531 groups=["fire_animation"]]
+process_mode = 3
+position = Vector2(-847, 880)
+sprite_frames = SubResource("SpriteFrames_j8eda")
+frame_progress = 0.8246571
+speed_scale = 0.7
+
+[node name="AnimatedSprite2D11" type="AnimatedSprite2D" parent="Fire" unique_id=1186453157 groups=["fire_animation"]]
+process_mode = 3
+position = Vector2(-815, 880)
+sprite_frames = SubResource("SpriteFrames_4sfld")
+frame_progress = 0.8325856
+
+[node name="AnimatedSprite2D12" type="AnimatedSprite2D" parent="Fire" unique_id=1567494684 groups=["fire_animation"]]
+process_mode = 3
+position = Vector2(-783, 880)
+sprite_frames = SubResource("SpriteFrames_j8eda")
+frame_progress = 0.08446375
+speed_scale = 0.7
+
+[node name="AnimatedSprite2D13" type="AnimatedSprite2D" parent="Fire" unique_id=1399100398 groups=["fire_animation"]]
+process_mode = 3
+position = Vector2(-751, 880)
+sprite_frames = SubResource("SpriteFrames_4sfld")
+frame_progress = 0.76669407
+
+[node name="AnimatedSprite2D14" type="AnimatedSprite2D" parent="Fire" unique_id=1812163310 groups=["fire_animation"]]
+process_mode = 3
+position = Vector2(-719, 880)
+sprite_frames = SubResource("SpriteFrames_j8eda")
+frame_progress = 0.58588016
+speed_scale = 0.7
+
+[node name="AnimatedSprite2D15" type="AnimatedSprite2D" parent="Fire" unique_id=825973217 groups=["fire_animation"]]
+process_mode = 3
+position = Vector2(-687, 880)
+sprite_frames = SubResource("SpriteFrames_4sfld")
+frame_progress = 0.11803296
+
+[node name="AnimatedSprite2D16" type="AnimatedSprite2D" parent="Fire" unique_id=1203132972 groups=["fire_animation"]]
+process_mode = 3
+position = Vector2(-655, 880)
+sprite_frames = SubResource("SpriteFrames_j8eda")
+frame_progress = 0.42239428
+speed_scale = 0.7
+
+[node name="AnimatedSprite2D17" type="AnimatedSprite2D" parent="Fire" unique_id=157344511 groups=["fire_animation"]]
+process_mode = 3
+position = Vector2(-623, 880)
+sprite_frames = SubResource("SpriteFrames_4sfld")
+frame_progress = 0.15438214
+
+[node name="AnimatedSprite2D18" type="AnimatedSprite2D" parent="Fire" unique_id=2124224895 groups=["fire_animation"]]
+process_mode = 3
+position = Vector2(-591, 880)
+sprite_frames = SubResource("SpriteFrames_j8eda")
+frame_progress = 0.8437286
+speed_scale = 0.7
+
+[node name="AnimatedSprite2D19" type="AnimatedSprite2D" parent="Fire" unique_id=332516049 groups=["fire_animation"]]
+process_mode = 3
+position = Vector2(-559, 880)
+sprite_frames = SubResource("SpriteFrames_4sfld")
+frame_progress = 0.32518274
+
+[node name="AnimatedSprite2D20" type="AnimatedSprite2D" parent="Fire" unique_id=1469791861 groups=["fire_animation"]]
+process_mode = 3
+position = Vector2(-527, 880)
+sprite_frames = SubResource("SpriteFrames_j8eda")
+frame_progress = 0.8661385
+speed_scale = 0.7
+
+[node name="AnimatedSprite2D21" type="AnimatedSprite2D" parent="Fire" unique_id=1049854047 groups=["fire_animation"]]
+process_mode = 3
+position = Vector2(-495, 880)
+sprite_frames = SubResource("SpriteFrames_4sfld")
+frame_progress = 0.42686927
+
+[node name="AnimatedSprite2D22" type="AnimatedSprite2D" parent="Fire" unique_id=1171279029 groups=["fire_animation"]]
+process_mode = 3
+position = Vector2(-463, 880)
+sprite_frames = SubResource("SpriteFrames_j8eda")
+frame_progress = 0.65825385
+speed_scale = 0.7
+
+[node name="AnimatedSprite2D23" type="AnimatedSprite2D" parent="Fire" unique_id=1540836756 groups=["fire_animation"]]
+process_mode = 3
+position = Vector2(-431, 880)
+sprite_frames = SubResource("SpriteFrames_4sfld")
+frame_progress = 0.6886757
+
+[node name="AnimatedSprite2D24" type="AnimatedSprite2D" parent="Fire" unique_id=1511772913 groups=["fire_animation"]]
+process_mode = 3
+position = Vector2(-399, 880)
+sprite_frames = SubResource("SpriteFrames_j8eda")
+frame_progress = 0.38082486
+speed_scale = 0.7
+
+[node name="AnimatedSprite2D25" type="AnimatedSprite2D" parent="Fire" unique_id=1546974196 groups=["fire_animation"]]
+process_mode = 3
+position = Vector2(-367, 880)
+sprite_frames = SubResource("SpriteFrames_4sfld")
+frame_progress = 0.19840403
+
+[node name="AnimatedSprite2D26" type="AnimatedSprite2D" parent="Fire" unique_id=1534873995 groups=["fire_animation"]]
+process_mode = 3
+position = Vector2(-335, 880)
+sprite_frames = SubResource("SpriteFrames_j8eda")
+frame_progress = 0.27365154
+speed_scale = 0.7
+
+[node name="AnimatedSprite2D27" type="AnimatedSprite2D" parent="Fire" unique_id=113587434 groups=["fire_animation"]]
+process_mode = 3
+position = Vector2(-303, 880)
+sprite_frames = SubResource("SpriteFrames_4sfld")
+frame_progress = 0.9082731
+
+[node name="AnimatedSprite2D28" type="AnimatedSprite2D" parent="Fire" unique_id=171682628 groups=["fire_animation"]]
+process_mode = 3
+position = Vector2(-271, 880)
+sprite_frames = SubResource("SpriteFrames_j8eda")
+frame_progress = 0.605759
+speed_scale = 0.7
+
+[node name="AnimatedSprite2D29" type="AnimatedSprite2D" parent="Fire" unique_id=1989683759 groups=["fire_animation"]]
+process_mode = 3
+position = Vector2(-239, 880)
+sprite_frames = SubResource("SpriteFrames_4sfld")
+frame_progress = 0.59553325
+
+[node name="AnimatedSprite2D30" type="AnimatedSprite2D" parent="Fire" unique_id=1746732111 groups=["fire_animation"]]
+process_mode = 3
+position = Vector2(-207, 880)
+sprite_frames = SubResource("SpriteFrames_j8eda")
+frame_progress = 0.94674534
+speed_scale = 0.7
+
+[node name="AnimatedSprite2D31" type="AnimatedSprite2D" parent="Fire" unique_id=2001958828 groups=["fire_animation"]]
+process_mode = 3
+position = Vector2(-175, 880)
+sprite_frames = SubResource("SpriteFrames_4sfld")
+frame_progress = 0.35957518
+
+[node name="AnimatedSprite2D32" type="AnimatedSprite2D" parent="Fire" unique_id=642801352 groups=["fire_animation"]]
+process_mode = 3
+position = Vector2(-143, 880)
+sprite_frames = SubResource("SpriteFrames_j8eda")
+frame_progress = 0.2815746
+speed_scale = 0.7
+
+[node name="AnimatedSprite2D33" type="AnimatedSprite2D" parent="Fire" unique_id=1158762131 groups=["fire_animation"]]
+process_mode = 3
+position = Vector2(-111, 880)
+sprite_frames = SubResource("SpriteFrames_4sfld")
+frame_progress = 0.5762433
+
+[node name="AnimatedSprite2D34" type="AnimatedSprite2D" parent="Fire" unique_id=743658066 groups=["fire_animation"]]
+process_mode = 3
+position = Vector2(-79, 880)
+sprite_frames = SubResource("SpriteFrames_j8eda")
+frame_progress = 0.03325038
+speed_scale = 0.7
+
+[node name="AnimatedSprite2D35" type="AnimatedSprite2D" parent="Fire" unique_id=203529190 groups=["fire_animation"]]
+process_mode = 3
+position = Vector2(-47, 880)
+sprite_frames = SubResource("SpriteFrames_4sfld")
+frame_progress = 0.35957518
+
+[node name="AnimatedSprite2D36" type="AnimatedSprite2D" parent="Fire" unique_id=99800955 groups=["fire_animation"]]
+process_mode = 3
+position = Vector2(-15, 880)
+sprite_frames = SubResource("SpriteFrames_j8eda")
+frame_progress = 0.2815746
+speed_scale = 0.7
+
+[node name="AnimatedSprite2D37" type="AnimatedSprite2D" parent="Fire" unique_id=1129139457 groups=["fire_animation"]]
+process_mode = 3
+position = Vector2(17, 880)
+sprite_frames = SubResource("SpriteFrames_4sfld")
+frame_progress = 0.59553325
+
+[node name="AnimatedSprite2D38" type="AnimatedSprite2D" parent="Fire" unique_id=1105919958 groups=["fire_animation"]]
+process_mode = 3
+position = Vector2(49, 880)
+sprite_frames = SubResource("SpriteFrames_j8eda")
+frame_progress = 0.94674534
+speed_scale = 0.7
+
+[node name="AnimatedSprite2D39" type="AnimatedSprite2D" parent="Fire" unique_id=623044088 groups=["fire_animation"]]
+process_mode = 3
+position = Vector2(81, 880)
+sprite_frames = SubResource("SpriteFrames_4sfld")
+frame_progress = 0.35957518
+
+[node name="AnimatedSprite2D40" type="AnimatedSprite2D" parent="Fire" unique_id=284501207 groups=["fire_animation"]]
+process_mode = 3
+position = Vector2(113, 880)
+sprite_frames = SubResource("SpriteFrames_j8eda")
+frame_progress = 0.2815746
+speed_scale = 0.7
+
+[node name="AnimatedSprite2D41" type="AnimatedSprite2D" parent="Fire" unique_id=2130546480 groups=["fire_animation"]]
+process_mode = 3
+position = Vector2(145, 880)
+sprite_frames = SubResource("SpriteFrames_4sfld")
+frame_progress = 0.38860402
+
+[node name="AnimatedSprite2D42" type="AnimatedSprite2D" parent="Fire" unique_id=1446222784 groups=["fire_animation"]]
+process_mode = 3
+position = Vector2(177, 880)
+sprite_frames = SubResource("SpriteFrames_j8eda")
+frame_progress = 0.0018968205
+speed_scale = 0.7
+
+[node name="AnimatedSprite2D43" type="AnimatedSprite2D" parent="Fire" unique_id=2047843262 groups=["fire_animation"]]
+process_mode = 3
+position = Vector2(209, 880)
+sprite_frames = SubResource("SpriteFrames_4sfld")
+frame_progress = 0.35957518
+
+[node name="AnimatedSprite2D44" type="AnimatedSprite2D" parent="Fire" unique_id=1542797218 groups=["fire_animation"]]
+process_mode = 3
+position = Vector2(241, 880)
+sprite_frames = SubResource("SpriteFrames_j8eda")
+frame_progress = 0.2815746
+speed_scale = 0.7
+
+[node name="AnimatedSprite2D45" type="AnimatedSprite2D" parent="Fire" unique_id=451999791 groups=["fire_animation"]]
+process_mode = 3
+position = Vector2(273, 880)
+sprite_frames = SubResource("SpriteFrames_4sfld")
+frame_progress = 0.59553325
+
+[node name="AnimatedSprite2D46" type="AnimatedSprite2D" parent="Fire" unique_id=1817535121 groups=["fire_animation"]]
+process_mode = 3
+position = Vector2(305, 880)
+sprite_frames = SubResource("SpriteFrames_j8eda")
+frame_progress = 0.94674534
+speed_scale = 0.7
+
+[node name="AnimatedSprite2D47" type="AnimatedSprite2D" parent="Fire" unique_id=2061692776 groups=["fire_animation"]]
+process_mode = 3
+position = Vector2(337, 880)
+sprite_frames = SubResource("SpriteFrames_4sfld")
+frame_progress = 0.35957518
+
+[node name="AnimatedSprite2D48" type="AnimatedSprite2D" parent="Fire" unique_id=981080752 groups=["fire_animation"]]
+process_mode = 3
+position = Vector2(369, 880)
+sprite_frames = SubResource("SpriteFrames_j8eda")
+frame_progress = 0.2815746
+speed_scale = 0.7
+
+[node name="AnimatedSprite2D49" type="AnimatedSprite2D" parent="Fire" unique_id=133915213 groups=["fire_animation"]]
+process_mode = 3
+position = Vector2(401, 880)
+sprite_frames = SubResource("SpriteFrames_4sfld")
+frame_progress = 0.71345764
+
+[node name="AnimatedSprite2D50" type="AnimatedSprite2D" parent="Fire" unique_id=1139308048 groups=["fire_animation"]]
+process_mode = 3
+position = Vector2(433, 880)
+sprite_frames = SubResource("SpriteFrames_j8eda")
+frame_progress = 0.029298725
+speed_scale = 0.7
+
+[node name="AnimatedSprite2D51" type="AnimatedSprite2D" parent="Fire" unique_id=188583668 groups=["fire_animation"]]
+process_mode = 3
+position = Vector2(465, 880)
+sprite_frames = SubResource("SpriteFrames_4sfld")
+frame_progress = 0.35957518
+
+[node name="AnimatedSprite2D52" type="AnimatedSprite2D" parent="Fire" unique_id=792884806 groups=["fire_animation"]]
+process_mode = 3
+position = Vector2(497, 880)
+sprite_frames = SubResource("SpriteFrames_j8eda")
+frame_progress = 0.2815746
+speed_scale = 0.7
+
+[node name="AnimatedSprite2D53" type="AnimatedSprite2D" parent="Fire" unique_id=988857898 groups=["fire_animation"]]
+process_mode = 3
+position = Vector2(529, 880)
+sprite_frames = SubResource("SpriteFrames_4sfld")
+frame_progress = 0.59553325
+
+[node name="AnimatedSprite2D54" type="AnimatedSprite2D" parent="Fire" unique_id=37582732 groups=["fire_animation"]]
+process_mode = 3
+position = Vector2(561, 880)
+sprite_frames = SubResource("SpriteFrames_j8eda")
+frame_progress = 0.94674534
+speed_scale = 0.7
+
+[node name="AnimatedSprite2D55" type="AnimatedSprite2D" parent="Fire" unique_id=220285582 groups=["fire_animation"]]
+process_mode = 3
+position = Vector2(593, 880)
+sprite_frames = SubResource("SpriteFrames_4sfld")
+frame_progress = 0.35957518
+
+[node name="AnimatedSprite2D56" type="AnimatedSprite2D" parent="Fire" unique_id=1684280260 groups=["fire_animation"]]
+process_mode = 3
+position = Vector2(625, 880)
+sprite_frames = SubResource("SpriteFrames_j8eda")
+frame_progress = 0.2815746
+speed_scale = 0.7
+
+[node name="AnimatedSprite2D57" type="AnimatedSprite2D" parent="Fire" unique_id=946027541 groups=["fire_animation"]]
+process_mode = 3
+position = Vector2(657, 880)
+sprite_frames = SubResource("SpriteFrames_4sfld")
+frame_progress = 0.38860402
+
+[node name="AnimatedSprite2D58" type="AnimatedSprite2D" parent="Fire" unique_id=1290483904 groups=["fire_animation"]]
+process_mode = 3
+position = Vector2(689, 880)
+sprite_frames = SubResource("SpriteFrames_j8eda")
+frame_progress = 0.0018968205
+speed_scale = 0.7
+
+[node name="AnimatedSprite2D59" type="AnimatedSprite2D" parent="Fire" unique_id=2012856502 groups=["fire_animation"]]
+process_mode = 3
+position = Vector2(721, 880)
+sprite_frames = SubResource("SpriteFrames_4sfld")
+frame_progress = 0.35957518
+
+[node name="AnimatedSprite2D60" type="AnimatedSprite2D" parent="Fire" unique_id=1724878617 groups=["fire_animation"]]
+process_mode = 3
+position = Vector2(753, 880)
+sprite_frames = SubResource("SpriteFrames_j8eda")
+frame_progress = 0.2815746
+speed_scale = 0.7
+
+[node name="AnimatedSprite2D61" type="AnimatedSprite2D" parent="Fire" unique_id=1005489604 groups=["fire_animation"]]
+process_mode = 3
+position = Vector2(785, 880)
+sprite_frames = SubResource("SpriteFrames_4sfld")
+frame_progress = 0.59553325
+
+[node name="AnimatedSprite2D62" type="AnimatedSprite2D" parent="Fire" unique_id=1026213945 groups=["fire_animation"]]
+process_mode = 3
+position = Vector2(817, 880)
+sprite_frames = SubResource("SpriteFrames_j8eda")
+frame_progress = 0.94674534
+speed_scale = 0.7
+
+[node name="AnimatedSprite2D63" type="AnimatedSprite2D" parent="Fire" unique_id=1249013916 groups=["fire_animation"]]
+process_mode = 3
+position = Vector2(849, 880)
+sprite_frames = SubResource("SpriteFrames_4sfld")
+frame_progress = 0.35957518
+
+[node name="AnimatedSprite2D64" type="AnimatedSprite2D" parent="Fire" unique_id=502436988 groups=["fire_animation"]]
+process_mode = 3
+position = Vector2(881, 880)
+sprite_frames = SubResource("SpriteFrames_j8eda")
+frame_progress = 0.2815746
+speed_scale = 0.7
+
+[node name="AnimatedSprite2D65" type="AnimatedSprite2D" parent="Fire" unique_id=1377126412 groups=["fire_animation"]]
+process_mode = 3
+position = Vector2(913, 880)
+sprite_frames = SubResource("SpriteFrames_4sfld")
+frame_progress = 0.38860402
+
+[node name="AnimatedSprite2D66" type="AnimatedSprite2D" parent="Fire" unique_id=236436689 groups=["fire_animation"]]
+process_mode = 3
+position = Vector2(945, 880)
+sprite_frames = SubResource("SpriteFrames_j8eda")
+frame_progress = 0.0018968205
+speed_scale = 0.7
+
+[node name="AnimatedSprite2D67" type="AnimatedSprite2D" parent="Fire" unique_id=1094769029 groups=["fire_animation"]]
+process_mode = 3
+position = Vector2(977, 880)
+sprite_frames = SubResource("SpriteFrames_4sfld")
+frame_progress = 0.35957518
+
+[node name="AnimatedSprite2D68" type="AnimatedSprite2D" parent="Fire" unique_id=1476289114 groups=["fire_animation"]]
+process_mode = 3
+position = Vector2(1009, 880)
+sprite_frames = SubResource("SpriteFrames_j8eda")
+frame_progress = 0.2815746
+speed_scale = 0.7
+
+[node name="AnimatedSprite2D69" type="AnimatedSprite2D" parent="Fire" unique_id=416829065 groups=["fire_animation"]]
+process_mode = 3
+position = Vector2(1041, 880)
+sprite_frames = SubResource("SpriteFrames_4sfld")
+frame_progress = 0.59553325
+
+[node name="AnimatedSprite2D70" type="AnimatedSprite2D" parent="Fire" unique_id=990128650 groups=["fire_animation"]]
+process_mode = 3
+position = Vector2(1073, 880)
+sprite_frames = SubResource("SpriteFrames_j8eda")
+frame_progress = 0.94674534
+speed_scale = 0.7
+
+[node name="AnimatedSprite2D71" type="AnimatedSprite2D" parent="Fire" unique_id=1203939483 groups=["fire_animation"]]
+process_mode = 3
+position = Vector2(1105, 880)
+sprite_frames = SubResource("SpriteFrames_4sfld")
+frame_progress = 0.35957518
+
+[node name="AnimatedSprite2D72" type="AnimatedSprite2D" parent="Fire" unique_id=382967077 groups=["fire_animation"]]
+process_mode = 3
+position = Vector2(1137, 880)
+sprite_frames = SubResource("SpriteFrames_j8eda")
+frame_progress = 0.2815746
+speed_scale = 0.7
+
+[node name="Death" type="Area2D" parent="." unique_id=66913614]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Death" unique_id=1259357149]
+position = Vector2(-1.5, 878)
+shape = SubResource("RectangleShape2D_rulr0")
+
+[node name="Death2" type="Area2D" parent="." unique_id=1304207988]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Death2" unique_id=1468926442]
+position = Vector2(11.5, 893)
+shape = SubResource("RectangleShape2D_ek723")
+
+[node name="Checkpoint" type="Sprite2D" parent="." unique_id=1782603777]
+modulate = Color(1, 0, 0, 1)
+position = Vector2(257, 448)
+texture = ExtResource("19_ek723")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=51260792]
+position = Vector2(-797, 572)
+script = ExtResource("5_nooa1")
+
+[node name="MCCharater" type="AnimatedSprite2D" parent="CharacterBody2D" unique_id=1546092177]
+sprite_frames = SubResource("SpriteFrames_fwsyb")
+animation = &"down"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="CharacterBody2D" unique_id=758065340]
+polygon = PackedVector2Array(-5, -15, 5, -15, 5, -4, 8, -3, 8, 0, 7, 2, 5, 7, 5, 15, -5, 15, -5, 7, -8, 1, -9, -2, -7, -3, -5, -3, -5, -4, -5, -5, -5, -8, -5, -9)
+
+[node name="TextBox" type="Sprite2D" parent="CharacterBody2D" unique_id=119999252]
+position = Vector2(6, 58)
+scale = Vector2(1.21875, 1.21875)
+texture = ExtResource("14_jxxnc")
+
+[node name="Name" type="Label" parent="CharacterBody2D" unique_id=32230466]
+offset_left = -50.0
+offset_top = 42.0
+offset_right = -17.0
+offset_bottom = 51.0
+theme_override_fonts/font = ExtResource("15_j8eda")
+theme_override_font_sizes/font_size = 8
+text = "Caleb"
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="Text" type="Label" parent="CharacterBody2D" unique_id=438426962]
+offset_left = -42.0
+offset_top = 54.999996
+offset_right = 79.42856
+offset_bottom = 82.14285
+scale = Vector2(0.7, 0.7)
+theme_override_fonts/font = ExtResource("15_j8eda")
+theme_override_font_sizes/font_size = 8
+text = "Hello"
+autowrap_mode = 2
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="PlayerAnimationPlayer" type="AnimationPlayer" parent="CharacterBody2D" unique_id=1966675699]
+libraries/ = SubResource("AnimationLibrary_q6urs")
+
+[node name="MenuScreen" type="Sprite2D" parent="CharacterBody2D" unique_id=457026694]
+process_mode = 3
+position = Vector2(-4.999996, -0.24999893)
+scale = Vector2(1.9374999, 1.9218748)
+texture = ExtResource("17_8d0jg")
+
+[node name="MenuL" type="Label" parent="CharacterBody2D/MenuScreen" unique_id=1369887723]
+process_mode = 3
+offset_left = -13.935486
+offset_top = -35.252037
+offset_right = 19.064514
+offset_bottom = -12.252037
+theme_override_fonts/font = ExtResource("18_ek723")
+theme_override_font_sizes/font_size = 8
+text = "Menu"
+
+[node name="InstL" type="Label" parent="CharacterBody2D/MenuScreen" unique_id=1083000120]
+process_mode = 3
+offset_left = -13.935487
+offset_top = 9.495935
+offset_right = 78.96774
+offset_bottom = 73.23579
+scale = Vector2(0.4, 0.4)
+theme_override_fonts/font = ExtResource("15_j8eda")
+theme_override_font_sizes/font_size = 8
+text = "You are here because you either died, or paused, or something else..."
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="ResumeB" type="Button" parent="CharacterBody2D/MenuScreen" unique_id=1349071265]
+process_mode = 3
+offset_left = -8.258066
+offset_top = -20.68293
+offset_right = 43.741936
+offset_bottom = -4.68293
+scale = Vector2(0.5, 0.5)
+theme_override_fonts/font = ExtResource("15_j8eda")
+theme_override_font_sizes/font_size = 8
+text = "RESUME"
+
+[node name="HomeB" type="Button" parent="CharacterBody2D/MenuScreen" unique_id=277495167]
+process_mode = 3
+offset_left = -7.2258086
+offset_top = -6.6341476
+offset_right = 44.774193
+offset_bottom = 9.365852
+scale = Vector2(0.5, 0.5)
+theme_override_fonts/font = ExtResource("15_j8eda")
+theme_override_font_sizes/font_size = 8
+text = "HOME"
+
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D" unique_id=1046181998]
+zoom = Vector2(3.5, 3.5)
+
+[connection signal="body_entered" from="CheckPointArea" to="." method="_on_check_point_area_body_entered"]
+[connection signal="body_entered" from="Death" to="." method="_on_death_body_entered"]
+[connection signal="body_entered" from="Death2" to="." method="_on_death_2_body_entered"]
+[connection signal="pressed" from="CharacterBody2D/MenuScreen/ResumeB" to="CharacterBody2D" method="_on_resume_b_pressed"]
+[connection signal="pressed" from="CharacterBody2D/MenuScreen/HomeB" to="CharacterBody2D" method="_on_home_b_pressed"]

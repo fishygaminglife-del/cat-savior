@@ -1,0 +1,40 @@
+extends Node2D
+var runs = 0
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	$CharacterBody2D/TextBox.visible = false
+	Global.is_platformer = true
+	for sprite in get_tree().get_nodes_in_group("fire_animation"):
+		sprite.play("default")
+	$CharacterBody2D/MenuScreen.visible = false
+	
+	Global.is_platformer
+	Global.SPEED = 125
+
+	if runs == 0:
+		runs = 1
+		$CharacterBody2D/Name.text = "Caleb"
+		$CharacterBody2D/Text.text = "I can hear my cat, he must be at the other side!"
+		$CharacterBody2D/PlayerAnimationPlayer.play("textplay")
+		await $CharacterBody2D/PlayerAnimationPlayer.animation_finished
+	
+
+
+
+
+func _on_check_point_area_body_entered(body: Node2D) -> void:
+	Global._checkpoint = true
+	$CheckPointArea/CollisionShape2D.disabled = true
+	$Checkpoint.modulate = Color(0.936, 0.977, 1.0, 1.0)
+
+func _on_death_body_entered(body: Node2D) -> void:
+	$CharacterBody2D/MenuScreen.visible = true
+	get_tree().paused = true
+
+
+func _on_death_2_body_entered(body: Node2D) -> void:
+	if Global._checkpoint == true:
+		$CharacterBody2D.position = Vector2(256, 430)
+	else:
+		$CharacterBody2D.position = Vector2(-797, 572)

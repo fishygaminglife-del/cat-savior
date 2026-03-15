@@ -15,8 +15,10 @@
 [ext_resource type="Texture2D" uid="uid://bplwv6rodb1dn" path="res://images/ShedScene.png" id="13_2ofn6"]
 [ext_resource type="Script" uid="uid://bwewddphct3lp" path="res://Scripts/MCCharacter.gd" id="13_ebg2g"]
 [ext_resource type="Texture2D" uid="uid://cho80ec250rt4" path="res://People/MCForward.png" id="14_2ofn6"]
+[ext_resource type="Script" uid="uid://bt2utudvh27eg" path="res://Scripts/rocks.gd" id="14_ma7h6"]
 [ext_resource type="Texture2D" uid="uid://cwfnrl88jh7n1" path="res://People/MCForwardIdle.png" id="15_xa025"]
 [ext_resource type="Texture2D" uid="uid://b25d3wgr7qmxy" path="res://People/MCSide.png" id="16_36rkl"]
+[ext_resource type="Texture2D" uid="uid://dj0x7lersh2m" path="res://images/arrow.png" id="16_v0vrg"]
 [ext_resource type="Texture2D" uid="uid://4r318wuiepn5" path="res://People/MCSide2.png" id="17_fs0b5"]
 [ext_resource type="Texture2D" uid="uid://cgsrux7206d53" path="res://People/MCSideIdle.png" id="18_ma7h6"]
 [ext_resource type="Texture2D" uid="uid://c3m6ejl1v1qp0" path="res://People/MCSide2Idle.png" id="19_e2s0e"]
@@ -24,7 +26,11 @@
 [ext_resource type="Texture2D" uid="uid://cdcx0jufue3hc" path="res://People/MCBackwardsIdle.png" id="21_v0vrg"]
 [ext_resource type="Texture2D" uid="uid://c6yfb6oltcqse" path="res://images/TextBox.png" id="22_dg70y"]
 [ext_resource type="FontFile" uid="uid://c8uge3jdhs8qm" path="res://fonts/pixel_operator/PixelOperator8.ttf" id="23_pnhog"]
-[ext_resource type="Texture2D" uid="uid://bd1j6mb8kkjoj" path="res://images/Background Shed.png" id="25_xa025"]
+[ext_resource type="Texture2D" uid="uid://ngp35crmuj6u" path="res://images/RockUn.png" id="25_36rkl"]
+[ext_resource type="Texture2D" uid="uid://brhkk8lnecald" path="res://images/RockUp.png" id="26_fs0b5"]
+[ext_resource type="Texture2D" uid="uid://qojk41x7b5fo" path="res://images/KeyPadZoom.png" id="27_fs0b5"]
+[ext_resource type="Texture2D" uid="uid://c8allub7u802q" path="res://images/Check.png" id="29_e2s0e"]
+[ext_resource type="Texture2D" uid="uid://buuepwpmh8eoa" path="res://images/X.png" id="29_gsxep"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0bbpv"]
 texture = ExtResource("2_rvslj")
@@ -72,20 +78,45 @@ texture = ExtResource("2_rvslj")
 [sub_resource type="TileSet" id="TileSet_rarhs"]
 sources/1 = SubResource("TileSetAtlasSource_0bbpv")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_36rkl"]
-size = Vector2(61.392593, 80.94229)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ft6cd"]
-size = Vector2(20, 146)
+size = Vector2(20, 109)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bb450"]
 size = Vector2(20, 150)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nfivy"]
-size = Vector2(323, 20)
+size = Vector2(243, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xa025"]
-size = Vector2(20, 481)
+size = Vector2(58, 596.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fs0b5"]
+size = Vector2(20, 275.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2ofn6"]
+size = Vector2(51, 171.5)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dg70y"]
+atlas = ExtResource("16_v0vrg")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pnhog"]
+atlas = ExtResource("16_v0vrg")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2c4at"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dg70y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pnhog")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3i3nt"]
 atlas = ExtResource("14_2ofn6")
@@ -482,8 +513,39 @@ _data = {
 &"textplay": SubResource("Animation_lkiy7")
 }
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ma7h6"]
+bg_color = Color(0.72156864, 0.5686275, 0.42352942, 0.7882353)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e2s0e"]
+bg_color = Color(0.72156864, 0.5686275, 0.42352942, 0.5294118)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gsxep"]
+bg_color = Color(0.72156864, 0.5686275, 0.42352942, 0.5294118)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v0vrg"]
+bg_color = Color(0.72156864, 0.5686275, 0.42352942, 0.5294118)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dg70y"]
+bg_color = Color(0.72156864, 0.5686275, 0.42352942, 0.5294118)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pnhog"]
+bg_color = Color(0.72156864, 0.5686275, 0.42352942, 0.5294118)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2c4at"]
+bg_color = Color(0.72156864, 0.5686275, 0.42352942, 0.5294118)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g6wdg"]
+bg_color = Color(0.72156864, 0.5686275, 0.42352942, 0.5294118)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hq6as"]
+bg_color = Color(0.72156864, 0.5686275, 0.42352942, 0.5294118)
+
 [node name="Node2D" type="Node2D" unique_id=931152592]
 script = ExtResource("1_elqb8")
+
+[node name="BlinkTimer" type="Timer" parent="." unique_id=134126357]
+wait_time = 0.7
+autostart = true
 
 [node name="TileMap" type="TileMap" parent="." unique_id=786588834]
 position = Vector2(0, 8)
@@ -499,23 +561,32 @@ position = Vector2(129, 600)
 texture = ExtResource("3_lhr70")
 
 [node name="Food" type="Sprite2D" parent="Background Items" unique_id=2053475344]
-position = Vector2(236, 750)
+position = Vector2(237, 736)
 texture = ExtResource("4_qmy6f")
 
 [node name="Food3" type="Sprite2D" parent="Background Items" unique_id=2026225573]
-position = Vector2(-23, 710)
+position = Vector2(107, 698)
+texture = ExtResource("4_qmy6f")
+
+[node name="Food5" type="Sprite2D" parent="Background Items" unique_id=2098393626]
+position = Vector2(-6, 704)
 texture = ExtResource("4_qmy6f")
 
 [node name="Food2" type="Sprite2D" parent="Background Items" unique_id=547777104]
-position = Vector2(158, 687)
+position = Vector2(77, 650)
+texture = ExtResource("4_qmy6f")
+
+[node name="Food4" type="Sprite2D" parent="Background Items" unique_id=1757093482]
+position = Vector2(200, 658)
 texture = ExtResource("4_qmy6f")
 
 [node name="CatToy2" type="Sprite2D" parent="Background Items" unique_id=1009812576]
-position = Vector2(262, 658)
+position = Vector2(257, 645)
 texture = ExtResource("4_wp0k4")
 
 [node name="CatToy3" type="Sprite2D" parent="Background Items" unique_id=896315785]
-position = Vector2(85, 722)
+modulate = Color(1, 0.36862746, 0.30588236, 1)
+position = Vector2(81.000015, 746)
 rotation = 2.7314403
 texture = ExtResource("4_wp0k4")
 
@@ -524,26 +595,56 @@ position = Vector2(77, 617)
 texture = ExtResource("5_bjd11")
 
 [node name="CatBed" type="Sprite2D" parent="Background Items" unique_id=440008245]
-position = Vector2(19, 648)
+position = Vector2(29, 649)
+rotation = 0.7314117
+texture = ExtResource("6_qmy6f")
+
+[node name="CatBed2" type="Sprite2D" parent="Background Items" unique_id=1143781526]
+modulate = Color(1, 1, 0.41568628, 1)
+position = Vector2(266.99997, 737.99994)
+rotation = -0.15195489
 texture = ExtResource("6_qmy6f")
 
 [node name="CatToy1" type="Sprite2D" parent="Background Items" unique_id=458899082]
-position = Vector2(120, 755)
+position = Vector2(152, 745)
+scale = Vector2(1.1875, 1.1875)
+texture = ExtResource("7_mwfav")
+
+[node name="CatToy4" type="Sprite2D" parent="Background Items" unique_id=1872431992]
+modulate = Color(0.25882354, 1, 1, 1)
+position = Vector2(305.99994, 707)
+rotation = 0.60391915
 scale = Vector2(1.1875, 1.1875)
 texture = ExtResource("7_mwfav")
 
 [node name="FlippedChair" type="Sprite2D" parent="Background Items" unique_id=1099143351]
-position = Vector2(184.00003, 749.99994)
+position = Vector2(199, 740.00006)
 rotation = 0.37175512
 texture = ExtResource("8_3p2gp")
 
+[node name="FlippedChair3" type="Sprite2D" parent="Background Items" unique_id=2004136390]
+position = Vector2(-17, 659.99994)
+rotation = 1.605441
+texture = ExtResource("8_3p2gp")
+
+[node name="FlippedChair4" type="Sprite2D" parent="Background Items" unique_id=1802534338]
+position = Vector2(9, 748)
+rotation = 0.37175512
+texture = ExtResource("8_3p2gp")
+
+[node name="FlippedChair2" type="Sprite2D" parent="Background Items" unique_id=1757175653]
+position = Vector2(259, 683)
+rotation = 1.1323323
+texture = ExtResource("8_3p2gp")
+
 [node name="WaterCup" type="Sprite2D" parent="Background Items" unique_id=444459109]
-position = Vector2(277.99997, 700)
+position = Vector2(214, 716.00006)
+rotation = 2.8021119
 scale = Vector2(0.30208337, 0.30208337)
 texture = ExtResource("10_mwfav")
 
 [node name="FoodCup" type="Sprite2D" parent="Background Items" unique_id=1266719174]
-position = Vector2(5.9999757, 747)
+position = Vector2(42.00003, 718.00006)
 rotation = 2.443461
 scale = Vector2(0.30208334, 0.30208334)
 texture = ExtResource("11_3p2gp")
@@ -558,19 +659,10 @@ position = Vector2(915.00006, 409.00003)
 scale = Vector2(3.0125, 3.0125)
 texture = ExtResource("13_2ofn6")
 
-[node name="Area2D" type="Area2D" parent="." unique_id=722172199]
-position = Vector2(896, 256)
-rotation = -1.5707964
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1977504664]
-position = Vector2(-30.922272, 106.29352)
-rotation = 0.4660029
-shape = SubResource("RectangleShape2D_36rkl")
-
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1331960576]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1891790395]
-position = Vector2(54, 655)
+position = Vector2(54, 673.5)
 shape = SubResource("RectangleShape2D_ft6cd")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D" unique_id=793579476]
@@ -582,40 +674,58 @@ position = Vector2(156, 716)
 shape = SubResource("RectangleShape2D_nfivy")
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D" unique_id=781036897]
-position = Vector2(147.5, 593)
+position = Vector2(187.5, 593)
 shape = SubResource("RectangleShape2D_nfivy")
 
-[node name="CollisionShape2D5" type="CollisionShape2D" parent="StaticBody2D" unique_id=463997531]
-position = Vector2(778, 367)
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="StaticBody2D" unique_id=1525697790]
+position = Vector2(1078, 540)
 shape = SubResource("RectangleShape2D_xa025")
 
-[node name="CollisionShape2D9" type="CollisionShape2D" parent="StaticBody2D" unique_id=1316491516]
-position = Vector2(941, 226.99998)
-rotation = -1.1047934
-shape = SubResource("RectangleShape2D_36rkl")
-
-[node name="CollisionShape2D6" type="CollisionShape2D" parent="StaticBody2D" unique_id=1525697790]
-position = Vector2(1052, 419)
+[node name="CollisionShape2D10" type="CollisionShape2D" parent="StaticBody2D" unique_id=868052714]
+position = Vector2(754, 566)
 shape = SubResource("RectangleShape2D_xa025")
 
 [node name="CollisionShape2D7" type="CollisionShape2D" parent="StaticBody2D" unique_id=1260927816]
-position = Vector2(920, 458)
+position = Vector2(860.25, 319.5)
 rotation = -1.5707964
-shape = SubResource("RectangleShape2D_xa025")
+shape = SubResource("RectangleShape2D_fs0b5")
+
+[node name="CollisionShape2D11" type="CollisionShape2D" parent="StaticBody2D" unique_id=1617730521]
+position = Vector2(956, 303)
+rotation = -1.5707964
+shape = SubResource("RectangleShape2D_fs0b5")
+
+[node name="CollisionShape2D9" type="CollisionShape2D" parent="StaticBody2D" unique_id=459219876]
+position = Vector2(1117.75, 320)
+rotation = -1.5707964
+shape = SubResource("RectangleShape2D_2ofn6")
 
 [node name="CollisionShape2D8" type="CollisionShape2D" parent="StaticBody2D" unique_id=2002672218]
-position = Vector2(897, 245)
+position = Vector2(923, 540)
 rotation = -1.5707964
 shape = SubResource("RectangleShape2D_xa025")
 
+[node name="KeypadBut" type="Button" parent="." unique_id=1090906592]
+modulate = Color(1, 1, 1, 0)
+offset_left = 1002.0
+offset_top = 313.0
+offset_right = 1030.0
+offset_bottom = 342.0
+
+[node name="PortraitButton2" type="Button" parent="." unique_id=721242600]
+offset_left = 118.0
+offset_top = 641.0
+offset_right = 158.0
+offset_bottom = 677.0
+
 [node name="PortraitButton" type="Button" parent="." unique_id=1444097310]
+modulate = Color(0.7262233, 3.4172833e-06, 5.7756904e-07, 1)
 offset_left = 118.0
 offset_top = 641.0
 offset_right = 158.0
 offset_bottom = 677.0
 
 [node name="WindowButton" type="Button" parent="." unique_id=1393736631]
-modulate = Color(1, 1, 1, 0.8784314)
 offset_left = 32.0
 offset_top = 584.0
 offset_right = 64.0
@@ -623,33 +733,74 @@ offset_bottom = 616.0
 
 [node name="Shed" type="Node2D" parent="." unique_id=279199537]
 
-[node name="BackgroundShed2" type="Sprite2D" parent="Shed" unique_id=23426446]
-position = Vector2(624, 600)
-scale = Vector2(3.2287598, 3.2287598)
-texture = ExtResource("25_xa025")
+[node name="Rocks2" type="Node2D" parent="." unique_id=1076812095]
+script = ExtResource("14_ma7h6")
 
-[node name="BackgroundShed3" type="Sprite2D" parent="Shed" unique_id=1281895407]
-position = Vector2(624.00006, 503.00006)
-scale = Vector2(3.2287598, 3.2287598)
-texture = ExtResource("25_xa025")
+[node name="RockUn" type="Sprite2D" parent="Rocks2" unique_id=1879463152]
+position = Vector2(856, 482)
+texture = ExtResource("25_36rkl")
 
-[node name="BackgroundShed4" type="Sprite2D" parent="Shed" unique_id=37268935]
-position = Vector2(624, 405.99994)
-scale = Vector2(3.2287598, 3.2287598)
-texture = ExtResource("25_xa025")
+[node name="RockBut" type="Button" parent="Rocks2" unique_id=914355915]
+modulate = Color(1, 1, 1, 0)
+offset_left = 845.0
+offset_top = 475.0
+offset_right = 867.0
+offset_bottom = 490.0
 
-[node name="BackgroundShed5" type="Sprite2D" parent="Shed" unique_id=475746284]
-position = Vector2(624, 309.00006)
-scale = Vector2(3.2287598, 3.2287598)
-texture = ExtResource("25_xa025")
+[node name="RockUn5" type="Sprite2D" parent="Rocks2" unique_id=1481174537]
+position = Vector2(830, 413)
+texture = ExtResource("25_36rkl")
 
-[node name="BackgroundShed6" type="Sprite2D" parent="Shed" unique_id=1310494517]
-position = Vector2(625.00006, 217.00002)
-scale = Vector2(3.2287598, 3.2287598)
-texture = ExtResource("25_xa025")
+[node name="RockBut5" type="Button" parent="Rocks2" unique_id=1207134160]
+modulate = Color(1, 1, 1, 0)
+offset_left = 819.0
+offset_top = 406.0
+offset_right = 841.0
+offset_bottom = 421.0
+
+[node name="RockUn2" type="Sprite2D" parent="Rocks2" unique_id=1008524788]
+position = Vector2(963, 486)
+texture = ExtResource("25_36rkl")
+
+[node name="RockBut2" type="Button" parent="Rocks2" unique_id=905514783]
+modulate = Color(1, 1, 1, 0)
+offset_left = 952.0
+offset_top = 479.0
+offset_right = 974.0
+offset_bottom = 494.0
+
+[node name="RockUn4" type="Sprite2D" parent="Rocks2" unique_id=21541095]
+position = Vector2(905, 391)
+texture = ExtResource("25_36rkl")
+
+[node name="RockBut4" type="Button" parent="Rocks2" unique_id=35044004]
+modulate = Color(1, 1, 1, 0)
+offset_left = 894.0
+offset_top = 384.0
+offset_right = 916.0
+offset_bottom = 399.0
+
+[node name="RockUn3" type="Sprite2D" parent="Rocks2" unique_id=2043618999]
+position = Vector2(1005, 424)
+texture = ExtResource("25_36rkl")
+
+[node name="RockBut3" type="Button" parent="Rocks2" unique_id=1098720245]
+modulate = Color(1, 1, 1, 0)
+offset_left = 994.0
+offset_top = 417.0
+offset_right = 1016.0
+offset_bottom = 432.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=26930411]
+position = Vector2(989, 380)
+rotation = -1.131106
+scale = Vector2(1.8526717, 1.8526717)
+sprite_frames = SubResource("SpriteFrames_2c4at")
+frame_progress = 0.23164856
+speed_scale = 0.8
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=51260792]
-position = Vector2(168, 659)
+position = Vector2(922, 471)
 script = ExtResource("13_ebg2g")
 
 [node name="MCCharater" type="AnimatedSprite2D" parent="CharacterBody2D" unique_id=1546092177]
@@ -676,14 +827,13 @@ visible_characters = 0
 visible_ratio = 0.0
 
 [node name="Text" type="Label" parent="CharacterBody2D" unique_id=438426962]
-offset_left = -42.0
-offset_top = 54.999996
-offset_right = 79.42856
-offset_bottom = 82.14285
+offset_left = -48.999992
+offset_top = 55.0
+offset_right = 86.71429
+offset_bottom = 96.0
 scale = Vector2(0.7, 0.7)
 theme_override_fonts/font = ExtResource("23_pnhog")
 theme_override_font_sizes/font_size = 8
-text = "Hello"
 autowrap_mode = 2
 visible_characters = 0
 visible_ratio = 0.0
@@ -691,8 +841,280 @@ visible_ratio = 0.0
 [node name="PlayerAnimationPlayer" type="AnimationPlayer" parent="CharacterBody2D" unique_id=1966675699]
 libraries/ = SubResource("AnimationLibrary_q6urs")
 
+[node name="ExitBut" type="Button" parent="CharacterBody2D" unique_id=1336631376]
+modulate = Color(1, 1, 1, 0)
+offset_left = -187.0
+offset_top = -106.0
+offset_right = 198.0
+offset_bottom = 107.0
+
+[node name="Rocks" type="Node2D" parent="CharacterBody2D" unique_id=768632439]
+
+[node name="RockUp" type="Sprite2D" parent="CharacterBody2D/Rocks" unique_id=363148017]
+visible = false
+scale = Vector2(3.4375, 3.4375)
+texture = ExtResource("26_fs0b5")
+
+[node name="Label" type="Label" parent="CharacterBody2D/Rocks/RockUp" unique_id=627651779]
+visible = false
+modulate = Color(0.47158194, 0.18438667, 0.08158193, 1)
+offset_left = -3.7818184
+offset_top = -2.0363638
+offset_right = 3.2181816
+offset_bottom = 5.9636364
+theme_override_fonts/font = ExtResource("23_pnhog")
+theme_override_font_sizes/font_size = 8
+text = "X"
+
+[node name="RockUp2" type="Sprite2D" parent="CharacterBody2D/Rocks" unique_id=733226771]
+visible = false
+scale = Vector2(3.4375, 3.4375)
+texture = ExtResource("26_fs0b5")
+
+[node name="Label2" type="Label" parent="CharacterBody2D/Rocks/RockUp2" unique_id=1899935418]
+visible = false
+modulate = Color(0.47158194, 0.18438667, 0.08158193, 1)
+offset_left = -11.054554
+offset_top = -2.0363617
+offset_right = 9.945446
+offset_bottom = 5.9636383
+theme_override_fonts/font = ExtResource("23_pnhog")
+theme_override_font_sizes/font_size = 8
+text = "214"
+
+[node name="KeyPadZoom" type="Sprite2D" parent="CharacterBody2D" unique_id=777486449]
+position = Vector2(9.536743e-06, 1.335144e-05)
+scale = Vector2(1.9218752, 1.9218752)
+texture = ExtResource("27_fs0b5")
+
+[node name="Close" type="Button" parent="CharacterBody2D/KeyPadZoom" unique_id=1623801713]
+modulate = Color(1, 1, 1, 0)
+offset_left = -85.853645
+offset_top = -48.910564
+offset_right = -32.26014
+offset_bottom = 47.869923
+
+[node name="Close2" type="Button" parent="CharacterBody2D/KeyPadZoom" unique_id=1854759523]
+modulate = Color(1, 1, 1, 0)
+offset_left = 32.260155
+offset_top = -48.39024
+offset_right = 85.85366
+offset_bottom = 48.390247
+
+[node name="CheckBut" type="Button" parent="CharacterBody2D/KeyPadZoom" unique_id=1755495706]
+visible = false
+modulate = Color(1, 1, 1, 0)
+offset_left = -28.097555
+offset_top = 33.821133
+offset_right = -4.682913
+offset_bottom = 44.74795
+
+[node name="RejectBut" type="Button" parent="CharacterBody2D/KeyPadZoom" unique_id=1279202222]
+visible = false
+modulate = Color(1, 1, 1, 0)
+offset_left = 4.682928
+offset_top = 34.341457
+offset_right = 28.09757
+offset_bottom = 45.268276
+
+[node name="Nums" type="Node2D" parent="CharacterBody2D/KeyPadZoom" unique_id=106088725]
+visible = false
+
+[node name="Label" type="Label" parent="CharacterBody2D/KeyPadZoom/Nums" unique_id=238514330]
+offset_left = -24.975616
+offset_top = -28.09755
+offset_right = -18.211365
+offset_bottom = -20.09755
+theme_override_fonts/font = ExtResource("23_pnhog")
+theme_override_font_sizes/font_size = 8
+text = "1 "
+autowrap_mode = 2
+
+[node name="Label2" type="Label" parent="CharacterBody2D/KeyPadZoom/Nums" unique_id=104479023]
+offset_left = -3.1219482
+offset_top = -28.09755
+offset_right = 3.6423035
+offset_bottom = -20.09755
+theme_override_fonts/font = ExtResource("23_pnhog")
+theme_override_font_sizes/font_size = 8
+text = "2"
+autowrap_mode = 2
+
+[node name="Label3" type="Label" parent="CharacterBody2D/KeyPadZoom/Nums" unique_id=1616337323]
+offset_left = 18.211395
+offset_top = -28.09755
+offset_right = 24.975647
+offset_bottom = -20.09755
+theme_override_fonts/font = ExtResource("23_pnhog")
+theme_override_font_sizes/font_size = 8
+text = "3"
+autowrap_mode = 2
+
+[node name="Label4" type="Label" parent="CharacterBody2D/KeyPadZoom/Nums" unique_id=1458716025]
+offset_left = -24.455292
+offset_top = -8.325195
+offset_right = -17.69104
+offset_bottom = -0.3251953
+theme_override_fonts/font = ExtResource("23_pnhog")
+theme_override_font_sizes/font_size = 8
+text = "4"
+autowrap_mode = 2
+
+[node name="Label5" type="Label" parent="CharacterBody2D/KeyPadZoom/Nums" unique_id=908869919]
+offset_left = -3.1219482
+offset_top = -8.325195
+offset_right = 3.6423035
+offset_bottom = -0.3251953
+theme_override_fonts/font = ExtResource("23_pnhog")
+theme_override_font_sizes/font_size = 8
+text = "5"
+autowrap_mode = 2
+
+[node name="Label6" type="Label" parent="CharacterBody2D/KeyPadZoom/Nums" unique_id=2065843612]
+offset_left = 18.211395
+offset_top = -8.325195
+offset_right = 24.975647
+offset_bottom = -0.3251953
+theme_override_fonts/font = ExtResource("23_pnhog")
+theme_override_font_sizes/font_size = 8
+text = "6"
+autowrap_mode = 2
+
+[node name="Label7" type="Label" parent="CharacterBody2D/KeyPadZoom/Nums" unique_id=1544000990]
+offset_left = -23.414642
+offset_top = 11.9674835
+offset_right = -16.65039
+offset_bottom = 19.967484
+theme_override_fonts/font = ExtResource("23_pnhog")
+theme_override_font_sizes/font_size = 8
+text = "7"
+autowrap_mode = 2
+
+[node name="Label8" type="Label" parent="CharacterBody2D/KeyPadZoom/Nums" unique_id=1240101677]
+offset_left = -2.6016235
+offset_top = 11.447159
+offset_right = 4.162628
+offset_bottom = 19.447159
+theme_override_fonts/font = ExtResource("23_pnhog")
+theme_override_font_sizes/font_size = 8
+text = "8"
+autowrap_mode = 2
+
+[node name="Label9" type="Label" parent="CharacterBody2D/KeyPadZoom/Nums" unique_id=2026442345]
+offset_left = 17.69107
+offset_top = 11.9674835
+offset_right = 24.455322
+offset_bottom = 19.967484
+theme_override_fonts/font = ExtResource("23_pnhog")
+theme_override_font_sizes/font_size = 8
+text = "9"
+autowrap_mode = 2
+
+[node name="Buttons" type="Node2D" parent="CharacterBody2D/KeyPadZoom" unique_id=1773440870]
+
+[node name="b1" type="Button" parent="CharacterBody2D/KeyPadZoom/Buttons" unique_id=569457718]
+offset_left = -27.57723
+offset_top = -31.739834
+offset_right = -13.008139
+offset_bottom = -17.170727
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ma7h6")
+
+[node name="b2" type="Button" parent="CharacterBody2D/KeyPadZoom/Buttons" unique_id=675285467]
+offset_left = -6.764227
+offset_top = -31.739832
+offset_right = 7.8048954
+offset_bottom = -17.170725
+theme_override_styles/pressed = SubResource("StyleBoxFlat_e2s0e")
+
+[node name="b3" type="Button" parent="CharacterBody2D/KeyPadZoom/Buttons" unique_id=2053781323]
+offset_left = 14.04878
+offset_top = -31.739834
+offset_right = 27.577223
+offset_bottom = -17.170727
+theme_override_styles/pressed = SubResource("StyleBoxFlat_gsxep")
+
+[node name="b4" type="Button" parent="CharacterBody2D/KeyPadZoom/Buttons" unique_id=136572524]
+offset_left = -27.57723
+offset_top = -11.967478
+offset_right = -13.008139
+offset_bottom = 2.6016293
+theme_override_styles/pressed = SubResource("StyleBoxFlat_v0vrg")
+
+[node name="b5" type="Button" parent="CharacterBody2D/KeyPadZoom/Buttons" unique_id=1534292583]
+offset_left = -6.764227
+offset_top = -11.967478
+offset_right = 7.8048954
+offset_bottom = 2.6016293
+theme_override_styles/pressed = SubResource("StyleBoxFlat_dg70y")
+
+[node name="b6" type="Button" parent="CharacterBody2D/KeyPadZoom/Buttons" unique_id=452943716]
+offset_left = 14.048779
+offset_top = -11.967478
+offset_right = 27.57722
+offset_bottom = 2.6016293
+theme_override_styles/pressed = SubResource("StyleBoxFlat_pnhog")
+
+[node name="b7" type="Button" parent="CharacterBody2D/KeyPadZoom/Buttons" unique_id=50614229]
+offset_left = -27.57723
+offset_top = 8.325202
+offset_right = -13.008139
+offset_bottom = 22.89431
+theme_override_styles/pressed = SubResource("StyleBoxFlat_2c4at")
+
+[node name="b8" type="Button" parent="CharacterBody2D/KeyPadZoom/Buttons" unique_id=244774701]
+offset_left = -6.764227
+offset_top = 8.325202
+offset_right = 7.8048954
+offset_bottom = 22.89431
+theme_override_styles/pressed = SubResource("StyleBoxFlat_g6wdg")
+
+[node name="b9" type="Button" parent="CharacterBody2D/KeyPadZoom/Buttons" unique_id=188835646]
+offset_left = 13.528454
+offset_top = 8.325201
+offset_right = 27.57722
+offset_bottom = 22.894308
+theme_override_styles/pressed = SubResource("StyleBoxFlat_hq6as")
+
+[node name="X" type="Sprite2D" parent="CharacterBody2D/KeyPadZoom" unique_id=1850924765]
+position = Vector2(3.0517578e-05, 1.5258789e-05)
+scale = Vector2(0.87804866, 0.87804866)
+texture = ExtResource("29_gsxep")
+
+[node name="Check" type="Sprite2D" parent="CharacterBody2D/KeyPadZoom" unique_id=1848576314]
+scale = Vector2(1.1544709, 1.1544709)
+texture = ExtResource("29_e2s0e")
+
+[node name="NumLab" type="Label" parent="CharacterBody2D/KeyPadZoom" unique_id=1267158577]
+offset_left = -28.097557
+offset_top = -47.349586
+offset_right = 13.902443
+offset_bottom = -31.349586
+theme_override_fonts/font = ExtResource("23_pnhog")
+
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D" unique_id=1046181998]
 zoom = Vector2(3.5, 3.5)
 
+[connection signal="timeout" from="BlinkTimer" to="." method="_on_blink_timer_timeout"]
+[connection signal="pressed" from="KeypadBut" to="." method="_on_keypad_but_pressed"]
+[connection signal="pressed" from="PortraitButton2" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="PortraitButton" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="WindowButton" to="." method="_on_window_button_pressed"]
+[connection signal="pressed" from="Rocks2/RockBut" to="." method="_on_rock_but_pressed"]
+[connection signal="pressed" from="Rocks2/RockBut5" to="." method="_on_rock_but_pressed"]
+[connection signal="pressed" from="Rocks2/RockBut2" to="." method="_on_rock_but_2_pressed"]
+[connection signal="pressed" from="Rocks2/RockBut4" to="." method="_on_rock_but_2_pressed"]
+[connection signal="pressed" from="Rocks2/RockBut3" to="." method="_on_rock_but_3_pressed"]
+[connection signal="pressed" from="CharacterBody2D/ExitBut" to="." method="_on_exit_but_pressed"]
+[connection signal="pressed" from="CharacterBody2D/KeyPadZoom/Close" to="." method="_on_close_pressed"]
+[connection signal="pressed" from="CharacterBody2D/KeyPadZoom/Close2" to="." method="_on_close_pressed"]
+[connection signal="pressed" from="CharacterBody2D/KeyPadZoom/CheckBut" to="." method="_on_check_but_pressed"]
+[connection signal="pressed" from="CharacterBody2D/KeyPadZoom/RejectBut" to="Rocks2" method="_on_reject_but_pressed"]
+[connection signal="pressed" from="CharacterBody2D/KeyPadZoom/Buttons/b1" to="Rocks2" method="_on_b_1_pressed"]
+[connection signal="pressed" from="CharacterBody2D/KeyPadZoom/Buttons/b2" to="Rocks2" method="_on_b_2_pressed"]
+[connection signal="pressed" from="CharacterBody2D/KeyPadZoom/Buttons/b3" to="Rocks2" method="_on_b_3_pressed"]
+[connection signal="pressed" from="CharacterBody2D/KeyPadZoom/Buttons/b4" to="Rocks2" method="_on_b_4_pressed"]
+[connection signal="pressed" from="CharacterBody2D/KeyPadZoom/Buttons/b5" to="Rocks2" method="_on_b_5_pressed"]
+[connection signal="pressed" from="CharacterBody2D/KeyPadZoom/Buttons/b6" to="Rocks2" method="_on_b_6_pressed"]
+[connection signal="pressed" from="CharacterBody2D/KeyPadZoom/Buttons/b7" to="Rocks2" method="_on_b_7_pressed"]
+[connection signal="pressed" from="CharacterBody2D/KeyPadZoom/Buttons/b8" to="Rocks2" method="_on_b_8_pressed"]
+[connection signal="pressed" from="CharacterBody2D/KeyPadZoom/Buttons/b9" to="Rocks2" method="_on_b_9_pressed"]

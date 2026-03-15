@@ -1,13 +1,11 @@
 extends CharacterBody2D
 
+const JUMP_VELOCITY = -300
 
-const SPEED = 100
-const JUMP_VELOCITY = -250
-var is_platformer = true
 
 func _physics_process(delta: float) -> void:
 	
-	if is_platformer:
+	if Global.is_platformer == true:
 		platformer_movement(delta)
 		
 	else:
@@ -17,8 +15,8 @@ func topdown_movement(delta):
 	var directionx = Input.get_axis("left", "right")
 	var directiony = Input.get_axis("up", "down")
 
-	velocity.x = directionx * SPEED
-	velocity.y = directiony * SPEED
+	velocity.x = directionx * Global.SPEED
+	velocity.y = directiony * Global.SPEED
 
 	if directionx == 0 and directiony == 0:
 		$MCCharater.play("downidle")
@@ -42,21 +40,23 @@ func platformer_movement(delta):
 	if Input.is_action_just_pressed("up") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 	# Horizontal movement
-	var direction = Input.get_axis("move_left", "move_right")
+	var direction = Input.get_axis("left", "right")
 	if direction != 0:
-		velocity.x = direction * SPEED
-		$MCCharater.play("walk")
+		velocity.x = direction * Global.SPEED
+		$MCCharater.play("side2")
 		$MCCharater.flip_h = direction < 0
+
 	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
-		$MCCharater.play("idle")
+		velocity.x = move_toward(velocity.x, 0, Global.SPEED)
+	
+
 
 	move_and_slide()
 
-	
-	
-	
-	
-	
-	
-	
+func _on_resume_b_pressed() -> void:
+	get_tree().paused = false
+	$MenuScreen.visible = false
+
+
+func _on_home_b_pressed() -> void:
+	pass # Replace with function body.
