@@ -1,32 +1,29 @@
 # Cat Savior
+Cat Savior is a small game I made that switches between platformer and top‑down gameplay. The story is about a guy who lost his cat and ended up sacrificing his life because of it. This is only Part 1 of the game, and Part 2 will come out later. If you want to see how the story continues, stay tuned.
 
-**Cat Savior** is a 2D dress‑up game built in the **Godot Engine v4.6**. Your objective is to Find your cat and save it. The end might tear you up a little.
-
-## 🎮 Gameplay
-When the game begins, a Demogorgon head slides onto the screen with an order displayed in a text bubble. Select the correct accessories to match its request.  
-- Falling **1 life**  
-- Cut Scenes
-- Story 
-
+## Controls
+**Platformer sections**
+- A / D – Move
+- Left / Right Arrow Keys – Move
+- Space – Jump
+- Shift – Run
+**Top‑down sections**
+- W / A / S / D – Move
+- Arrow Keys – Move
+  
 ## ✨ Features
 - 2D gameplay  
 - Mouse and Keyboard
-- Interactive UI buttons  
-- Multiple scenes and level progression  
-- Custom sound effects and assets  
+- Buttons for Puzzles  
+- Cutscenes 
+- Custom sound effects and assets    
 
-## 🖱 Controls
-- **Left Mouse Click** — click buttons
-- **WASD or Arrow Keys** — Movement
-
-## ▶️ Play the Game
+## The Game
 Play it on itch.io:  
 **https://fishyyyyyyy-life.itch.io**
 
-## 📦 Engine
-- **Godot 4.6**
-
-## 📝 Credits
-- **Fonts:** Pixel Operator — Google Fonts  
-- **Music:** 
-- Assets:** Created by **Fishyyyyyyy (Me)**  
+## Made With
+- Engine: Godot 4.6
+- All art: Made by me
+- **Fonts:** Pixel Operator — Google Fonts 
+- Music: Moodemode (no‑copyright music)
