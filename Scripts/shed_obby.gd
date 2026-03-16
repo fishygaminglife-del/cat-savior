@@ -1,9 +1,10 @@
 extends Node2D
 var runs = 0
-
+var check = 0
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	$CharacterBody2D/TextBox.visible = false
+	$CharacterBody2D/Camera2D.zoom = Vector2(3.5, 3.5)
 	Global.is_platformer = true
 	for sprite in get_tree().get_nodes_in_group("fire_animation"):
 		sprite.play("default")
@@ -27,7 +28,9 @@ func _on_check_point_area_body_entered(body: Node2D) -> void:
 	Global._checkpoint = true
 	$CheckPointArea/CollisionShape2D.disabled = true
 	$Checkpoint.modulate = Color(0.936, 0.977, 1.0, 1.0)
-
+	if check == 0:
+		$CharacterBody2D/PlayerAnimationPlayer.play("CheckPoint")
+		check = 1
 func _on_death_body_entered(body: Node2D) -> void:
 	$CharacterBody2D/MenuScreen.visible = true
 	get_tree().paused = true
@@ -38,3 +41,9 @@ func _on_death_2_body_entered(body: Node2D) -> void:
 		$CharacterBody2D.position = Vector2(256, 430)
 	else:
 		$CharacterBody2D.position = Vector2(-797, 572)
+
+
+func _on_spencer_body_entered(body: Node2D) -> void:
+	$CharacterBody2D/PlayerAnimationPlayer.play("DoorZoom")
+	await $CharacterBody2D/PlayerAnimationPlayer.animation_finished
+	get_tree().change_scene_to_file("res://scenes/EndCutscene.tscn")

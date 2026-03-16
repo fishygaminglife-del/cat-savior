@@ -1,0 +1,78 @@
+[gd_scene format=3 uid="uid://cttqvgvl5txkc"]
+
+[ext_resource type="Texture2D" uid="uid://bc821d4j0fit6" path="res://images/HomeScreen.png" id="1_d52sk"]
+[ext_resource type="Script" uid="uid://lvb5jclw2m0a" path="res://Scripts/home.gd" id="1_nqr1n"]
+[ext_resource type="FontFile" uid="uid://crprgneoqco73" path="res://fonts/pixel_operator/PixelOperator8-Bold.ttf" id="2_nqr1n"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_svoro"]
+atlas = ExtResource("1_d52sk")
+region = Rect2(0, 0, 1152, 648)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_72wqp"]
+atlas = ExtResource("1_d52sk")
+region = Rect2(1152, 0, 1152, 648)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yk4sq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_svoro")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_72wqp")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Node2D" type="Node2D" unique_id=616399406]
+script = ExtResource("1_nqr1n")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1260640422]
+position = Vector2(576, 324)
+sprite_frames = SubResource("SpriteFrames_yk4sq")
+frame_progress = 0.90535194
+speed_scale = 0.3
+
+[node name="Label" type="Label" parent="." unique_id=1502503071]
+offset_left = 247.0
+offset_top = 24.000061
+offset_right = 395.0
+offset_bottom = 47.00006
+scale = Vector2(4.441699, 4.441699)
+theme_override_fonts/font = ExtResource("2_nqr1n")
+text = "CAT SAVIOR"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Play" type="Button" parent="." unique_id=144990284]
+offset_left = 385.0
+offset_top = 137.0
+offset_right = 767.0
+offset_bottom = 224.0
+theme_override_fonts/font = ExtResource("2_nqr1n")
+theme_override_font_sizes/font_size = 32
+text = "PLAY"
+
+[node name="Instructions" type="Button" parent="." unique_id=1367097692]
+offset_left = 385.0
+offset_top = 259.0
+offset_right = 767.0
+offset_bottom = 346.0
+theme_override_fonts/font = ExtResource("2_nqr1n")
+theme_override_font_sizes/font_size = 32
+text = "INSTRUCTIONS"
+
+[node name="Credit" type="Button" parent="." unique_id=1180626820]
+offset_left = 385.0
+offset_top = 389.0
+offset_right = 767.0
+offset_bottom = 476.0
+theme_override_fonts/font = ExtResource("2_nqr1n")
+theme_override_font_sizes/font_size = 32
+text = "CREDIT"
+
+[connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="Instructions" to="." method="_on_instructions_pressed"]
+[connection signal="pressed" from="Credit" to="." method="_on_credit_pressed"]

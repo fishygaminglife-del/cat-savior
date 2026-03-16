@@ -11,8 +11,8 @@ config_version=5
 [application]
 
 config/name="Cat Savior"
+run/main_scene="uid://cttqvgvl5txkc"
 config/features=PackedStringArray("4.6", "GL Compatibility")
-config/icon="res://icon.svg"
 
 [autoload]
 

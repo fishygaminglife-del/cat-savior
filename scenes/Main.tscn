@@ -336,6 +336,105 @@ animations = [{
 
 [sub_resource type="Animation" id="Animation_r68wp"]
 length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Name:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Text:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Text:visible_ratio")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("TextBox:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_v0vrg"]
+resource_name = "play_text"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Name:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Text:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Text:visible_ratio")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("TextBox:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_q6urs"]
 resource_name = "texp_play2"
@@ -508,6 +607,7 @@ tracks/4/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_q6urs"]
 _data = {
 &"RESET": SubResource("Animation_r68wp"),
+&"play_text": SubResource("Animation_v0vrg"),
 &"texp_play2": SubResource("Animation_q6urs"),
 &"text_play": SubResource("Animation_ftwfq"),
 &"textplay": SubResource("Animation_lkiy7")
@@ -586,7 +686,7 @@ texture = ExtResource("4_wp0k4")
 
 [node name="CatToy3" type="Sprite2D" parent="Background Items" unique_id=896315785]
 modulate = Color(1, 0.36862746, 0.30588236, 1)
-position = Vector2(81.000015, 746)
+position = Vector2(85.00003, 724)
 rotation = 2.7314403
 texture = ExtResource("4_wp0k4")
 
@@ -601,50 +701,50 @@ texture = ExtResource("6_qmy6f")
 
 [node name="CatBed2" type="Sprite2D" parent="Background Items" unique_id=1143781526]
 modulate = Color(1, 1, 0.41568628, 1)
-position = Vector2(266.99997, 737.99994)
+position = Vector2(262, 736.99994)
 rotation = -0.15195489
 texture = ExtResource("6_qmy6f")
 
 [node name="CatToy1" type="Sprite2D" parent="Background Items" unique_id=458899082]
-position = Vector2(152, 745)
+position = Vector2(141, 751)
 scale = Vector2(1.1875, 1.1875)
 texture = ExtResource("7_mwfav")
 
 [node name="CatToy4" type="Sprite2D" parent="Background Items" unique_id=1872431992]
 modulate = Color(0.25882354, 1, 1, 1)
-position = Vector2(305.99994, 707)
+position = Vector2(309.9999, 714.99994)
 rotation = 0.60391915
 scale = Vector2(1.1875, 1.1875)
 texture = ExtResource("7_mwfav")
 
 [node name="FlippedChair" type="Sprite2D" parent="Background Items" unique_id=1099143351]
-position = Vector2(199, 740.00006)
+position = Vector2(183.99998, 745.99994)
 rotation = 0.37175512
 texture = ExtResource("8_3p2gp")
 
 [node name="FlippedChair3" type="Sprite2D" parent="Background Items" unique_id=2004136390]
-position = Vector2(-17, 659.99994)
+position = Vector2(-6.000004, 685.0001)
 rotation = 1.605441
 texture = ExtResource("8_3p2gp")
 
 [node name="FlippedChair4" type="Sprite2D" parent="Background Items" unique_id=1802534338]
-position = Vector2(9, 748)
+position = Vector2(38.00003, 742.99994)
 rotation = 0.37175512
 texture = ExtResource("8_3p2gp")
 
 [node name="FlippedChair2" type="Sprite2D" parent="Background Items" unique_id=1757175653]
-position = Vector2(259, 683)
+position = Vector2(255.00003, 685)
 rotation = 1.1323323
 texture = ExtResource("8_3p2gp")
 
 [node name="WaterCup" type="Sprite2D" parent="Background Items" unique_id=444459109]
-position = Vector2(214, 716.00006)
+position = Vector2(223, 723)
 rotation = 2.8021119
 scale = Vector2(0.30208337, 0.30208337)
 texture = ExtResource("10_mwfav")
 
 [node name="FoodCup" type="Sprite2D" parent="Background Items" unique_id=1266719174]
-position = Vector2(42.00003, 718.00006)
+position = Vector2(33.000008, 709.00006)
 rotation = 2.443461
 scale = Vector2(0.30208334, 0.30208334)
 texture = ExtResource("11_3p2gp")
@@ -666,11 +766,12 @@ position = Vector2(54, 673.5)
 shape = SubResource("RectangleShape2D_ft6cd")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D" unique_id=793579476]
-position = Vector2(240, 647)
+position = Vector2(245, 646)
 shape = SubResource("RectangleShape2D_bb450")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=1450918657]
-position = Vector2(156, 716)
+position = Vector2(165, 725)
+rotation = -0.015707964
 shape = SubResource("RectangleShape2D_nfivy")
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D" unique_id=781036897]
@@ -800,7 +901,7 @@ frame_progress = 0.23164856
 speed_scale = 0.8
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=51260792]
-position = Vector2(922, 471)
+position = Vector2(138, 656)
 script = ExtResource("13_ebg2g")
 
 [node name="MCCharater" type="AnimatedSprite2D" parent="CharacterBody2D" unique_id=1546092177]
@@ -823,8 +924,6 @@ offset_bottom = 51.0
 theme_override_fonts/font = ExtResource("23_pnhog")
 theme_override_font_sizes/font_size = 8
 text = "Caleb"
-visible_characters = 0
-visible_ratio = 0.0
 
 [node name="Text" type="Label" parent="CharacterBody2D" unique_id=438426962]
 offset_left = -48.999992
@@ -834,6 +933,7 @@ offset_bottom = 96.0
 scale = Vector2(0.7, 0.7)
 theme_override_fonts/font = ExtResource("23_pnhog")
 theme_override_font_sizes/font_size = 8
+text = "hi bro"
 autowrap_mode = 2
 visible_characters = 0
 visible_ratio = 0.0
@@ -883,6 +983,7 @@ theme_override_font_sizes/font_size = 8
 text = "214"
 
 [node name="KeyPadZoom" type="Sprite2D" parent="CharacterBody2D" unique_id=777486449]
+visible = false
 position = Vector2(9.536743e-06, 1.335144e-05)
 scale = Vector2(1.9218752, 1.9218752)
 texture = ExtResource("27_fs0b5")
@@ -1096,8 +1197,8 @@ zoom = Vector2(3.5, 3.5)
 
 [connection signal="timeout" from="BlinkTimer" to="." method="_on_blink_timer_timeout"]
 [connection signal="pressed" from="KeypadBut" to="." method="_on_keypad_but_pressed"]
-[connection signal="pressed" from="PortraitButton2" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="PortraitButton" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="PortraitButton2" to="." method="_on_portrait_button_2_pressed"]
+[connection signal="pressed" from="PortraitButton" to="." method="_on_portrait_button_pressed"]
 [connection signal="pressed" from="WindowButton" to="." method="_on_window_button_pressed"]
 [connection signal="pressed" from="Rocks2/RockBut" to="." method="_on_rock_but_pressed"]
 [connection signal="pressed" from="Rocks2/RockBut5" to="." method="_on_rock_but_pressed"]
