@@ -31,6 +31,9 @@
 [ext_resource type="Texture2D" uid="uid://qojk41x7b5fo" path="res://images/KeyPadZoom.png" id="27_fs0b5"]
 [ext_resource type="Texture2D" uid="uid://c8allub7u802q" path="res://images/Check.png" id="29_e2s0e"]
 [ext_resource type="Texture2D" uid="uid://buuepwpmh8eoa" path="res://images/X.png" id="29_gsxep"]
+[ext_resource type="Texture2D" uid="uid://dsrvwq8cgs0dh" path="res://images/MenuScreen.png" id="32_2c4at"]
+[ext_resource type="Texture2D" uid="uid://capls12mm4so6" path="res://images/pausebutton.png" id="32_dg70y"]
+[ext_resource type="FontFile" uid="uid://crprgneoqco73" path="res://fonts/pixel_operator/PixelOperator8-Bold.ttf" id="33_g6wdg"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0bbpv"]
 texture = ExtResource("2_rvslj")
@@ -1192,6 +1195,65 @@ offset_right = 13.902443
 offset_bottom = -31.349586
 theme_override_fonts/font = ExtResource("23_pnhog")
 
+[node name="MenuScreen" type="Sprite2D" parent="CharacterBody2D" unique_id=555320947]
+process_mode = 3
+visible = false
+scale = Vector2(1.8425026, 1.8276435)
+texture = ExtResource("32_2c4at")
+
+[node name="MenuL" type="Label" parent="CharacterBody2D/MenuScreen" unique_id=1772548254]
+process_mode = 3
+offset_left = -13.935486
+offset_top = -35.252037
+offset_right = 19.064514
+offset_bottom = -12.252037
+theme_override_fonts/font = ExtResource("33_g6wdg")
+theme_override_font_sizes/font_size = 8
+text = "Menu"
+
+[node name="InstL" type="Label" parent="CharacterBody2D/MenuScreen" unique_id=1966819902]
+process_mode = 3
+offset_left = -13.935487
+offset_top = 9.495935
+offset_right = 78.96774
+offset_bottom = 73.23579
+scale = Vector2(0.4, 0.4)
+theme_override_fonts/font = ExtResource("23_pnhog")
+theme_override_font_sizes/font_size = 8
+text = "You are here because you either died, or paused, or something else..."
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="ResumeB" type="Button" parent="CharacterBody2D/MenuScreen" unique_id=20735833]
+process_mode = 3
+offset_left = -8.258066
+offset_top = -20.68293
+offset_right = 43.741936
+offset_bottom = -4.68293
+scale = Vector2(0.5, 0.5)
+theme_override_fonts/font = ExtResource("23_pnhog")
+theme_override_font_sizes/font_size = 8
+text = "RESUME"
+
+[node name="HomeB" type="Button" parent="CharacterBody2D/MenuScreen" unique_id=847818852]
+process_mode = 3
+offset_left = -7.2258086
+offset_top = -6.6341476
+offset_right = 44.774193
+offset_bottom = 9.365852
+scale = Vector2(0.5, 0.5)
+theme_override_fonts/font = ExtResource("23_pnhog")
+theme_override_font_sizes/font_size = 8
+text = "HOME"
+
+[node name="Pause" type="Button" parent="CharacterBody2D" unique_id=1612724688]
+offset_left = 140.0
+offset_top = -92.0
+offset_right = 180.0
+offset_bottom = -52.0
+scale = Vector2(0.6, 0.6)
+icon = ExtResource("32_dg70y")
+
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D" unique_id=1046181998]
 zoom = Vector2(3.5, 3.5)
 
@@ -1219,3 +1281,6 @@ zoom = Vector2(3.5, 3.5)
 [connection signal="pressed" from="CharacterBody2D/KeyPadZoom/Buttons/b7" to="Rocks2" method="_on_b_7_pressed"]
 [connection signal="pressed" from="CharacterBody2D/KeyPadZoom/Buttons/b8" to="Rocks2" method="_on_b_8_pressed"]
 [connection signal="pressed" from="CharacterBody2D/KeyPadZoom/Buttons/b9" to="Rocks2" method="_on_b_9_pressed"]
+[connection signal="pressed" from="CharacterBody2D/MenuScreen/ResumeB" to="." method="_on_resume_b_pressed"]
+[connection signal="pressed" from="CharacterBody2D/MenuScreen/HomeB" to="." method="_on_home_b_pressed"]
+[connection signal="pressed" from="CharacterBody2D/Pause" to="." method="_on_pause_pressed"]

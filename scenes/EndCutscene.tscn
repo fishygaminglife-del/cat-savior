@@ -22,6 +22,10 @@
 [ext_resource type="Texture2D" uid="uid://beamreb26gb00" path="res://People/Cat.png" id="20_ejmpy"]
 [ext_resource type="Texture2D" uid="uid://bfpgfe04umtu7" path="res://tiles/Caution.png" id="21_vwwvr"]
 [ext_resource type="Texture2D" uid="uid://b6hp1qx4ewo0m" path="res://tiles/Cation2.png" id="22_ndqgw"]
+[ext_resource type="Texture2D" uid="uid://dsrvwq8cgs0dh" path="res://images/MenuScreen.png" id="23_dwvrt"]
+[ext_resource type="FontFile" uid="uid://crprgneoqco73" path="res://fonts/pixel_operator/PixelOperator8-Bold.ttf" id="24_0lb0h"]
+[ext_resource type="Texture2D" uid="uid://capls12mm4so6" path="res://images/pausebutton.png" id="25_4igll"]
+[ext_resource type="Texture2D" uid="uid://csh7m12qj70vm" path="res://images/End.png" id="26_0lb0h"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_20u54"]
 texture = ExtResource("2_qjg52")
@@ -295,6 +299,109 @@ tracks/4/keys = {
 "values": [Vector2(793.5416, 488.70834), Vector2(793.5416, 488.70834), Vector2(860, 487)]
 }
 
+[sub_resource type="Animation" id="Animation_ndqgw"]
+resource_name = "Animation5"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(860, 487), Vector2(850, 464)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera2D:zoom")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(3.5, 3.5), Vector2(5, 5)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Camera2D/End/Button:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Camera2D/End/Label:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Camera2D/End:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Camera2D/End/Button:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.5, 1.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Camera2D/End/Label:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0.5, 1.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Camera2D/End:modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0.5, 1.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_4igll"]
+resource_name = "Animation6"
+
 [sub_resource type="Animation" id="Animation_cqr02"]
 length = 0.001
 tracks/0/type = "value"
@@ -357,6 +464,90 @@ tracks/4/keys = {
 "update": 0,
 "values": [0.0]
 }
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Camera2D:zoom")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(3.5, 3.5)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Camera2D/End/Button:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Camera2D/End/Label:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Camera2D/End:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Camera2D/End/Button:modulate")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Camera2D/End/Label:modulate")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Camera2D/End:modulate")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_20u54"]
 _data = {
@@ -364,6 +555,8 @@ _data = {
 &"Animation2": SubResource("Animation_4vkb1"),
 &"Animation3": SubResource("Animation_ann66"),
 &"Animation4": SubResource("Animation_vwwvr"),
+&"Animation5": SubResource("Animation_ndqgw"),
+&"Animation6": SubResource("Animation_4igll"),
 &"RESET": SubResource("Animation_cqr02")
 }
 
@@ -945,7 +1138,7 @@ texture = ExtResource("22_ndqgw")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1512044300]
 position = Vector2(215, 419)
-zoom = Vector2(3, 3)
+zoom = Vector2(3.5, 3.5)
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="Camera2D" unique_id=51260792]
 position = Vector2(-18, -57)
@@ -981,3 +1174,97 @@ visible_ratio = 0.0
 
 [node name="PlayerAnimationPlayer" type="AnimationPlayer" parent="Camera2D/CharacterBody2D" unique_id=1966675699]
 libraries/ = SubResource("AnimationLibrary_q6urs")
+
+[node name="MenuScreen" type="Sprite2D" parent="Camera2D" unique_id=116596643]
+process_mode = 3
+visible = false
+scale = Vector2(1.8425026, 1.8276435)
+texture = ExtResource("23_dwvrt")
+
+[node name="MenuL" type="Label" parent="Camera2D/MenuScreen" unique_id=1825111105]
+process_mode = 3
+offset_left = -13.935486
+offset_top = -35.252037
+offset_right = 19.064514
+offset_bottom = -12.252037
+theme_override_fonts/font = ExtResource("24_0lb0h")
+theme_override_font_sizes/font_size = 8
+text = "Menu"
+
+[node name="InstL" type="Label" parent="Camera2D/MenuScreen" unique_id=927486174]
+process_mode = 3
+offset_left = -13.935487
+offset_top = 9.495935
+offset_right = 78.96774
+offset_bottom = 73.23579
+scale = Vector2(0.4, 0.4)
+theme_override_fonts/font = ExtResource("6_ann66")
+theme_override_font_sizes/font_size = 8
+text = "You are here because you either died, or paused, or something else..."
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="ResumeB" type="Button" parent="Camera2D/MenuScreen" unique_id=648534188]
+process_mode = 3
+offset_left = -8.258066
+offset_top = -20.68293
+offset_right = 43.741936
+offset_bottom = -4.68293
+scale = Vector2(0.5, 0.5)
+theme_override_fonts/font = ExtResource("6_ann66")
+theme_override_font_sizes/font_size = 8
+text = "RESUME"
+
+[node name="HomeB" type="Button" parent="Camera2D/MenuScreen" unique_id=505976128]
+process_mode = 3
+offset_left = -7.2258086
+offset_top = -6.6341476
+offset_right = 44.774193
+offset_bottom = 9.365852
+scale = Vector2(0.5, 0.5)
+theme_override_fonts/font = ExtResource("6_ann66")
+theme_override_font_sizes/font_size = 8
+text = "HOME"
+
+[node name="Pause" type="Button" parent="Camera2D" unique_id=387239369]
+modulate = Color(1, 1, 1, 0.39215687)
+offset_left = 140.0
+offset_top = -92.0
+offset_right = 180.0
+offset_bottom = -52.0
+scale = Vector2(0.6, 0.6)
+icon = ExtResource("25_4igll")
+
+[node name="End" type="Sprite2D" parent="Camera2D" unique_id=1544151676]
+modulate = Color(1, 1, 1, 0)
+scale = Vector2(7.1875, 4.0625)
+texture = ExtResource("26_0lb0h")
+
+[node name="Label" type="Label" parent="Camera2D/End" unique_id=644554493]
+modulate = Color(1, 1, 1, 0)
+offset_left = -11.547829
+offset_top = -14.030769
+offset_right = 34.45217
+offset_bottom = 8.969231
+scale = Vector2(0.5, 0.5)
+theme_override_fonts/font = ExtResource("6_ann66")
+theme_override_font_sizes/font_size = 8
+text = "THE END"
+metadata/_edit_use_anchors_ = true
+
+[node name="Button" type="Button" parent="Camera2D/End" unique_id=1117319589]
+modulate = Color(1, 1, 1, 0)
+offset_left = -5.7043457
+offset_top = 2.953827
+offset_right = 32.295654
+offset_bottom = 18.953827
+scale = Vector2(0.3, 0.3)
+theme_override_fonts/font = ExtResource("6_ann66")
+theme_override_font_sizes/font_size = 8
+text = "HOME"
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="Camera2D/MenuScreen/ResumeB" to="." method="_on_resume_b_pressed"]
+[connection signal="pressed" from="Camera2D/MenuScreen/HomeB" to="." method="_on_home_b_pressed"]
+[connection signal="pressed" from="Camera2D/Pause" to="." method="_on_pause_pressed"]
+[connection signal="pressed" from="Camera2D/End/Button" to="." method="_on_button_pressed"]

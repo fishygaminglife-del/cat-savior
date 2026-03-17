@@ -1,0 +1,64 @@
+[gd_scene format=3 uid="uid://c527b7fdqs1n2"]
+
+[ext_resource type="Texture2D" uid="uid://dx2dkdfh8iavl" path="res://cave+forest/SewerScreen.png" id="1_rppv5"]
+[ext_resource type="PackedScene" uid="uid://drb1ainpgtx3q" path="res://scenes/Character.tscn" id="2_j3gru"]
+[ext_resource type="Texture2D" uid="uid://dtxn84ij20p4n" path="res://cave+forest/Top.png" id="3_7w1x0"]
+[ext_resource type="Texture2D" uid="uid://8gpxir8a067a" path="res://cave+forest/gate.png" id="4_c03w2"]
+
+[node name="Node2D" type="Node2D" unique_id=749614818]
+
+[node name="SewerScreen" type="Sprite2D" parent="." unique_id=908840830]
+position = Vector2(194.66669, 109.50001)
+scale = Vector2(0.337963, 0.33796299)
+texture = ExtResource("1_rppv5")
+
+[node name="SewerScreen2" type="Sprite2D" parent="." unique_id=176881700]
+position = Vector2(583.6666, 109.50001)
+scale = Vector2(0.337963, 0.33796299)
+texture = ExtResource("1_rppv5")
+
+[node name="SewerScreen3" type="Sprite2D" parent="." unique_id=320980306]
+position = Vector2(-583.3333, 109.50001)
+scale = Vector2(0.337963, 0.33796299)
+texture = ExtResource("1_rppv5")
+
+[node name="SewerScreen4" type="Sprite2D" parent="." unique_id=391446044]
+position = Vector2(-194.33337, 109.50001)
+scale = Vector2(0.337963, 0.33796299)
+texture = ExtResource("1_rppv5")
+
+[node name="Top" type="Sprite2D" parent="." unique_id=202259647]
+position = Vector2(4, -324)
+scale = Vector2(1.359375, 1)
+texture = ExtResource("3_7w1x0")
+
+[node name="Gate" type="Sprite2D" parent="." unique_id=1001378625]
+position = Vector2(-137, -12)
+scale = Vector2(2.5624998, 9.28418)
+texture = ExtResource("4_c03w2")
+
+[node name="Gate2" type="Sprite2D" parent="." unique_id=255111810]
+position = Vector2(-163, 57)
+scale = Vector2(2.5624998, 9.28418)
+texture = ExtResource("4_c03w2")
+
+[node name="Gate3" type="Sprite2D" parent="." unique_id=942774959]
+position = Vector2(-190, 129)
+scale = Vector2(2.5624998, 9.28418)
+texture = ExtResource("4_c03w2")
+
+[node name="Gate4" type="Sprite2D" parent="." unique_id=1693546335]
+position = Vector2(-187, 225)
+rotation = 0.2146755
+scale = Vector2(8.578123, 6.2897944)
+texture = ExtResource("4_c03w2")
+
+[node name="Gate5" type="Sprite2D" parent="." unique_id=1428333541]
+position = Vector2(-180, 76)
+rotation = 0.2146755
+scale = Vector2(8.578123, 6.2897944)
+texture = ExtResource("4_c03w2")
+
+[node name="CharacterBody2D" parent="." unique_id=51260792 instance=ExtResource("2_j3gru")]
+position = Vector2(128, 101)
+scale = Vector2(1, 0.99999994)

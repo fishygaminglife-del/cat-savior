@@ -453,6 +453,7 @@ libraries/ = SubResource("AnimationLibrary_q6urs")
 
 [node name="MenuScreen" type="Sprite2D" parent="." unique_id=457026694]
 process_mode = 3
+visible = false
 position = Vector2(-4.999996, -0.24999893)
 scale = Vector2(1.9374999, 1.9218748)
 texture = ExtResource("12_q6urs")

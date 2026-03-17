@@ -48,15 +48,8 @@ func platformer_movement(delta):
 
 	else:
 		velocity.x = move_toward(velocity.x, 0, Global.SPEED)
-	
+		await get_tree().create_timer(0.2)
+		$MCCharater.play("downidle")
 
 
 	move_and_slide()
-
-func _on_resume_b_pressed() -> void:
-	get_tree().paused = false
-	$MenuScreen.visible = false
-
-
-func _on_home_b_pressed() -> void:
-	pass # Replace with function body.

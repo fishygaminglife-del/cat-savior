@@ -3,6 +3,7 @@ var blink = false
 
 func _ready() -> void:
 	Global.SPEED = 100 
+	Global.is_platformer = false
 	$CharacterBody2D.visible = true
 	$AnimatedSprite2D.play("default")
 	$CharacterBody2D/KeyPadZoom/Check.visible = false
@@ -176,3 +177,17 @@ func _on_portrait_button_pressed() -> void:
 	$WindowButton.visible = true
 	$WindowButton.disabled = false
 	await $CharacterBody2D/PlayerAnimationPlayer.animation_finished
+
+
+func _on_pause_pressed() -> void:
+	$CharacterBody2D/MenuScreen.visible = true
+	get_tree().paused = true
+
+
+func _on_resume_b_pressed() -> void:
+	get_tree().paused = false
+	$CharacterBody2D/MenuScreen.visible = false
+
+func _on_home_b_pressed() -> void:
+	get_tree().change_scene_to_file("res://scenes/Home.tscn")
+	

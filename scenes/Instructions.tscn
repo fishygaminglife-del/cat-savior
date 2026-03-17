@@ -1,0 +1,80 @@
+[gd_scene format=3 uid="uid://3veq03c2kpr4"]
+
+[ext_resource type="Texture2D" uid="uid://ciw5om66avnn2" path="res://images/ExtraScreen.png" id="1_2jlg7"]
+[ext_resource type="Script" uid="uid://dctyscmsljr76" path="res://Scripts/instructions.gd" id="1_k078p"]
+[ext_resource type="FontFile" uid="uid://crprgneoqco73" path="res://fonts/pixel_operator/PixelOperator8-Bold.ttf" id="2_i8u5k"]
+[ext_resource type="Texture2D" uid="uid://bc821d4j0fit6" path="res://images/HomeScreen.png" id="2_vd7qg"]
+[ext_resource type="FontFile" uid="uid://c8uge3jdhs8qm" path="res://fonts/pixel_operator/PixelOperator8.ttf" id="3_k078p"]
+[ext_resource type="Texture2D" uid="uid://ck5muyvpobchl" path="res://images/homebutton.png" id="4_i8u5k"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bbd6a"]
+atlas = ExtResource("2_vd7qg")
+region = Rect2(0, 0, 1152, 648)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ypyb2"]
+atlas = ExtResource("2_vd7qg")
+region = Rect2(1152, 0, 1152, 648)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_07pdf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bbd6a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ypyb2")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Node2D" type="Node2D" unique_id=1941314105]
+script = ExtResource("1_k078p")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=588541680]
+position = Vector2(576, 324)
+sprite_frames = SubResource("SpriteFrames_07pdf")
+speed_scale = 0.3
+
+[node name="ExtraScreen" type="Sprite2D" parent="." unique_id=1491024345]
+position = Vector2(576, 324)
+texture = ExtResource("1_2jlg7")
+
+[node name="Label" type="Label" parent="." unique_id=1785278598]
+offset_left = 300.0
+offset_top = 25.0
+offset_right = 484.0
+offset_bottom = 48.0
+scale = Vector2(3, 3)
+theme_override_fonts/font = ExtResource("2_i8u5k")
+text = "INSTRUCTIONS"
+
+[node name="Label2" type="Label" parent="." unique_id=1506567171]
+offset_left = 388.0
+offset_top = 140.0
+offset_right = 764.0
+offset_bottom = 472.0
+theme_override_fonts/font = ExtResource("3_k078p")
+text = "Welcome to Cat Savior!
+
+The objective of the game is to find and reunite with your lost cat by completing  puzzles, and avoiding obstacles. 
+
+Follow instructions and explore the enviroment, as it will help you later on in the game. 
+
+Use WASD/Arrow keys, and Space
+
+Good Luck!"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Button" type="Button" parent="." unique_id=48800860]
+offset_left = 1060.0001
+offset_top = 23.999998
+offset_right = 1100.0001
+offset_bottom = 64.0
+scale = Vector2(1.6, 1.6)
+icon = ExtResource("4_i8u5k")
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

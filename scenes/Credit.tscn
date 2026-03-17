@@ -1,0 +1,77 @@
+[gd_scene format=3 uid="uid://ds2ywdwb3px75"]
+
+[ext_resource type="Script" uid="uid://c7rugqjt57y51" path="res://Scripts/credit.gd" id="1_omv6v"]
+[ext_resource type="Texture2D" uid="uid://ciw5om66avnn2" path="res://images/ExtraScreen.png" id="1_u8q48"]
+[ext_resource type="FontFile" uid="uid://crprgneoqco73" path="res://fonts/pixel_operator/PixelOperator8-Bold.ttf" id="2_4gtnx"]
+[ext_resource type="Texture2D" uid="uid://bc821d4j0fit6" path="res://images/HomeScreen.png" id="2_su8v0"]
+[ext_resource type="FontFile" uid="uid://c8uge3jdhs8qm" path="res://fonts/pixel_operator/PixelOperator8.ttf" id="3_omv6v"]
+[ext_resource type="Texture2D" uid="uid://ck5muyvpobchl" path="res://images/homebutton.png" id="5_su8v0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bbd6a"]
+atlas = ExtResource("2_su8v0")
+region = Rect2(0, 0, 1152, 648)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ypyb2"]
+atlas = ExtResource("2_su8v0")
+region = Rect2(1152, 0, 1152, 648)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2526r"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bbd6a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ypyb2")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Node2D" type="Node2D" unique_id=723208152]
+script = ExtResource("1_omv6v")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1929376707]
+position = Vector2(576, 324)
+sprite_frames = SubResource("SpriteFrames_2526r")
+speed_scale = 0.3
+
+[node name="ExtraScreen" type="Sprite2D" parent="." unique_id=341867208]
+position = Vector2(576, 324)
+texture = ExtResource("1_u8q48")
+
+[node name="Label" type="Label" parent="." unique_id=1126270986]
+offset_left = 300.0
+offset_top = 25.0
+offset_right = 484.0
+offset_bottom = 48.0
+scale = Vector2(3, 3)
+theme_override_fonts/font = ExtResource("2_4gtnx")
+text = "CREDIT"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="." unique_id=1445360345]
+offset_left = 388.0
+offset_top = 140.0
+offset_right = 764.0
+offset_bottom = 472.0
+theme_override_fonts/font = ExtResource("3_omv6v")
+text = "Created by: Vishwa Sairam
+
+Art & Assets: Vishwa Sairam
+ 
+ Sound by: Moodmode"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Button" type="Button" parent="." unique_id=274411203]
+offset_left = 1060.0001
+offset_top = 23.999998
+offset_right = 1100.0001
+offset_bottom = 64.0
+scale = Vector2(1.6, 1.6)
+icon = ExtResource("5_su8v0")
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

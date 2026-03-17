@@ -13,6 +13,7 @@ config_version=5
 config/name="Cat Savior"
 run/main_scene="uid://cttqvgvl5txkc"
 config/features=PackedStringArray("4.6", "GL Compatibility")
+boot_splash/show_image=false
 
 [autoload]
 

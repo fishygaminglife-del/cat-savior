@@ -1,11 +1,17 @@
 extends Node
+
 var is_platformer = false
 var SPEED = 100
 var _checkpoint = false
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
+var music_player: AudioStreamPlayer
 
+func _ready():
+	music_player = AudioStreamPlayer.new()
+	add_child(music_player)
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+	music_player.stream = load("res://sound/moodmode-no-copyright-music-201745.mp3")
+	music_player.volume_db = -6
+	music_player.stream.loop = true
+	music_player.process_mode = Node.PROCESS_MODE_ALWAYS
+	music_player.play()

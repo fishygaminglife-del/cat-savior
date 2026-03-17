@@ -4,6 +4,9 @@ extends Node2D
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	$MCCharater.play("downidle")
+	$Camera2D/End.visible = false
+	$Camera2D/End/Label.visible = false
+	$Camera2D/End/Button.visible = false
 	$Camera2D/CharacterBody2D/PlayerAnimationPlayer.play("textplay")
 	await $Camera2D/CharacterBody2D/PlayerAnimationPlayer.animation_finished
 	$Camera2D/CharacterBody2D/Text.text = "He MUST be hiding here!"
@@ -35,3 +38,23 @@ func _ready() -> void:
 	$Camera2D/CharacterBody2D/Name.text = "Whiskers"
 	$Camera2D/CharacterBody2D/PlayerAnimationPlayer.play("textplay")
 	await $Camera2D/CharacterBody2D/PlayerAnimationPlayer.animation_finished
+	$AnimationPlayer.play("Animation5")
+	await $AnimationPlayer.animation_finished
+
+
+func _on_pause_pressed() -> void:
+	$Camera2D/MenuScreen.visible = true
+	get_tree().paused = true
+
+
+func _on_resume_b_pressed() -> void:
+	get_tree().paused = false
+	$Camera2D/MenuScreen.visible = false
+
+func _on_home_b_pressed() -> void:
+	get_tree().change_scene_to_file("res://scenes/Home.tscn")
+	
+
+
+func _on_button_pressed() -> void:
+	get_tree().change_scene_to_file("res://scenes/Home.tscn")

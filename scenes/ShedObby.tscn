@@ -1650,7 +1650,7 @@ position = Vector2(1342, 512)
 shape = SubResource("RectangleShape2D_jxxnc")
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=51260792]
-position = Vector2(-815, 496)
+position = Vector2(-792, 520)
 script = ExtResource("5_nooa1")
 
 [node name="MCCharater" type="AnimatedSprite2D" parent="CharacterBody2D" unique_id=1546092177]
@@ -1694,7 +1694,6 @@ libraries/ = SubResource("AnimationLibrary_q6urs")
 
 [node name="MenuScreen" type="Sprite2D" parent="CharacterBody2D" unique_id=457026694]
 process_mode = 3
-visible = false
 position = Vector2(-4.999996, -0.24999893)
 scale = Vector2(1.9374999, 1.9218748)
 texture = ExtResource("17_8d0jg")
@@ -1724,14 +1723,14 @@ autowrap_mode = 2
 
 [node name="ResumeB" type="Button" parent="CharacterBody2D/MenuScreen" unique_id=1349071265]
 process_mode = 3
-offset_left = -8.258066
-offset_top = -20.68293
-offset_right = 43.741936
-offset_bottom = -4.68293
+offset_left = -11.354828
+offset_top = -19.642273
+offset_right = 54.645172
+offset_bottom = -3.642273
 scale = Vector2(0.5, 0.5)
 theme_override_fonts/font = ExtResource("15_j8eda")
 theme_override_font_sizes/font_size = 8
-text = "RESUME"
+text = "TRY AGAIN"
 
 [node name="HomeB" type="Button" parent="CharacterBody2D/MenuScreen" unique_id=277495167]
 process_mode = 3
@@ -1757,5 +1756,5 @@ texture = ExtResource("24_jxxnc")
 [connection signal="body_entered" from="Death" to="." method="_on_death_body_entered"]
 [connection signal="body_entered" from="Death2" to="." method="_on_death_2_body_entered"]
 [connection signal="body_entered" from="Spencer" to="." method="_on_spencer_body_entered"]
-[connection signal="pressed" from="CharacterBody2D/MenuScreen/ResumeB" to="CharacterBody2D" method="_on_resume_b_pressed"]
-[connection signal="pressed" from="CharacterBody2D/MenuScreen/HomeB" to="CharacterBody2D" method="_on_home_b_pressed"]
+[connection signal="pressed" from="CharacterBody2D/MenuScreen/ResumeB" to="." method="_on_resume_b_pressed"]
+[connection signal="pressed" from="CharacterBody2D/MenuScreen/HomeB" to="." method="_on_home_b_pressed"]
