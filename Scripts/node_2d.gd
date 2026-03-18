@@ -1,7 +1,7 @@
 extends Node2D
 
+var _lives = 3
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	Global.is_platformer = true
 	$Croc.get_animation("Croc Water").loop = true
@@ -30,4 +30,12 @@ func _on_pov_change_body_entered(body: Node2D) -> void:
 
 
 func _on_croc_touch_body_entered(body: Node2D) -> void:
-	pass # Replace with function body.
+	_lives -= 1
+	if _lives >= 2:
+		$CharacterBody2D/Heart3.modulate = Color(0.365, 0.0, 0.0, 1.0)
+	elif _lives >= 1:
+		$CharacterBody2D/Heart2.modulate = Color(0.365, 0.0, 0.0, 1.0)
+	elif _lives >= 0:
+		$CharacterBody2D/Heart.modulate = Color(0.365, 0.0, 0.0, 1.0)
+		await get_tree().create_timer(0.3)
+		get_tree().reload_current_scene()

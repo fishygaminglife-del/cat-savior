@@ -21,6 +21,7 @@
 [ext_resource type="FontFile" uid="uid://c8uge3jdhs8qm" path="res://fonts/pixel_operator/PixelOperator8.ttf" id="15_yudd4"]
 [ext_resource type="Texture2D" uid="uid://dsrvwq8cgs0dh" path="res://images/MenuScreen.png" id="16_0tnqg"]
 [ext_resource type="FontFile" uid="uid://crprgneoqco73" path="res://fonts/pixel_operator/PixelOperator8-Bold.ttf" id="17_s0tj3"]
+[ext_resource type="Texture2D" uid="uid://bbu80j2b0sbnk" path="res://cave+forest/Heart.png" id="20_mylq8"]
 
 [sub_resource type="Animation" id="Animation_vcvao"]
 resource_name = "Croc "
@@ -592,9 +593,10 @@ scale = Vector2(0.337963, 0.33796299)
 texture = ExtResource("1_rppv5")
 
 [node name="Top" type="Sprite2D" parent="Node2D" unique_id=202259647]
-position = Vector2(3, -324)
+position = Vector2(-69, -128)
 scale = Vector2(1.359375, 1)
 texture = ExtResource("3_7w1x0")
+offset = Vector2(52.96552, -196)
 
 [node name="SewerScreen5" type="Sprite2D" parent="Node2D" unique_id=779867026]
 position = Vector2(1750.6667, 109.5)
@@ -850,6 +852,21 @@ text = "Hello"
 autowrap_mode = 2
 visible_characters = 0
 visible_ratio = 0.0
+
+[node name="Heart" type="Sprite2D" parent="CharacterBody2D" unique_id=1089912673]
+position = Vector2(-156, -80)
+scale = Vector2(0.75, 0.7500001)
+texture = ExtResource("20_mylq8")
+
+[node name="Heart2" type="Sprite2D" parent="CharacterBody2D" unique_id=594159046]
+position = Vector2(-137.5, -80.5)
+scale = Vector2(0.71875, 0.71875006)
+texture = ExtResource("20_mylq8")
+
+[node name="Heart3" type="Sprite2D" parent="CharacterBody2D" unique_id=1252869685]
+position = Vector2(-120.00001, -81)
+scale = Vector2(0.6875, 0.68750006)
+texture = ExtResource("20_mylq8")
 
 [node name="PlayerAnimationPlayer" type="AnimationPlayer" parent="CharacterBody2D" unique_id=1966675699]
 libraries/ = SubResource("AnimationLibrary_q6urs")
