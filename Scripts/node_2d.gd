@@ -4,8 +4,15 @@ var _lives = 3
 
 func _ready() -> void:
 	Global.is_platformer = true
-	$Croc.get_animation("Croc Water").loop = true
-	$Croc.play("Croc Water")
+	$Crocodile/Croc1.play("default")
+	$Crocodile/Croc2.play("default")
+	$AnimatedSprite2D.play("default")
+	$Crocodile/CrocW3.get_animation("Croc Water").loop = true
+	$Crocodile/CrocL1.get_animation("LandCroc1").loop = true
+	$Crocodile/CrocL2.get_animation("LandCroc2").loop = true
+	$Crocodile/CrocL1.play("LandCroc1")
+	$Crocodile/CrocL2.play("LandCroc2")
+	$Crocodile/CrocW3.play("Croc Water")
 	$CharacterBody2D/Name.text = "Caleb"
 	$CharacterBody2D/Text.text = "WHISKERS..."
 	$CharacterBody2D/PlayerAnimationPlayer.play("textplay")

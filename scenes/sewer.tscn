@@ -23,43 +23,6 @@
 [ext_resource type="FontFile" uid="uid://crprgneoqco73" path="res://fonts/pixel_operator/PixelOperator8-Bold.ttf" id="17_s0tj3"]
 [ext_resource type="Texture2D" uid="uid://bbu80j2b0sbnk" path="res://cave+forest/Heart.png" id="20_mylq8"]
 
-[sub_resource type="Animation" id="Animation_vcvao"]
-resource_name = "Croc "
-length = 10.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedSprite2D:flip_h")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 5.3),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("AnimatedSprite2D:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 1.4, 2.7333333, 3.9666667, 5.266667, 6.5333333, 7.9, 9.2, 10.366667),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(-143, 154), Vector2(66, 132), Vector2(229, 162), Vector2(378, 125), Vector2(514, 156), Vector2(325, 129), Vector2(173, 159), Vector2(9, 121), Vector2(-136, 157)]
-}
-
-[sub_resource type="Animation" id="Animation_mylq8"]
-length = 0.001
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_muv0v"]
-_data = {
-&"Croc Water": SubResource("Animation_vcvao"),
-&"RESET": SubResource("Animation_mylq8")
-}
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_kqfxt"]
 atlas = ExtResource("5_ts5m5")
 region = Rect2(0, 0, 71, 21)
@@ -134,7 +97,7 @@ size = Vector2(20, 158.5)
 size = Vector2(315, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_muv0v"]
-size = Vector2(252.5, 20)
+size = Vector2(192.5, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kqfxt"]
 size = Vector2(62, 20)
@@ -149,6 +112,161 @@ size = Vector2(20, 221)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bowhh"]
 size = Vector2(162, 20)
+
+[sub_resource type="Animation" id="Animation_vcvao"]
+resource_name = "Croc "
+length = 10.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:flip_h")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.4, 2.7333333, 3.9666667, 5.266667, 6.5333333, 7.9, 9.2, 10.366667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-143, 154), Vector2(66, 132), Vector2(229, 162), Vector2(378, 125), Vector2(514, 156), Vector2(325, 129), Vector2(173, 159), Vector2(9, 121), Vector2(-136, 157)]
+}
+
+[sub_resource type="Animation" id="Animation_muv0v"]
+resource_name = "LandCroc1"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Crocodile/Croc1:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2, 2.8, 3.7333333, 5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(727, 69), Vector2(510, 71), Vector2(337, 71), Vector2(200, 73), Vector2(407, 71), Vector2(648, 73)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Crocodile/Croc1/CrocTouch/CollisionPolygon2D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2.7, 2.8),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 1), Vector2(-1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Crocodile/Croc1:flip_h")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 2.8, 5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+
+[sub_resource type="Animation" id="Animation_kqfxt"]
+resource_name = "LandCroc2"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Crocodile/Croc2:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2, 2.8, 3.7333333, 5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1127, 69), Vector2(910, 71), Vector2(737, 71), Vector2(600, 73), Vector2(807, 71), Vector2(1048, 73)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Crocodile/Croc2/CrocTouch2/CollisionPolygon2D2:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2.7, 2.8),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 1), Vector2(-1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Crocodile/Croc2:flip_h")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 2.8, 5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+
+[sub_resource type="Animation" id="Animation_mylq8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Crocodile/Croc1:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(727, 69)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Crocodile/Croc1/CrocTouch/CollisionPolygon2D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Crocodile/Croc1:flip_h")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_muv0v"]
+_data = {
+&"Croc Water": SubResource("Animation_vcvao"),
+&"LandCroc1": SubResource("Animation_muv0v"),
+&"LandCroc2": SubResource("Animation_kqfxt"),
+&"RESET": SubResource("Animation_mylq8")
+}
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vcvao"]
 atlas = ExtResource("5_ts5m5")
@@ -660,18 +778,21 @@ texture = ExtResource("5_vcvao")
 
 [node name="Ladder2" type="Sprite2D" parent="BG" unique_id=2028268800]
 modulate = Color(0.8235294, 1, 0.83137256, 1)
-position = Vector2(641.5, 22)
+position = Vector2(568.5, 22)
 scale = Vector2(1.21875, 1.21875)
 texture = ExtResource("5_vcvao")
 
 [node name="Ladder3" type="Sprite2D" parent="BG" unique_id=136049921]
 modulate = Color(0.8235294, 1, 0.83137256, 1)
-position = Vector2(1043.5, 22)
+position = Vector2(855.5, 22)
 scale = Vector2(1.21875, 1.21875)
 texture = ExtResource("5_vcvao")
 
-[node name="Croc" type="AnimationPlayer" parent="." unique_id=1519209814]
-libraries/ = SubResource("AnimationLibrary_muv0v")
+[node name="Ladder4" type="Sprite2D" parent="BG" unique_id=1007021341]
+modulate = Color(0.8235294, 1, 0.83137256, 1)
+position = Vector2(1119.5, 22)
+scale = Vector2(1.21875, 1.21875)
+texture = ExtResource("5_vcvao")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=243087309]
 position = Vector2(-143, 154)
@@ -704,11 +825,11 @@ position = Vector2(-383, -156)
 shape = SubResource("RectangleShape2D_mylq8")
 
 [node name="CollisionShape2D12" type="CollisionShape2D" parent="StaticBody2D" unique_id=910176545]
-position = Vector2(439.75, 21)
+position = Vector2(409.75, 21)
 shape = SubResource("RectangleShape2D_muv0v")
 
 [node name="CollisionShape2D18" type="CollisionShape2D" parent="StaticBody2D" unique_id=1998283008]
-position = Vector2(840.75, 21)
+position = Vector2(731.75, 21)
 shape = SubResource("RectangleShape2D_muv0v")
 
 [node name="CollisionShape2D7" type="CollisionShape2D" parent="StaticBody2D" unique_id=181278487]
@@ -734,51 +855,77 @@ position = Vector2(237, -27)
 shape = SubResource("RectangleShape2D_kqfxt")
 
 [node name="CollisionShape2D13" type="CollisionShape2D" parent="StaticBody2D" unique_id=1213132434]
-position = Vector2(591, 21)
+position = Vector2(518, 21)
 shape = SubResource("RectangleShape2D_kqfxt")
 
 [node name="CollisionShape2D14" type="CollisionShape2D" parent="StaticBody2D" unique_id=211215973]
-position = Vector2(612, -21)
+position = Vector2(539, -21)
 rotation = 1.5707964
 shape = SubResource("RectangleShape2D_kqfxt")
 
 [node name="CollisionShape2D15" type="CollisionShape2D" parent="StaticBody2D" unique_id=2090136080]
-position = Vector2(692, 21)
+position = Vector2(619, 21)
 shape = SubResource("RectangleShape2D_kqfxt")
 
 [node name="CollisionShape2D16" type="CollisionShape2D" parent="StaticBody2D" unique_id=883841431]
-position = Vector2(671, -21)
+position = Vector2(598, -21)
 rotation = 1.5707964
 shape = SubResource("RectangleShape2D_kqfxt")
 
 [node name="CollisionShape2D17" type="CollisionShape2D" parent="StaticBody2D" unique_id=865390178]
-position = Vector2(642, -27)
+position = Vector2(569, -27)
 shape = SubResource("RectangleShape2D_kqfxt")
 
 [node name="CollisionShape2D19" type="CollisionShape2D" parent="StaticBody2D" unique_id=1846421709]
-position = Vector2(1242.75, 21)
+position = Vector2(992.75, 21)
 shape = SubResource("RectangleShape2D_muv0v")
 
 [node name="CollisionShape2D20" type="CollisionShape2D" parent="StaticBody2D" unique_id=875378786]
-position = Vector2(993, 21)
+position = Vector2(805, 21)
 shape = SubResource("RectangleShape2D_kqfxt")
 
 [node name="CollisionShape2D21" type="CollisionShape2D" parent="StaticBody2D" unique_id=360780038]
-position = Vector2(1014, -21)
+position = Vector2(826, -21)
 rotation = 1.5707964
 shape = SubResource("RectangleShape2D_kqfxt")
 
 [node name="CollisionShape2D22" type="CollisionShape2D" parent="StaticBody2D" unique_id=568094883]
-position = Vector2(1094, 21)
+position = Vector2(906, 21)
 shape = SubResource("RectangleShape2D_kqfxt")
 
 [node name="CollisionShape2D23" type="CollisionShape2D" parent="StaticBody2D" unique_id=1290176925]
-position = Vector2(1073, -21)
+position = Vector2(885, -21)
 rotation = 1.5707964
 shape = SubResource("RectangleShape2D_kqfxt")
 
 [node name="CollisionShape2D24" type="CollisionShape2D" parent="StaticBody2D" unique_id=1852475579]
-position = Vector2(1044, -27)
+position = Vector2(856, -27)
+shape = SubResource("RectangleShape2D_kqfxt")
+
+[node name="CollisionShape2D25" type="CollisionShape2D" parent="StaticBody2D" unique_id=1860395566]
+position = Vector2(1256.75, 21)
+shape = SubResource("RectangleShape2D_muv0v")
+
+[node name="CollisionShape2D26" type="CollisionShape2D" parent="StaticBody2D" unique_id=1729057202]
+position = Vector2(1069, 21)
+shape = SubResource("RectangleShape2D_kqfxt")
+
+[node name="CollisionShape2D27" type="CollisionShape2D" parent="StaticBody2D" unique_id=1092414764]
+position = Vector2(1090, -21)
+rotation = 1.5707964
+shape = SubResource("RectangleShape2D_kqfxt")
+
+[node name="CollisionShape2D28" type="CollisionShape2D" parent="StaticBody2D" unique_id=822549281]
+position = Vector2(1170, 21)
+shape = SubResource("RectangleShape2D_kqfxt")
+
+[node name="CollisionShape2D29" type="CollisionShape2D" parent="StaticBody2D" unique_id=1120167136]
+position = Vector2(1149, -21)
+rotation = 1.5707964
+shape = SubResource("RectangleShape2D_kqfxt")
+
+[node name="CollisionShape2D30" type="CollisionShape2D" parent="StaticBody2D" unique_id=935893102]
+position = Vector2(1120, -27)
 shape = SubResource("RectangleShape2D_kqfxt")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=479028907]
@@ -802,18 +949,43 @@ shape = SubResource("RectangleShape2D_vcvao")
 position = Vector2(9, 75)
 shape = SubResource("RectangleShape2D_bowhh")
 
-[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="." unique_id=45067711]
-position = Vector2(443, 73)
+[node name="Crocodile" type="Node2D" parent="." unique_id=1863789525]
+
+[node name="CrocL1" type="AnimationPlayer" parent="Crocodile" unique_id=1519209814]
+root_node = NodePath("../..")
+libraries/ = SubResource("AnimationLibrary_muv0v")
+
+[node name="CrocL2" type="AnimationPlayer" parent="Crocodile" unique_id=153177434]
+root_node = NodePath("../..")
+libraries/ = SubResource("AnimationLibrary_muv0v")
+
+[node name="CrocW3" type="AnimationPlayer" parent="Crocodile" unique_id=1201218896]
+root_node = NodePath("../..")
+libraries/ = SubResource("AnimationLibrary_muv0v")
+
+[node name="Croc1" type="AnimatedSprite2D" parent="Crocodile" unique_id=45067711]
+position = Vector2(727, 69)
 sprite_frames = SubResource("SpriteFrames_muv0v")
 frame_progress = 0.39549497
 
-[node name="CrocTouch" type="Area2D" parent="AnimatedSprite2D2" unique_id=551316740]
+[node name="CrocTouch" type="Area2D" parent="Crocodile/Croc1" unique_id=551316740]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="AnimatedSprite2D2/CrocTouch" unique_id=228074031]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Crocodile/Croc1/CrocTouch" unique_id=228074031]
+scale = Vector2(-1, 1)
+polygon = PackedVector2Array(16, 10, 32, 10, 34, 8, 17, 0, 5, -4, -7, -4, -9, -2, -14, -2, -16, -3, -28, -10, -33, -8, -22, 2, -34, 6, -31, 10, -25, 11, -12, 12, -10, 14, -3, 14, -2, 11, 5, 11, 8, 14, 14, 14)
+
+[node name="Croc2" type="AnimatedSprite2D" parent="Crocodile" unique_id=1367308017]
+position = Vector2(1127, 69)
+sprite_frames = SubResource("SpriteFrames_muv0v")
+frame_progress = 0.39549497
+
+[node name="CrocTouch2" type="Area2D" parent="Crocodile/Croc2" unique_id=1071399736]
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Crocodile/Croc2/CrocTouch2" unique_id=324921998]
 polygon = PackedVector2Array(16, 10, 32, 10, 34, 8, 17, 0, 5, -4, -7, -4, -9, -2, -14, -2, -16, -3, -28, -10, -33, -8, -22, 2, -34, 6, -31, 10, -25, 11, -12, 12, -10, 14, -3, 14, -2, 11, 5, 11, 8, 14, 14, 14)
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=51260792]
-position = Vector2(9, -261)
+position = Vector2(12, -264)
 scale = Vector2(1, 0.99999994)
 script = ExtResource("5_e0x38")
 
@@ -927,6 +1099,6 @@ text = "HOME"
 zoom = Vector2(3.5, 3.5)
 
 [connection signal="body_entered" from="POV CHANGE" to="." method="_on_pov_change_body_entered"]
-[connection signal="body_entered" from="AnimatedSprite2D2/CrocTouch" to="." method="_on_croc_touch_body_entered"]
+[connection signal="body_entered" from="Crocodile/Croc1/CrocTouch" to="." method="_on_croc_touch_body_entered"]
 [connection signal="pressed" from="CharacterBody2D/MenuScreen/ResumeB" to="CharacterBody2D" method="_on_resume_b_pressed"]
 [connection signal="pressed" from="CharacterBody2D/MenuScreen/HomeB" to="CharacterBody2D" method="_on_home_b_pressed"]
