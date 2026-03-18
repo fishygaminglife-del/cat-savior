@@ -1,6 +1,20 @@
 extends Node2D
 var runs = 0
 var check = 0
+var can_skip = true
+
+func skip_text():
+	if can_skip:
+		var player = $CharacterBody2D/PlayerAnimationPlayer
+		player.seek(player.current_animation_length, true)
+
+func _process(delta):
+	if Input.is_action_just_pressed("txtskip"):
+		skip_text()
+	
+func wait_for_animation_end():
+	while $CharacterBody2D/PlayerAnimationPlayer.is_playing():
+		await get_tree().process_frame
 
 func _ready() -> void:
 	$CharacterBody2D/TextBox.visible = false
@@ -18,8 +32,9 @@ func _ready() -> void:
 		$CharacterBody2D/Text.text = "I can hear my cat, he must be at the other side!"
 		$CharacterBody2D/PlayerAnimationPlayer.play("textplay")
 		$AudioStreamPlayer2D2.play()
-		await $CharacterBody2D/PlayerAnimationPlayer.animation_finished
+		await wait_for_animation_end()
 		$AudioStreamPlayer2D2.stream_paused = true
+		$CharacterBody2D/skiptxt.visible = false
 	
 
 

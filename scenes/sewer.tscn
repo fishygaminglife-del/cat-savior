@@ -764,7 +764,7 @@ volume_db = 6.766
 position = Vector2(-53.444458, 109.25001)
 scale = Vector2(0.33873457, 0.33873454)
 sprite_frames = SubResource("SpriteFrames_0tnqg")
-frame_progress = 0.23429628
+frame_progress = 0.060678557
 speed_scale = 0.2
 
 [node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="BgScreen" unique_id=964179526 groups=["bgsewer"]]
@@ -789,7 +789,7 @@ frame_progress = 0.32719865
 speed_scale = 0.2
 
 [node name="AnimatedSprite2D8" type="AnimatedSprite2D" parent="BgScreen" unique_id=168149373 groups=["bgsewer"]]
-position = Vector2(-443.88892, 109.75)
+position = Vector2(-442.88892, 109.75)
 scale = Vector2(0.33873457, 0.33873454)
 sprite_frames = SubResource("SpriteFrames_0tnqg")
 frame_progress = 0.32719865
@@ -1190,6 +1190,16 @@ text = "Hello"
 autowrap_mode = 2
 visible_characters = 0
 visible_ratio = 0.0
+
+[node name="skiptxt" type="Label" parent="CharacterBody2D" unique_id=1348606985]
+offset_left = 15.0
+offset_top = 73.000015
+offset_right = 127.0
+offset_bottom = 85.000015
+scale = Vector2(0.28000247, 0.3999976)
+theme_override_fonts/font = ExtResource("15_yudd4")
+theme_override_font_sizes/font_size = 8
+text = "space to skip text"
 
 [node name="Heart" type="Sprite2D" parent="CharacterBody2D" unique_id=1089912673]
 position = Vector2(-156, -80)

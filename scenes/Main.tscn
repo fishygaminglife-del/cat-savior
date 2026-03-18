@@ -1041,6 +1041,16 @@ autowrap_mode = 2
 visible_characters = 0
 visible_ratio = 0.0
 
+[node name="skiptxt" type="Label" parent="CharacterBody2D" unique_id=1048749026]
+offset_left = 14.999999
+offset_top = 73.0
+offset_right = 127.0
+offset_bottom = 85.0
+scale = Vector2(0.28000247, 0.3999976)
+theme_override_fonts/font = ExtResource("23_pnhog")
+theme_override_font_sizes/font_size = 8
+text = "space to skip text"
+
 [node name="PlayerAnimationPlayer" type="AnimationPlayer" parent="CharacterBody2D" unique_id=1966675699]
 libraries/ = SubResource("AnimationLibrary_q6urs")
 

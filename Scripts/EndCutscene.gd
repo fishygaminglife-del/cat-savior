@@ -1,7 +1,25 @@
 extends Node2D
 
 
-# Called when the node enters the scene tree for the first time.
+var can_skip = true
+
+func skip_animation():
+	if can_skip:
+		var player = $Camera2D/CharacterBody2D/PlayerAnimationPlayer
+		player.seek(player.current_animation_length, true)
+		var player2 = $AnimationPlayer
+		player2.seek(player2.current_animation_length, true)
+
+func _process(delta):
+	if Input.is_action_just_pressed("txtskip"):
+		skip_animation()
+	
+func wait_for_animation_end():
+	while $Camera2D/CharacterBody2D/PlayerAnimationPlayer.is_playing() \
+		or $AnimationPlayer.is_playing():
+		await get_tree().process_frame
+
+		
 func _ready() -> void:
 	$MCCharater.play("downidle")
 	$Camera2D/End.visible = false
@@ -10,32 +28,32 @@ func _ready() -> void:
 	$Camera2D/CharacterBody2D/Text.text = "He MUST be hiding here!"
 	$Camera2D/CharacterBody2D/PlayerAnimationPlayer.play("textplay")
 	$AudioStreamPlayer2D3.play()
-	await $Camera2D/CharacterBody2D/PlayerAnimationPlayer.animation_finished
+	await wait_for_animation_end()
 	$AudioStreamPlayer2D3.stream_paused = true
 	$MCCharater.play("side2")
 	$AnimationPlayer.play("Animation1")
-	await $AnimationPlayer.animation_finished
+	await wait_for_animation_end()
 	$MCCharater.play("downidle")	
 	$Camera2D/CharacterBody2D/Text.text = "Whoa, this is messed up, and what is that?"
 	$Camera2D/CharacterBody2D/PlayerAnimationPlayer.play("textplay")
 	$AudioStreamPlayer2D3.stream_paused = false
 	await get_tree().create_timer(1).timeout
 	$AnimationPlayer.play("Animation2")
-	await $Camera2D/CharacterBody2D/PlayerAnimationPlayer.animation_finished
+	await wait_for_animation_end()
 	$AudioStreamPlayer2D3.stream_paused = true
 	$Camera2D/CharacterBody2D/Text.text = "It looks like a hole, wait, WHISKERS YOU THERE???"
 	$Camera2D/CharacterBody2D/PlayerAnimationPlayer.play("texp_play2")
 	$AudioStreamPlayer2D3.stream_paused = false
-	await $Camera2D/CharacterBody2D/PlayerAnimationPlayer.animation_finished
+	await wait_for_animation_end()
 	$AudioStreamPlayer2D3.stream_paused = true
 	$MCCharater.play("side2")
 	$AnimationPlayer.play("Animation3")
-	await $AnimationPlayer.animation_finished
+	await wait_for_animation_end()
 	$MCCharater.play("downidle")	
 	$Camera2D/CharacterBody2D/Text.text = "Whiskers, move away from the edge slowly, you're all I got... "
 	$Camera2D/CharacterBody2D/PlayerAnimationPlayer.play("texp_play2")
 	$AudioStreamPlayer2D3.stream_paused = false
-	await $Camera2D/CharacterBody2D/PlayerAnimationPlayer.animation_finished
+	await wait_for_animation_end()
 	$AudioStreamPlayer2D3.stream_paused = true
 	$MCCharater.play("side2")	
 	$AnimationPlayer.play("Animation4")
@@ -46,7 +64,7 @@ func _ready() -> void:
 	$Camera2D/CharacterBody2D/Name.text = "Whiskers"
 	$Camera2D/CharacterBody2D/PlayerAnimationPlayer.play("textplay")
 	$AudioStreamPlayer2D2.play()
-	await $Camera2D/CharacterBody2D/PlayerAnimationPlayer.animation_finished
+	await wait_for_animation_end()
 	get_tree().change_scene_to_file("res://scenes/sewer.tscn")
 
 

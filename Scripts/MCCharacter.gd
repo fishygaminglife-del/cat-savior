@@ -4,6 +4,8 @@ const JUMP_VELOCITY = -300
 var idle_time = 0.0
 var last_facing = 1  # 1 = right, -1 = left
 
+
+	
 func _physics_process(delta: float) -> void:
 	
 	if Global.is_platformer == true:

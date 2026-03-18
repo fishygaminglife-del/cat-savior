@@ -1,5 +1,20 @@
 extends Node2D
 var blink = false
+var can_skip = true
+
+func skip_text():
+	if can_skip:
+		var player = $CharacterBody2D/PlayerAnimationPlayer
+		player.seek(player.current_animation_length, true)
+
+func _process(delta):
+	if Input.is_action_just_pressed("txtskip"):
+		skip_text()
+	
+func wait_for_animation_end():
+	while $CharacterBody2D/PlayerAnimationPlayer.is_playing():
+		await get_tree().process_frame
+
 
 func _ready() -> void:
 	Global.SPEED = 100 
@@ -36,24 +51,24 @@ func _ready() -> void:
 	$CharacterBody2D/Name.text = "???"
 	$CharacterBody2D/Text.text = "Explore the room, using WASD or Arrow Keys."
 	$CharacterBody2D/PlayerAnimationPlayer.play("textplay")
-	await $CharacterBody2D/PlayerAnimationPlayer.animation_finished
+	await wait_for_animation_end()
 	$CharacterBody2D/Name.text = "Caleb"
 	$CharacterBody2D/Text.text = "WHAT HAPPENED TO MY HOUSE!!!"
 	$CharacterBody2D/PlayerAnimationPlayer.play("texp_play2")
 	$AudioStreamPlayer2D3.play()
-	await $CharacterBody2D/PlayerAnimationPlayer.animation_finished
+	await wait_for_animation_end()
 	$AudioStreamPlayer2D3.stream_paused = true
 	$CharacterBody2D/Name.text = "Caleb"
 	$CharacterBody2D/Text.text = "As long as Whiskers is okay..."
 	$CharacterBody2D/PlayerAnimationPlayer.play("texp_play2")
 	$AudioStreamPlayer2D3.stream_paused = false
-	await $CharacterBody2D/PlayerAnimationPlayer.animation_finished
+	await wait_for_animation_end()
 	$AudioStreamPlayer2D3.stream_paused = true
 	$CharacterBody2D/Name.text = "Caleb"
 	$CharacterBody2D/Text.text = "WHERE IS WHISKERS AND WHY IS THE WINDOW BROKEN???"
 	$CharacterBody2D/PlayerAnimationPlayer.play("texp_play2")
 	$AudioStreamPlayer2D3.stream_paused = false
-	await $CharacterBody2D/PlayerAnimationPlayer.animation_finished
+	await wait_for_animation_end()
 	$AudioStreamPlayer2D3.stream_paused = true
 	$CharacterBody2D/Name.text = "Caleb"
 	$CharacterBody2D/Text.text = "Let's pick up this portrait (click on the portrait)"
@@ -63,7 +78,7 @@ func _ready() -> void:
 	$CharacterBody2D/PlayerAnimationPlayer.play("texp_play2")	
 	$AudioStreamPlayer2D3.stream_paused = false
 	blink = true
-	await $CharacterBody2D/PlayerAnimationPlayer.animation_finished
+	await wait_for_animation_end()
 	$AudioStreamPlayer2D3.stream_paused = true
 
 
