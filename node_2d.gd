@@ -40,24 +40,31 @@ func _ready() -> void:
 	$CharacterBody2D/Name.text = "Caleb"
 	$CharacterBody2D/Text.text = "WHAT HAPPENED TO MY HOUSE!!!"
 	$CharacterBody2D/PlayerAnimationPlayer.play("texp_play2")
+	$AudioStreamPlayer2D3.play()
 	await $CharacterBody2D/PlayerAnimationPlayer.animation_finished
+	$AudioStreamPlayer2D3.stream_paused = true
 	$CharacterBody2D/Name.text = "Caleb"
 	$CharacterBody2D/Text.text = "As long as Whiskers is okay..."
 	$CharacterBody2D/PlayerAnimationPlayer.play("texp_play2")
+	$AudioStreamPlayer2D3.stream_paused = false
 	await $CharacterBody2D/PlayerAnimationPlayer.animation_finished
+	$AudioStreamPlayer2D3.stream_paused = true
 	$CharacterBody2D/Name.text = "Caleb"
 	$CharacterBody2D/Text.text = "WHERE IS WHISKERS AND WHY IS THE WINDOW BROKEN???"
 	$CharacterBody2D/PlayerAnimationPlayer.play("texp_play2")
+	$AudioStreamPlayer2D3.stream_paused = false
 	await $CharacterBody2D/PlayerAnimationPlayer.animation_finished
+	$AudioStreamPlayer2D3.stream_paused = true
 	$CharacterBody2D/Name.text = "Caleb"
 	$CharacterBody2D/Text.text = "Let's pick up this portrait (click on the portrait)"
 	$PortraitButton.visible = true
 	$PortraitButton2.disabled = false
 	$PortraitButton2.visible = true
 	$CharacterBody2D/PlayerAnimationPlayer.play("texp_play2")	
+	$AudioStreamPlayer2D3.stream_paused = false
 	blink = true
 	await $CharacterBody2D/PlayerAnimationPlayer.animation_finished
-	
+	$AudioStreamPlayer2D3.stream_paused = true
 
 
 func _on_window_button_pressed() -> void:
@@ -157,7 +164,9 @@ func _on_portrait_button_2_pressed() -> void:
 	$CharacterBody2D/PlayerAnimationPlayer.play("text_play")
 	$WindowButton.visible = true
 	$WindowButton.disabled = false
+	$AudioStreamPlayer2D3.play()
 	await $CharacterBody2D/PlayerAnimationPlayer.animation_finished
+	$AudioStreamPlayer2D3.stream_paused = true
 
 
 func _on_portrait_button_pressed() -> void:
@@ -173,7 +182,9 @@ func _on_portrait_button_pressed() -> void:
 	$CharacterBody2D/PlayerAnimationPlayer.play("text_play")
 	$WindowButton.visible = true
 	$WindowButton.disabled = false
+	$AudioStreamPlayer2D3.play()
 	await $CharacterBody2D/PlayerAnimationPlayer.animation_finished
+	$AudioStreamPlayer2D3.stream_paused = true
 
 
 func _on_pause_pressed() -> void:

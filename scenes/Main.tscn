@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dkpwlesbgl2cf"]
 
 [ext_resource type="Script" uid="uid://b108td64bp1lm" path="res://node_2d.gd" id="1_elqb8"]
+[ext_resource type="AudioStream" uid="uid://csfl71h0lmn54" path="res://sound/Speaking - Animal Crossing Sound Effect.mp3" id="2_g6wdg"]
 [ext_resource type="Texture2D" uid="uid://bydfq60lc5doc" path="res://tiles/BasicTLMap.png" id="2_rvslj"]
 [ext_resource type="Texture2D" uid="uid://tr435y230vmr" path="res://images/PaintingUp.png" id="3_lhr70"]
 [ext_resource type="Texture2D" uid="uid://c6tnixsk5ipby" path="res://images/Food.png" id="4_qmy6f"]
@@ -646,6 +647,11 @@ bg_color = Color(0.72156864, 0.5686275, 0.42352942, 0.5294118)
 [node name="Node2D" type="Node2D" unique_id=931152592]
 script = ExtResource("1_elqb8")
 
+[node name="AudioStreamPlayer2D3" type="AudioStreamPlayer2D" parent="." unique_id=498810581]
+stream = ExtResource("2_g6wdg")
+volume_db = 6.766
+pitch_scale = 0.7
+
 [node name="BlinkTimer" type="Timer" parent="." unique_id=134126357]
 wait_time = 0.7
 autostart = true
@@ -842,14 +848,14 @@ offset_top = 313.0
 offset_right = 1030.0
 offset_bottom = 342.0
 
-[node name="PortraitButton2" type="Button" parent="." unique_id=721242600]
+[node name="PortraitButton" type="Button" parent="." unique_id=1444097310]
+modulate = Color(0.7262233, 3.4172833e-06, 5.7756904e-07, 1)
 offset_left = 118.0
 offset_top = 641.0
 offset_right = 158.0
 offset_bottom = 677.0
 
-[node name="PortraitButton" type="Button" parent="." unique_id=1444097310]
-modulate = Color(0.7262233, 3.4172833e-06, 5.7756904e-07, 1)
+[node name="PortraitButton2" type="Button" parent="." unique_id=721242600]
 offset_left = 118.0
 offset_top = 641.0
 offset_right = 158.0
@@ -1360,8 +1366,8 @@ zoom = Vector2(3.5, 3.5)
 
 [connection signal="timeout" from="BlinkTimer" to="." method="_on_blink_timer_timeout"]
 [connection signal="pressed" from="KeypadBut" to="." method="_on_keypad_but_pressed"]
-[connection signal="pressed" from="PortraitButton2" to="." method="_on_portrait_button_2_pressed"]
 [connection signal="pressed" from="PortraitButton" to="." method="_on_portrait_button_pressed"]
+[connection signal="pressed" from="PortraitButton2" to="." method="_on_portrait_button_2_pressed"]
 [connection signal="pressed" from="WindowButton" to="." method="_on_window_button_pressed"]
 [connection signal="pressed" from="Rocks2/RockBut" to="." method="_on_rock_but_pressed"]
 [connection signal="pressed" from="Rocks2/RockBut5" to="." method="_on_rock_but_pressed"]
