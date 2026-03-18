@@ -47,8 +47,7 @@ func _ready() -> void:
 	$Camera2D/CharacterBody2D/PlayerAnimationPlayer.play("textplay")
 	$AudioStreamPlayer2D2.play()
 	await $Camera2D/CharacterBody2D/PlayerAnimationPlayer.animation_finished
-	$AnimationPlayer.play("Animation5")
-	await $AnimationPlayer.animation_finished
+	get_tree().change_scene_to_file("res://scenes/sewer.tscn")
 
 
 func _on_pause_pressed() -> void:

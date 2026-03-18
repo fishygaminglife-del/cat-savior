@@ -3,7 +3,7 @@ extends Node
 var is_platformer = false
 var SPEED = 100
 var _checkpoint = false
-
+var sewer_play = false
 var music_player: AudioStreamPlayer
 
 func _ready():

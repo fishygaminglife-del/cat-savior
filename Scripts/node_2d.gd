@@ -4,32 +4,52 @@ var _lives = 3
 
 func _ready() -> void:
 	Global.is_platformer = true
+	$AnimationPlayer.play("ball drift")
 	$Crocodile/Croc1.play("default")
 	$Crocodile/Croc2.play("default")
 	$AnimatedSprite2D.play("default")
+	for sprite in get_tree().get_nodes_in_group("bgsewer"):
+		sprite.play("default")
 	$Crocodile/CrocW3.get_animation("Croc Water").loop = true
 	$Crocodile/CrocL1.get_animation("LandCroc1").loop = true
 	$Crocodile/CrocL2.get_animation("LandCroc2").loop = true
 	$Crocodile/CrocL1.play("LandCroc1")
 	$Crocodile/CrocL2.play("LandCroc2")
 	$Crocodile/CrocW3.play("Croc Water")
+	if Global.sewer_play == false:
+		Global.sewer_play = true
+		$CharacterBody2D/Name.text = "Caleb"
+		$CharacterBody2D/Text.text = "WHISKERS..."
+		$CharacterBody2D/PlayerAnimationPlayer.play("textplay")
+		$AudioStreamPlayer2D3.play()
+		await $CharacterBody2D/PlayerAnimationPlayer.animation_finished
+		$AudioStreamPlayer2D3.stream_paused = true
+		$CharacterBody2D/Name.text = "Caleb"
+		$CharacterBody2D/Text.text = "Uh Oh, im in the sewers, Aligators"
+		$CharacterBody2D/PlayerAnimationPlayer.play("texp_play2")
+		$AudioStreamPlayer2D3.stream_paused = false
+		await $CharacterBody2D/PlayerAnimationPlayer.animation_finished
+		$AudioStreamPlayer2D3.stream_paused = true
+		$CharacterBody2D/Name.text = "???"
+		$CharacterBody2D/Text.text = "Climb ladders when Aligators come!"
+		$CharacterBody2D/PlayerAnimationPlayer.play("textplay")
+		await $CharacterBody2D/PlayerAnimationPlayer.animation_finished
+	else:
+		$CharacterBody2D/Name.text = "Caleb"
+		$CharacterBody2D/Text.text = "Feels like deja vu"
+		$CharacterBody2D/PlayerAnimationPlayer.play("textplay")
+		$AudioStreamPlayer2D3.stream_paused = false
+		await $CharacterBody2D/PlayerAnimationPlayer.animation_finished
+		$AudioStreamPlayer2D3.stream_paused = true
+		
+	await get_tree().create_timer(6.5)
 	$CharacterBody2D/Name.text = "Caleb"
-	$CharacterBody2D/Text.text = "WHISKERS..."
+	$CharacterBody2D/Text.text = "Whiskers must have been here!"
 	$CharacterBody2D/PlayerAnimationPlayer.play("textplay")
+	$AudioStreamPlayer2D3.stream_paused = false
 	await $CharacterBody2D/PlayerAnimationPlayer.animation_finished
-	$CharacterBody2D/Name.text = "Caleb"
-	$CharacterBody2D/Text.text = "Uh Oh, im in the sewers, Aligators"
-	$CharacterBody2D/PlayerAnimationPlayer.play("texp_play2")
-	await $CharacterBody2D/PlayerAnimationPlayer.animation_finished
-	$CharacterBody2D/Name.text = "Caleb"
-	$CharacterBody2D/Text.text = "Wait don't they also come on the walkway..."
-	$CharacterBody2D/PlayerAnimationPlayer.play("texp_play2")
-	await $CharacterBody2D/PlayerAnimationPlayer.animation_finished
-	$CharacterBody2D/Name.text = "???"
-	$CharacterBody2D/Text.text = "Climb ladders when Aligators come!"
-	$CharacterBody2D/PlayerAnimationPlayer.play("textplay")
-	await $CharacterBody2D/PlayerAnimationPlayer.animation_finished
-
+	$AudioStreamPlayer2D3.stream_paused = true
+	
 func _on_pov_change_body_entered(body: Node2D) -> void:
 	$"POV CHANGE/CollisionShape2D".disabled = true
 	Global.is_platformer = false

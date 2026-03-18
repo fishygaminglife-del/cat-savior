@@ -17,8 +17,9 @@ func _ready() -> void:
 		$CharacterBody2D/Name.text = "Caleb"
 		$CharacterBody2D/Text.text = "I can hear my cat, he must be at the other side!"
 		$CharacterBody2D/PlayerAnimationPlayer.play("textplay")
+		$AudioStreamPlayer2D2.play()
 		await $CharacterBody2D/PlayerAnimationPlayer.animation_finished
-
+		$AudioStreamPlayer2D2.stream_paused = true
 	
 
 
