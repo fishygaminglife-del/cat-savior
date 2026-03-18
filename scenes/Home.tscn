@@ -27,6 +27,7 @@ animations = [{
 }]
 
 [node name="Node2D" type="Node2D" unique_id=616399406]
+position = Vector2(-1, 0)
 script = ExtResource("1_nqr1n")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1260640422]
@@ -72,6 +73,9 @@ offset_bottom = 476.0
 theme_override_fonts/font = ExtResource("2_nqr1n")
 theme_override_font_sizes/font_size = 32
 text = "CREDIT"
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=30982222]
+position = Vector2(576, 324)
 
 [connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="Instructions" to="." method="_on_instructions_pressed"]

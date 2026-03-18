@@ -39,22 +39,22 @@ func _ready() -> void:
 	await $CharacterBody2D/PlayerAnimationPlayer.animation_finished
 	$CharacterBody2D/Name.text = "Caleb"
 	$CharacterBody2D/Text.text = "WHAT HAPPENED TO MY HOUSE!!!"
-	$CharacterBody2D/PlayerAnimationPlayer.play("textplay")
+	$CharacterBody2D/PlayerAnimationPlayer.play("texp_play2")
 	await $CharacterBody2D/PlayerAnimationPlayer.animation_finished
 	$CharacterBody2D/Name.text = "Caleb"
 	$CharacterBody2D/Text.text = "As long as Whiskers is okay..."
-	$CharacterBody2D/PlayerAnimationPlayer.play("textplay")
+	$CharacterBody2D/PlayerAnimationPlayer.play("texp_play2")
 	await $CharacterBody2D/PlayerAnimationPlayer.animation_finished
 	$CharacterBody2D/Name.text = "Caleb"
 	$CharacterBody2D/Text.text = "WHERE IS WHISKERS AND WHY IS THE WINDOW BROKEN???"
-	$CharacterBody2D/PlayerAnimationPlayer.play("textplay")
+	$CharacterBody2D/PlayerAnimationPlayer.play("texp_play2")
 	await $CharacterBody2D/PlayerAnimationPlayer.animation_finished
 	$CharacterBody2D/Name.text = "Caleb"
 	$CharacterBody2D/Text.text = "Let's pick up this portrait (click on the portrait)"
 	$PortraitButton.visible = true
 	$PortraitButton2.disabled = false
 	$PortraitButton2.visible = true
-	$CharacterBody2D/PlayerAnimationPlayer.play("text_play")	
+	$CharacterBody2D/PlayerAnimationPlayer.play("texp_play2")	
 	blink = true
 	await $CharacterBody2D/PlayerAnimationPlayer.animation_finished
 	
@@ -80,8 +80,8 @@ func _on_blink_timer_timeout() -> void:
 func _on_rock_but_pressed() -> void:
 	$CharacterBody2D/Rocks/RockUp.visible = true
 	$CharacterBody2D/Rocks/RockUp/Label.visible = true
-	$CharacterBody2D/ExitBut.visible = true
-	$CharacterBody2D/ExitBut.disabled = false
+	$CharacterBody2D/ExitBut2.visible = true
+	$CharacterBody2D/ExitBut2.disabled = false
 
 
 func _on_exit_but_pressed() -> void:
@@ -91,9 +91,6 @@ func _on_exit_but_pressed() -> void:
 	$CharacterBody2D/Rocks/RockUp2/Label2.visible = false
 	$CharacterBody2D/ExitBut.visible = false
 	$CharacterBody2D/ExitBut.disabled = true
-	$CharacterBody2D/Name.text = "???"
-	$CharacterBody2D/Text.text = "Flip rocks (click) to find code (some are x and some are code)"
-	$CharacterBody2D/PlayerAnimationPlayer.play("play_text")
 
 func _on_rock_but_2_pressed() -> void:
 	$CharacterBody2D/Name.text = "???"
@@ -191,3 +188,12 @@ func _on_resume_b_pressed() -> void:
 func _on_home_b_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/Home.tscn")
 	
+
+
+func _on_exit_but_2_pressed() -> void:
+	$CharacterBody2D/Rocks/RockUp.visible = false
+	$CharacterBody2D/Rocks/RockUp/Label.visible = false
+	$CharacterBody2D/Rocks/RockUp2.visible = false
+	$CharacterBody2D/Rocks/RockUp2/Label2.visible = false
+	$CharacterBody2D/ExitBut2.visible = false
+	$CharacterBody2D/ExitBut2.disabled = true

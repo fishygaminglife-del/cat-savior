@@ -14,4 +14,4 @@ func _ready():
 	music_player.volume_db = -6
 	music_player.stream.loop = true
 	music_player.process_mode = Node.PROCESS_MODE_ALWAYS
-	music_player.play()
+#	music_player.play()

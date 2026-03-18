@@ -1,7 +1,8 @@
 extends CharacterBody2D
 
 const JUMP_VELOCITY = -300
-
+var idle_time = 0.0
+var last_facing = 1  # 1 = right, -1 = left
 
 func _physics_process(delta: float) -> void:
 	
@@ -39,17 +40,23 @@ func platformer_movement(delta):
 	#Jump
 	if Input.is_action_just_pressed("up") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
+	if Input.is_action_just_pressed("jump") and is_on_floor():
+		velocity.y = JUMP_VELOCITY
 	# Horizontal movement
 	var direction = Input.get_axis("left", "right")
 	if direction != 0:
+		idle_time = 0.0
+		last_facing = direction
 		velocity.x = direction * Global.SPEED
 		$MCCharater.play("side2")
 		$MCCharater.flip_h = direction < 0
 
 	else:
 		velocity.x = move_toward(velocity.x, 0, Global.SPEED)
-		await get_tree().create_timer(0.2)
-		$MCCharater.play("downidle")
+		idle_time += delta
+		if idle_time > 0.15:
+			$MCCharater.flip_h = last_facing > 0
+			$MCCharater.play("sideidle")
 
 
 	move_and_slide()
