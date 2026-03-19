@@ -185,18 +185,6 @@ tracks/1/keys = {
 "update": 0,
 "values": [Vector2(598, 493), Vector2(777, 500)]
 }
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Cat:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(),
-"transitions": PackedFloat32Array(),
-"update": 0,
-"values": []
-}
 
 [sub_resource type="Animation" id="Animation_ann66"]
 resource_name = "Animation3"
@@ -1178,16 +1166,6 @@ theme_override_fonts/font = ExtResource("6_ann66")
 theme_override_font_sizes/font_size = 8
 text = "Caleb"
 horizontal_alignment = 1
-
-[node name="skiptxt" type="Label" parent="Camera2D/CharacterBody2D" unique_id=1573716657]
-offset_left = 33.0
-offset_top = 130.0
-offset_right = 145.0
-offset_bottom = 142.0
-scale = Vector2(0.28000247, 0.3999976)
-theme_override_fonts/font = ExtResource("6_ann66")
-theme_override_font_sizes/font_size = 8
-text = "space to skip text"
 
 [node name="Text" type="Label" parent="Camera2D/CharacterBody2D" unique_id=438426962]
 visible = false

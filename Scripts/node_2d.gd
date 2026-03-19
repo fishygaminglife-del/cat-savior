@@ -18,6 +18,7 @@ func wait_for_animation_end():
 
 
 func _ready() -> void:
+	Global.sewer = true
 	Global.is_platformer = true
 	$AnimationPlayer.play("ball drift")
 	$Crocodile/Croc1.play("default")
@@ -86,3 +87,20 @@ func _on_croc_touch_body_entered(body: Node2D) -> void:
 		$CharacterBody2D/Heart.modulate = Color(0.365, 0.0, 0.0, 1.0)
 		await get_tree().create_timer(0.3)
 		get_tree().reload_current_scene()
+		
+func _on_pause_pressed() -> void:
+	$CharacterBody2D/MenuScreen.visible = true
+	get_tree().paused = true
+
+
+func _on_resume_b_pressed() -> void:
+	get_tree().paused = false
+	$CharacterBody2D/MenuScreen.visible = false
+
+func _on_home_b_pressed() -> void:
+	get_tree().change_scene_to_file("res://scenes/Home.tscn")
+
+
+func _on_scene_chang_body_entered(body: Node2D) -> void:
+	#get_tree().change_scene_to_file()
+	pass

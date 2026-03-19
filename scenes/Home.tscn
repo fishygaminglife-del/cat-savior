@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://bc821d4j0fit6" path="res://images/HomeScreen.png" id="1_d52sk"]
 [ext_resource type="Script" uid="uid://lvb5jclw2m0a" path="res://Scripts/home.gd" id="1_nqr1n"]
 [ext_resource type="FontFile" uid="uid://crprgneoqco73" path="res://fonts/pixel_operator/PixelOperator8-Bold.ttf" id="2_nqr1n"]
+[ext_resource type="Texture2D" uid="uid://b8644nk2nimte" path="res://images/homebox.png" id="4_svoro"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_svoro"]
 atlas = ExtResource("1_d52sk")
@@ -74,9 +75,23 @@ theme_override_fonts/font = ExtResource("2_nqr1n")
 theme_override_font_sizes/font_size = 32
 text = "CREDIT"
 
+[node name="Homebox" type="Sprite2D" parent="." unique_id=1379153891]
+position = Vector2(576, 563)
+texture = ExtResource("4_svoro")
+
+[node name="Scenes" type="Button" parent="." unique_id=836499472]
+offset_left = 385.0
+offset_top = 520.0
+offset_right = 767.0
+offset_bottom = 607.0
+theme_override_fonts/font = ExtResource("2_nqr1n")
+theme_override_font_sizes/font_size = 32
+text = "SCENES"
+
 [node name="Camera2D" type="Camera2D" parent="." unique_id=30982222]
 position = Vector2(576, 324)
 
 [connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="Instructions" to="." method="_on_instructions_pressed"]
 [connection signal="pressed" from="Credit" to="." method="_on_credit_pressed"]
+[connection signal="pressed" from="Scenes" to="." method="_on_scenes_pressed"]

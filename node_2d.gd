@@ -17,6 +17,7 @@ func wait_for_animation_end():
 
 
 func _ready() -> void:
+	Global.home = true
 	Global.SPEED = 100 
 	Global.is_platformer = false
 	$CharacterBody2D.visible = true
@@ -74,6 +75,7 @@ func _ready() -> void:
 	$CharacterBody2D/Text.text = "Let's pick up this portrait (click on the portrait)"
 	$PortraitButton.visible = true
 	$PortraitButton2.disabled = false
+	$CharacterBody2D/skiptxt.visible = false
 	$PortraitButton2.visible = true
 	$CharacterBody2D/PlayerAnimationPlayer.play("texp_play2")	
 	$AudioStreamPlayer2D3.stream_paused = false

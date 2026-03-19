@@ -14,3 +14,7 @@ func _on_instructions_pressed():
 
 func _on_credit_pressed():
 	get_tree().change_scene_to_file("res://scenes/Credit.tscn")
+
+
+func _on_scenes_pressed() -> void:
+	get_tree().change_scene_to_file("res://scenes/scenes.tscn")

@@ -17,6 +17,7 @@ func wait_for_animation_end():
 		await get_tree().process_frame
 
 func _ready() -> void:
+	Global.shed = true
 	$CharacterBody2D/TextBox.visible = false
 	$CharacterBody2D/Camera2D.zoom = Vector2(3.5, 3.5)
 	Global.is_platformer = true
@@ -61,11 +62,14 @@ func _on_spencer_body_entered(body: Node2D) -> void:
 	await $CharacterBody2D/PlayerAnimationPlayer.animation_finished
 	get_tree().change_scene_to_file("res://scenes/EndCutscene.tscn")
 	
+func _on_pause_pressed() -> void:
+	$CharacterBody2D/MenuScreen.visible = true
+	get_tree().paused = true
+
+
 func _on_resume_b_pressed() -> void:
 	get_tree().paused = false
 	$CharacterBody2D/MenuScreen.visible = false
 
-
 func _on_home_b_pressed() -> void:
-	get_tree().paused = false
 	get_tree().change_scene_to_file("res://scenes/Home.tscn")

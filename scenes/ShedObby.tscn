@@ -28,6 +28,7 @@
 [ext_resource type="FontFile" uid="uid://crprgneoqco73" path="res://fonts/pixel_operator/PixelOperator8-Bold.ttf" id="18_ek723"]
 [ext_resource type="Texture2D" uid="uid://c1jcxel3qoy1r" path="res://images/Checkpoint.png" id="19_ek723"]
 [ext_resource type="Texture2D" uid="uid://dxths08ycxy20" path="res://images/Crazy.png" id="24_jxxnc"]
+[ext_resource type="Texture2D" uid="uid://capls12mm4so6" path="res://images/pausebutton.png" id="28_inkqb"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0a6m6"]
 texture = ExtResource("2_1uhm5")
@@ -1848,6 +1849,14 @@ text = "HOME"
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D" unique_id=1046181998]
 zoom = Vector2(3.5, 3.5)
 
+[node name="Pause" type="Button" parent="CharacterBody2D" unique_id=975337452]
+offset_left = 140.0
+offset_top = -92.0
+offset_right = 180.0
+offset_bottom = -52.0
+scale = Vector2(0.6, 0.6)
+icon = ExtResource("28_inkqb")
+
 [node name="Crazy" type="Sprite2D" parent="." unique_id=1952565142]
 modulate = Color(1, 1, 1, 0.043137256)
 position = Vector2(256.5, 450.99997)
@@ -1860,3 +1869,4 @@ texture = ExtResource("24_jxxnc")
 [connection signal="body_entered" from="Spencer" to="." method="_on_spencer_body_entered"]
 [connection signal="pressed" from="CharacterBody2D/MenuScreen/ResumeB" to="." method="_on_resume_b_pressed"]
 [connection signal="pressed" from="CharacterBody2D/MenuScreen/HomeB" to="." method="_on_home_b_pressed"]
+[connection signal="pressed" from="CharacterBody2D/Pause" to="." method="_on_pause_pressed"]
