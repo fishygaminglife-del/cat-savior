@@ -14,7 +14,8 @@ func _process(delta):
 	
 func wait_for_animation_end():
 	while $CharacterBody2D/PlayerAnimationPlayer.is_playing():
-		await get_tree().process_frame
+		await get_tree().create_timer(0).timeout
+
 
 
 func _ready() -> void:
@@ -102,5 +103,4 @@ func _on_home_b_pressed() -> void:
 
 
 func _on_scene_chang_body_entered(body: Node2D) -> void:
-	#get_tree().change_scene_to_file()
-	pass
+	get_tree().change_scene_to_file("res://scenes/forest.tscn")

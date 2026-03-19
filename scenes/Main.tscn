@@ -849,13 +849,6 @@ offset_right = 1030.0
 offset_bottom = 342.0
 
 [node name="PortraitButton" type="Button" parent="." unique_id=1444097310]
-modulate = Color(0.7262233, 3.4172833e-06, 5.7756904e-07, 1)
-offset_left = 118.0
-offset_top = 641.0
-offset_right = 158.0
-offset_bottom = 677.0
-
-[node name="PortraitButton2" type="Button" parent="." unique_id=721242600]
 offset_left = 118.0
 offset_top = 641.0
 offset_right = 158.0
@@ -1001,6 +994,15 @@ sprite_frames = SubResource("SpriteFrames_2c4at")
 frame_progress = 0.23164856
 speed_scale = 0.8
 
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="." unique_id=1652666197]
+modulate = Color(0.15487596, 0.154876, 0.15487596, 0.5372549)
+position = Vector2(180.00002, 634)
+rotation = 2.5115287
+scale = Vector2(1.8526717, 1.8526717)
+sprite_frames = SubResource("SpriteFrames_2c4at")
+frame_progress = 0.23164856
+speed_scale = 0.8
+
 [node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=51260792]
 position = Vector2(138, 656)
 script = ExtResource("13_ebg2g")
@@ -1100,7 +1102,7 @@ offset_right = 9.945446
 offset_bottom = 5.9636383
 theme_override_fonts/font = ExtResource("23_pnhog")
 theme_override_font_sizes/font_size = 8
-text = "214"
+text = "412"
 
 [node name="KeyPadZoom" type="Sprite2D" parent="CharacterBody2D" unique_id=777486449]
 visible = false
@@ -1377,7 +1379,6 @@ zoom = Vector2(3.5, 3.5)
 [connection signal="timeout" from="BlinkTimer" to="." method="_on_blink_timer_timeout"]
 [connection signal="pressed" from="KeypadBut" to="." method="_on_keypad_but_pressed"]
 [connection signal="pressed" from="PortraitButton" to="." method="_on_portrait_button_pressed"]
-[connection signal="pressed" from="PortraitButton2" to="." method="_on_portrait_button_2_pressed"]
 [connection signal="pressed" from="WindowButton" to="." method="_on_window_button_pressed"]
 [connection signal="pressed" from="Rocks2/RockBut" to="." method="_on_rock_but_pressed"]
 [connection signal="pressed" from="Rocks2/RockBut5" to="." method="_on_rock_but_pressed"]

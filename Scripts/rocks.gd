@@ -1,6 +1,6 @@
 extends Node2D
 var code_input: Array = []
-var correct_code = [2, 1, 4]
+var correct_code = [4, 1, 2]
 
 func _ready() -> void:
 	pass # Replace with function body.
@@ -10,7 +10,7 @@ func add_number(num):
 
 	if code_input.size() == 3:
 		check_code()
-func check_code():
+func check_code():   
 	if code_input == correct_code:
 		$"../CharacterBody2D/KeyPadZoom/Check".visible = true
 		await get_tree().create_timer(1).timeout

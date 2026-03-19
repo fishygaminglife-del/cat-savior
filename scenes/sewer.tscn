@@ -360,7 +360,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_skxsd"]
-size = Vector2(62, 20)
+size = Vector2(24.5, 21)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3i3nt"]
 atlas = ExtResource("6_5bl23")
@@ -1174,7 +1174,7 @@ flip_h = true
 [node name="Scene Chang" type="Area2D" parent="." unique_id=834869982]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Scene Chang" unique_id=771897348]
-position = Vector2(1484, -54)
+position = Vector2(1481.75, -33.5)
 shape = SubResource("RectangleShape2D_skxsd")
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=51260792]
@@ -1334,6 +1334,21 @@ flip_v = true
 
 [node name="Pipe6" type="Sprite2D" parent="." unique_id=876064756]
 position = Vector2(1484, -102)
+texture = ExtResource("28_0tnqg")
+flip_v = true
+
+[node name="Pipe7" type="Sprite2D" parent="." unique_id=641895134]
+position = Vector2(1484, -120)
+texture = ExtResource("28_0tnqg")
+flip_v = true
+
+[node name="Pipe8" type="Sprite2D" parent="." unique_id=1622704367]
+position = Vector2(1484, -138)
+texture = ExtResource("28_0tnqg")
+flip_v = true
+
+[node name="Pipe9" type="Sprite2D" parent="." unique_id=1176476263]
+position = Vector2(1484, -156)
 texture = ExtResource("28_0tnqg")
 flip_v = true
 

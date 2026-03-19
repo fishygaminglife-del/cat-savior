@@ -1,5 +1,4 @@
 extends Node2D
-var blink = false
 var can_skip = true
 
 func skip_text():
@@ -22,6 +21,8 @@ func _ready() -> void:
 	Global.is_platformer = false
 	$CharacterBody2D.visible = true
 	$AnimatedSprite2D.play("default")
+	$AnimatedSprite2D2.play("default")
+	$AnimatedSprite2D2.visible = false
 	$CharacterBody2D/KeyPadZoom/Check.visible = false
 	$CharacterBody2D/KeyPadZoom/X.visible = false
 	$"CharacterBody2D/KeyPadZoom/Buttons/b1".disabled = true
@@ -42,12 +43,8 @@ func _ready() -> void:
 	$CharacterBody2D/Rocks/RockUp2/Label2.visible = false
 	$CharacterBody2D/ExitBut.visible = false
 	$CharacterBody2D/ExitBut.disabled = true
-	$PortraitButton.disabled = true
 	$WindowButton.visible = false
-	$WindowButton.disabled = true
 	$PortraitButton.visible = false
-	$PortraitButton2.disabled = true
-	$PortraitButton2.visible = false
 	$"Background Items/PaintingUp".visible = false
 	$CharacterBody2D/Name.text = "???"
 	$CharacterBody2D/Text.text = "Explore the room, using WASD or Arrow Keys."
@@ -74,12 +71,11 @@ func _ready() -> void:
 	$CharacterBody2D/Name.text = "Caleb"
 	$CharacterBody2D/Text.text = "Let's pick up this portrait (click on the portrait)"
 	$PortraitButton.visible = true
-	$PortraitButton2.disabled = false
+	blink_button()
 	$CharacterBody2D/skiptxt.visible = false
-	$PortraitButton2.visible = true
 	$CharacterBody2D/PlayerAnimationPlayer.play("texp_play2")	
 	$AudioStreamPlayer2D3.stream_paused = false
-	blink = true
+	$AnimatedSprite2D2.visible = true
 	await wait_for_animation_end()
 	$AudioStreamPlayer2D3.stream_paused = true
 
@@ -96,10 +92,12 @@ func rock_inst():
 	$CharacterBody2D/Text.text = "Flip rocks (click) to find code (some are x and some are code)"
 	$CharacterBody2D/PlayerAnimationPlayer.play("play_text")
 
-func _on_blink_timer_timeout() -> void:
-	if blink == true:
-		$PortraitButton.visible = not $PortraitButton.visible
-
+func blink_button() -> void:
+	while true:
+		$PortraitButton.modulate = Color(1,1,1,0.945)
+		await get_tree().create_timer(0.5).timeout
+		$PortraitButton.modulate = Color(0,0,0,0.945)
+		await get_tree().create_timer(0.5).timeout
 
 func _on_rock_but_pressed() -> void:
 	$CharacterBody2D/Rocks/RockUp.visible = true
@@ -168,37 +166,17 @@ func _on_close_pressed() -> void:
 	$CharacterBody2D/Text.text = "Flip rocks (click) to find code (some are x and some are code)"
 	$CharacterBody2D/PlayerAnimationPlayer.play("play_text")
 
-func _on_portrait_button_2_pressed() -> void:
-	blink = false
-	$"Background Items/PaintingDown".visible = false
-	$"Background Items/PaintingUp".visible = true
-	$PortraitButton.disabled = true
-	$PortraitButton.visible = false
-	$PortraitButton2.disabled = true
-	$PortraitButton2.visible = false
-	$CharacterBody2D/Name.text = "Caleb"
-	$CharacterBody2D/Text.text = "My cat... I should find him (Click the window to jump out)"
-	$CharacterBody2D/PlayerAnimationPlayer.play("text_play")
-	$WindowButton.visible = true
-	$WindowButton.disabled = false
-	$AudioStreamPlayer2D3.play()
-	await $CharacterBody2D/PlayerAnimationPlayer.animation_finished
-	$AudioStreamPlayer2D3.stream_paused = true
 
 
 func _on_portrait_button_pressed() -> void:
-	blink = false
+	$AnimatedSprite2D2.visible = false
 	$"Background Items/PaintingDown".visible = false
 	$"Background Items/PaintingUp".visible = true
-	$PortraitButton.disabled = true
 	$PortraitButton.visible = false
-	$PortraitButton2.disabled = true
-	$PortraitButton2.visible = false
 	$CharacterBody2D/Name.text = "Caleb"
 	$CharacterBody2D/Text.text = "My cat... I should find him (Click the window to jump out)"
 	$CharacterBody2D/PlayerAnimationPlayer.play("text_play")
 	$WindowButton.visible = true
-	$WindowButton.disabled = false
 	$AudioStreamPlayer2D3.play()
 	await $CharacterBody2D/PlayerAnimationPlayer.animation_finished
 	$AudioStreamPlayer2D3.stream_paused = true
