@@ -9,6 +9,8 @@ var home = false
 var shed = false
 var cutscene = false
 var sewer = false
+var forest = false
+var endscene = false
 
 func _ready():
 	music_player = AudioStreamPlayer.new()

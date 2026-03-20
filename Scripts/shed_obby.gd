@@ -14,7 +14,7 @@ func _process(delta):
 	
 func wait_for_animation_end():
 	while $CharacterBody2D/PlayerAnimationPlayer.is_playing():
-		await get_tree().process_frame
+		await get_tree().create_timer(0).timeout
 
 func _ready() -> void:
 	Global.shed = true

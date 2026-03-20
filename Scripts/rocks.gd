@@ -1,9 +1,13 @@
 extends Node2D
 var code_input: Array = []
-var correct_code = [4, 1, 2]
+var shedlock = int(str(randi_range(1, 9)) + str(randi_range(1, 9)) + str(randi_range(1, 9)))
+var correct_code = str(shedlock)
 
-func _ready() -> void:
-	pass # Replace with function body.
+func _ready():
+	var label = get_node_or_null("../CharacterBody2D/Rocks/RockUp2/Label2")
+	if label:
+		label.text = str(shedlock)
+
 func add_number(num):
 	code_input.append(num)
 	$"../CharacterBody2D/KeyPadZoom/NumLab".text =  "".join(code_input.map(str))
@@ -11,7 +15,7 @@ func add_number(num):
 	if code_input.size() == 3:
 		check_code()
 func check_code():   
-	if code_input == correct_code:
+	if "".join(code_input.map(str)) == correct_code:
 		$"../CharacterBody2D/KeyPadZoom/Check".visible = true
 		await get_tree().create_timer(1).timeout
 		get_tree().change_scene_to_file("res://scenes/ShedObby.tscn")

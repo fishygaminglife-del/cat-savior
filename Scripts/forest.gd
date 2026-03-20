@@ -2,14 +2,17 @@ extends Node2D
 
 
 func _ready() -> void:
+	Global.forest = true
 	Global.SPEED = 0
+	$CharacterBody2D/TIMEOUT.visible = false
+	$AnimatedSprite2D4.play("default")
 	$powerl.visible = false
 	$powerl2.visible = false
 	$powerl3.visible = false
 	$CharacterBody2D/MushroomsHold.visible = false
 	$CharacterBody2D/Name.text = "Caleb"
 	$AudioStreamPlayer2D2.play()
-	$CharacterBody2D/Text.text = "I can here him, he is up ahead."
+	$CharacterBody2D/Text.text = "I can hear him, he is up ahead."
 	$CharacterBody2D/PlayerAnimationPlayer.play("textplay")
 	await $CharacterBody2D/PlayerAnimationPlayer.animation_finished
 	$CharacterBody2D/Name.text = "???"
@@ -68,8 +71,9 @@ func _on_mush_1_pressed() -> void:
 	await $AnimationPlayer.animation_finished
 	$Timer.start()
 	Global.SPEED = 100
-	for collision in get_tree().get_nodes_in_group("thorn"):
-		collision.disabled = true
+	$"Thron Speed".monitoring = false
+	await get_tree().create_timer(5).timeout
+	$"Thron Speed".monitoring = true
 func _on_mush_3_pressed() -> void:
 	#time
 	$CharacterBody2D/MushroomsHold/Mushback3.visible = false
@@ -90,6 +94,7 @@ func _on_mush_3_pressed() -> void:
 	Global.SPEED = 100
 func _on_timer_timeout() -> void:
 	$CharacterBody2D/PlayerAnimationPlayer.play("timeover")
+	Global.SPEED = 0
 	await $CharacterBody2D/PlayerAnimationPlayer.animation_finished
 	get_tree().reload_current_scene()
 

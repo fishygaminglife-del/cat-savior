@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dkpwlesbgl2cf"]
 
-[ext_resource type="Script" uid="uid://b108td64bp1lm" path="res://node_2d.gd" id="1_elqb8"]
+[ext_resource type="Script" uid="uid://yo77r7jy518e" path="res://Scripts/main.gd" id="1_g6wdg"]
 [ext_resource type="AudioStream" uid="uid://csfl71h0lmn54" path="res://sound/Speaking - Animal Crossing Sound Effect.mp3" id="2_g6wdg"]
 [ext_resource type="Texture2D" uid="uid://bydfq60lc5doc" path="res://tiles/BasicTLMap.png" id="2_rvslj"]
 [ext_resource type="Texture2D" uid="uid://tr435y230vmr" path="res://images/PaintingUp.png" id="3_lhr70"]
@@ -645,7 +645,7 @@ bg_color = Color(0.72156864, 0.5686275, 0.42352942, 0.5294118)
 bg_color = Color(0.72156864, 0.5686275, 0.42352942, 0.5294118)
 
 [node name="Node2D" type="Node2D" unique_id=931152592]
-script = ExtResource("1_elqb8")
+script = ExtResource("1_g6wdg")
 
 [node name="AudioStreamPlayer2D3" type="AudioStreamPlayer2D" parent="." unique_id=498810581]
 stream = ExtResource("2_g6wdg")
@@ -1012,6 +1012,7 @@ sprite_frames = SubResource("SpriteFrames_fwsyb")
 animation = &"downidle"
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="CharacterBody2D" unique_id=758065340]
+visible = false
 polygon = PackedVector2Array(-5, -15, 5, -15, 5, -4, 8, -2, 9, 0, 9, 4, 5, 5, 5, 15, -5, 15, -5, 4, -8, 4, -8, -2, -7, -3, -5, -3, -5, -4, -4, -4, -4, -9, -5, -9)
 
 [node name="TextBox" type="Sprite2D" parent="CharacterBody2D" unique_id=119999252]

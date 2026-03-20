@@ -7,9 +7,11 @@
 [ext_resource type="Texture2D" uid="uid://bhuuqndy13do8" path="res://images/CatBed.png" id="5_pgg7l"]
 [ext_resource type="Texture2D" uid="uid://bbm3mf1jqypsr" path="res://images/Ball.png" id="6_s0lb1"]
 [ext_resource type="Texture2D" uid="uid://4jfvv23d83mj" path="res://images/CatToy2.png" id="7_3vx5h"]
+[ext_resource type="Texture2D" uid="uid://c6tnixsk5ipby" path="res://images/Food.png" id="7_v8atl"]
 [ext_resource type="Texture2D" uid="uid://j4o43wpq24gp" path="res://cave+forest/Crocodile Face.png" id="8_v8atl"]
 [ext_resource type="FontFile" uid="uid://c8uge3jdhs8qm" path="res://fonts/pixel_operator/PixelOperator8.ttf" id="9_pgg7l"]
 [ext_resource type="Texture2D" uid="uid://ck5muyvpobchl" path="res://images/homebutton.png" id="10_s0lb1"]
+[ext_resource type="Texture2D" uid="uid://e0vsdelqhd3w" path="res://cave+forest/tree.png" id="10_wx2df"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_p2yhb"]
 atlas = ExtResource("2_km0br")
@@ -76,20 +78,39 @@ text = "Shed"
 offset_left = 459.0
 offset_top = 298.0
 offset_right = 694.0
-offset_bottom = 370.0
+offset_bottom = 338.0
 theme_override_fonts/font = ExtResource("4_sb1ia")
-theme_override_icons/icon = ExtResource("7_3vx5h")
+theme_override_icons/icon = ExtResource("7_v8atl")
 text = "Shed Room"
 
 [node name="Sewer" type="Button" parent="." unique_id=446074967]
 offset_left = 459.0
-offset_top = 371.0
+offset_top = 339.0
 offset_right = 694.0
-offset_bottom = 411.0
+offset_bottom = 379.0
 theme_override_fonts/font = ExtResource("4_sb1ia")
 theme_override_icons/icon = ExtResource("7_3vx5h")
 text = "Sewer"
 icon = ExtResource("8_v8atl")
+
+[node name="Forest" type="Button" parent="." unique_id=1346063517]
+offset_left = 459.0
+offset_top = 380.0
+offset_right = 694.0
+offset_bottom = 420.0
+theme_override_fonts/font = ExtResource("4_sb1ia")
+theme_override_icons/icon = ExtResource("7_3vx5h")
+text = "Forest"
+icon = ExtResource("10_wx2df")
+
+[node name="Ending" type="Button" parent="." unique_id=2135384812]
+modulate = Color(1, 1, 1, 0.40392157)
+offset_left = 458.0
+offset_top = 421.0
+offset_right = 693.0
+offset_bottom = 461.0
+theme_override_fonts/font = ExtResource("4_sb1ia")
+text = "Ending"
 
 [node name="Label" type="Label" parent="." unique_id=850527836]
 offset_left = 387.0
@@ -113,4 +134,6 @@ icon = ExtResource("10_s0lb1")
 [connection signal="pressed" from="Shed" to="." method="_on_shed_pressed"]
 [connection signal="pressed" from="Shed Room" to="." method="_on_shed_room_pressed"]
 [connection signal="pressed" from="Sewer" to="." method="_on_sewer_pressed"]
+[connection signal="pressed" from="Forest" to="." method="_on_forest_pressed"]
+[connection signal="pressed" from="Ending" to="." method="_on_ending_pressed"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
