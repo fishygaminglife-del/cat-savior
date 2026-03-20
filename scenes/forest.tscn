@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bwxi271d7rwdu" path="res://Scripts/forest.gd" id="1_0nboi"]
 [ext_resource type="Texture2D" uid="uid://cfohx0jh60sup" path="res://tiles/CaveTLMap.png" id="1_xr56k"]
+[ext_resource type="AudioStream" uid="uid://csfl71h0lmn54" path="res://sound/Speaking - Animal Crossing Sound Effect.mp3" id="2_g34gq"]
 [ext_resource type="Texture2D" uid="uid://bfpgfe04umtu7" path="res://tiles/Caution.png" id="2_sek5r"]
 [ext_resource type="Texture2D" uid="uid://b6hp1qx4ewo0m" path="res://tiles/Cation2.png" id="3_i1yi8"]
 [ext_resource type="Texture2D" uid="uid://bydfq60lc5doc" path="res://tiles/BasicTLMap.png" id="4_qm7rg"]
@@ -26,6 +27,7 @@
 [ext_resource type="Texture2D" uid="uid://bwkilb1jq8km" path="res://cave+forest/mushback.png" id="22_fcatt"]
 [ext_resource type="Texture2D" uid="uid://dinnvs48mcryq" path="res://cave+forest/mushrooms.png" id="23_7q4h0"]
 [ext_resource type="AudioStream" uid="uid://b5k4rli3wonvb" path="res://sound/virtual_vibes-cat-meow-sound-383823.mp3" id="24_di3lw"]
+[ext_resource type="Texture2D" uid="uid://capls12mm4so6" path="res://images/pausebutton.png" id="26_bjond"]
 [ext_resource type="Texture2D" uid="uid://cqlbimubmmn1g" path="res://People/CATMOVE.png" id="27_37aet"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3knxq"]
@@ -419,30 +421,6 @@ animations = [{
 
 [sub_resource type="Animation" id="Animation_4yo34"]
 length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Text:visible_ratio")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [1.0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Name:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
 
 [sub_resource type="Animation" id="Animation_smtlo"]
 resource_name = "skiptxt"
@@ -480,41 +458,21 @@ _data = {
 
 [sub_resource type="Animation" id="Animation_r68wp"]
 length = 0.001
+
+[sub_resource type="Animation" id="Animation_bjond"]
+resource_name = "blackout"
+length = 0.7
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Text:text")
+tracks/0/path = NodePath("Camera2D:zoom")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": ["Time Over"]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Text:visible_ratio")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.7),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [0.0]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Text:visible")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
+"values": [Vector2(3.5, 3.5), Vector2(5, 5)]
 }
 
 [sub_resource type="Animation" id="Animation_q6urs"]
@@ -728,6 +686,7 @@ tracks/2/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_q6urs"]
 _data = {
 &"RESET": SubResource("Animation_r68wp"),
+&"blackout": SubResource("Animation_bjond"),
 &"texp_play2": SubResource("Animation_q6urs"),
 &"text_play": SubResource("Animation_ftwfq"),
 &"textplay": SubResource("Animation_lkiy7"),
@@ -788,54 +747,6 @@ tracks/3/keys = {
 
 [sub_resource type="Animation" id="Animation_di3lw"]
 length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("AnimationPlayer/Label:text")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": ["3"]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("AnimationPlayer/Label:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(0, 1, 0, 1)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("AnimationPlayer/Label:visible")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("AnimationPlayer/Label:visible_ratio")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [1.0]
-}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_8wf4g"]
 _data = {
@@ -870,6 +781,11 @@ animations = [{
 
 [node name="Node2D" type="Node2D" unique_id=414541011]
 script = ExtResource("1_0nboi")
+
+[node name="AudioStreamPlayer2D3" type="AudioStreamPlayer2D" parent="." unique_id=717200656]
+stream = ExtResource("2_g34gq")
+volume_db = 6.766
+pitch_scale = 0.7
 
 [node name="TileMap" type="TileMap" parent="." unique_id=1083541146]
 tile_set = SubResource("TileSet_pyn53")
@@ -1634,8 +1550,6 @@ theme_override_fonts/font = ExtResource("19_0fv5i")
 theme_override_font_sizes/font_size = 8
 text = "Time Over"
 autowrap_mode = 2
-visible_characters = 0
-visible_ratio = 0.0
 
 [node name="skiptxt" type="AnimationPlayer" parent="CharacterBody2D" unique_id=1625571691]
 libraries/ = SubResource("AnimationLibrary_356g5")
@@ -1763,6 +1677,15 @@ offset_bottom = -10.0
 theme_override_colors/font_color = Color(0.8156863, 0, 0, 1)
 theme_override_fonts/font = ExtResource("21_len2l")
 text = "TIME OVER"
+
+[node name="Pause" type="Button" parent="CharacterBody2D" unique_id=365149781]
+modulate = Color(1, 1, 1, 0.70980394)
+offset_left = 140.0
+offset_top = 68.0
+offset_right = 180.0
+offset_bottom = 108.0
+scale = Vector2(0.6, 0.6)
+icon = ExtResource("26_bjond")
 
 [node name="Timer" type="Timer" parent="." unique_id=1744558632]
 wait_time = 10.0
@@ -2067,10 +1990,11 @@ scale = Vector2(0.8000049, 0.8000049)
 sprite_frames = SubResource("SpriteFrames_0fv5i")
 
 [connection signal="body_entered" from="Thron Speed" to="." method="_on_thron_speed_body_entered"]
-[connection signal="pressed" from="CharacterBody2D/MenuScreen/ResumeB" to="CharacterBody2D" method="_on_resume_b_pressed"]
-[connection signal="pressed" from="CharacterBody2D/MenuScreen/HomeB" to="CharacterBody2D" method="_on_home_b_pressed"]
+[connection signal="pressed" from="CharacterBody2D/MenuScreen/ResumeB" to="." method="_on_resume_b_pressed"]
+[connection signal="pressed" from="CharacterBody2D/MenuScreen/HomeB" to="." method="_on_home_b_pressed"]
 [connection signal="pressed" from="CharacterBody2D/MushroomsHold/Mush2" to="." method="_on_mush_2_pressed"]
 [connection signal="pressed" from="CharacterBody2D/MushroomsHold/Mush1" to="." method="_on_mush_1_pressed"]
 [connection signal="pressed" from="CharacterBody2D/MushroomsHold/Mush3" to="." method="_on_mush_3_pressed"]
+[connection signal="pressed" from="CharacterBody2D/Pause" to="." method="_on_pause_pressed"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

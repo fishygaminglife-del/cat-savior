@@ -29,8 +29,7 @@ func _ready() -> void:
 	await $AnimationPlayer.animation_finished
 
 func _on_pause_pressed() -> void:
-	$CharacterBody2D/MenuScreen.visible = true
-	get_tree().paused = true
+	get_tree().change_scene_to_file("res://scenes/Home.tscn")
 
 func _on_resume_b_pressed() -> void:
 	get_tree().paused = false

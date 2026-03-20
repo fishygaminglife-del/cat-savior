@@ -21,11 +21,11 @@
 [ext_resource type="Texture2D" uid="uid://cdcx0jufue3hc" path="res://People/MCBackwardsIdle.png" id="20_o3jmr"]
 [ext_resource type="Texture2D" uid="uid://c6yfb6oltcqse" path="res://images/TextBox.png" id="21_e4r6s"]
 [ext_resource type="FontFile" uid="uid://c8uge3jdhs8qm" path="res://fonts/pixel_operator/PixelOperator8.ttf" id="22_87pfq"]
+[ext_resource type="Texture2D" uid="uid://ck5muyvpobchl" path="res://images/homebutton.png" id="24_trxbg"]
 [ext_resource type="Texture2D" uid="uid://csh7m12qj70vm" path="res://images/End.png" id="25_trxbg"]
 [ext_resource type="Texture2D" uid="uid://cqlbimubmmn1g" path="res://People/CATMOVE.png" id="25_vr2pg"]
 [ext_resource type="Texture2D" uid="uid://dsrvwq8cgs0dh" path="res://images/MenuScreen.png" id="27_rmjmk"]
 [ext_resource type="FontFile" uid="uid://crprgneoqco73" path="res://fonts/pixel_operator/PixelOperator8-Bold.ttf" id="28_1ici8"]
-[ext_resource type="Texture2D" uid="uid://capls12mm4so6" path="res://images/pausebutton.png" id="29_7u03m"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vflcy"]
 texture = ExtResource("1_y04th")
@@ -1234,7 +1234,7 @@ offset_top = -81.0
 offset_right = 175.0
 offset_bottom = -41.0
 scale = Vector2(0.35999513, 0.35999513)
-icon = ExtResource("29_7u03m")
+icon = ExtResource("24_trxbg")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=643178275]
 position = Vector2(133.99998, 654)

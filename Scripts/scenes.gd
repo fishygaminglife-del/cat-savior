@@ -6,14 +6,25 @@ func _ready() -> void:
 	$AnimatedSprite2D.play("default")
 	if Global.shed == false:
 		$Shed.modulate = Color(1.0, 1.0, 1.0, 0.404)
+	else:
+		$Shed.modulate = Color(1.0, 1.0, 1.0, 1.0)		
 	if Global.cutscene == false:
 		$"Shed Room".modulate = Color(1.0, 1.0, 1.0, 0.404)
+		
+	else:
+		$"Shed Room".modulate = Color(1.0, 1.0, 1.0, 1.0)	
 	if Global.sewer == false:
 		$Sewer.modulate = Color(1.0, 1.0, 1.0, 0.404)
+	else:
+		$Sewer.modulate = Color(1.0, 1.0, 1.0, 1.0)	
 	if Global.forest == false:
 		$Forest.modulate = Color(1.0, 1.0, 1.0, 0.404)
+	else:
+		$Forest.modulate = Color(1.0, 1.0, 1.0, 1.0)	
 	if Global.endscene == false:
 		$Ending.modulate = Color(1.0, 1.0, 1.0, 0.404)
+	else:
+		$Ending.modulate = Color(1.0, 1.0, 1.0, 1.0)	
 
 func _on_home_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/Main.tscn")

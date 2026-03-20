@@ -83,13 +83,24 @@ texture = ExtResource("2_rvslj")
 sources/1 = SubResource("TileSetAtlasSource_0bbpv")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ft6cd"]
-size = Vector2(20, 109)
+size = Vector2(20, 250)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g6wdg"]
+size = Vector2(41, 22)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hq6as"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kxyth"]
+size = Vector2(52.793396, 24.400986)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cobve"]
+size = Vector2(43.00003, 38)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bb450"]
-size = Vector2(20, 150)
+size = Vector2(20, 225)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nfivy"]
-size = Vector2(243, 20)
+size = Vector2(362, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xa025"]
 size = Vector2(58, 596.5)
@@ -340,54 +351,6 @@ animations = [{
 
 [sub_resource type="Animation" id="Animation_r68wp"]
 length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Name:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Text:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Text:visible_ratio")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("TextBox:visible")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
 
 [sub_resource type="Animation" id="Animation_v0vrg"]
 resource_name = "play_text"
@@ -670,7 +633,7 @@ position = Vector2(129, 600)
 texture = ExtResource("3_lhr70")
 
 [node name="Food" type="Sprite2D" parent="Background Items" unique_id=2053475344]
-position = Vector2(237, 736)
+position = Vector2(273, 755)
 texture = ExtResource("4_qmy6f")
 
 [node name="Food3" type="Sprite2D" parent="Background Items" unique_id=2026225573]
@@ -694,7 +657,7 @@ position = Vector2(101, 798)
 texture = ExtResource("4_qmy6f")
 
 [node name="Food7" type="Sprite2D" parent="Background Items" unique_id=1012677452]
-position = Vector2(244, 810)
+position = Vector2(189, 830)
 texture = ExtResource("4_qmy6f")
 
 [node name="Food8" type="Sprite2D" parent="Background Items" unique_id=1501624312]
@@ -710,18 +673,18 @@ position = Vector2(-70, 657)
 texture = ExtResource("4_qmy6f")
 
 [node name="CatToy2" type="Sprite2D" parent="Background Items" unique_id=1009812576]
-position = Vector2(257, 645)
+position = Vector2(282, 677)
 texture = ExtResource("4_wp0k4")
 
 [node name="CatToy5" type="Sprite2D" parent="Background Items" unique_id=1152351718]
 modulate = Color(1, 1, 0, 1)
-position = Vector2(164, 709)
+position = Vector2(278, 734.00006)
 rotation = 0.8813884
 texture = ExtResource("4_wp0k4")
 
 [node name="CatToy3" type="Sprite2D" parent="Background Items" unique_id=896315785]
 modulate = Color(1, 0.36862746, 0.30588236, 1)
-position = Vector2(170.00002, 771)
+position = Vector2(208, 756.00006)
 rotation = 2.7314403
 texture = ExtResource("4_wp0k4")
 
@@ -730,13 +693,13 @@ position = Vector2(77, 617)
 texture = ExtResource("5_bjd11")
 
 [node name="CatBed" type="Sprite2D" parent="Background Items" unique_id=440008245]
-position = Vector2(36, 649)
+position = Vector2(26.00003, 658)
 rotation = 0.7314117
 texture = ExtResource("6_qmy6f")
 
 [node name="CatBed2" type="Sprite2D" parent="Background Items" unique_id=1143781526]
 modulate = Color(1, 1, 0.41568628, 1)
-position = Vector2(335, 718.99994)
+position = Vector2(314, 649)
 rotation = -0.15195489
 texture = ExtResource("6_qmy6f")
 
@@ -747,39 +710,39 @@ texture = ExtResource("7_mwfav")
 
 [node name="CatToy4" type="Sprite2D" parent="Background Items" unique_id=1872431992]
 modulate = Color(0.25882354, 1, 1, 1)
-position = Vector2(77.00001, 761.99994)
+position = Vector2(151.99997, 784.99994)
 rotation = 0.60391915
 scale = Vector2(1.1875, 1.1875)
 texture = ExtResource("7_mwfav")
 
 [node name="FlippedChair" type="Sprite2D" parent="Background Items" unique_id=1099143351]
-position = Vector2(229.99994, 742)
+position = Vector2(297, 777)
 rotation = 0.37175512
 texture = ExtResource("8_3p2gp")
 
 [node name="FlippedChair3" type="Sprite2D" parent="Background Items" unique_id=2004136390]
-position = Vector2(127.00001, 763.00006)
+position = Vector2(74.000015, 792.00006)
 rotation = 1.605441
 texture = ExtResource("8_3p2gp")
 
 [node name="FlippedChair4" type="Sprite2D" parent="Background Items" unique_id=1802534338]
-position = Vector2(19, 713)
+position = Vector2(-15.999985, 699)
 rotation = 0.37175512
 texture = ExtResource("8_3p2gp")
 
 [node name="FlippedChair2" type="Sprite2D" parent="Background Items" unique_id=1757175653]
-position = Vector2(270, 697)
+position = Vector2(208.00003, 688)
 rotation = 1.1323323
 texture = ExtResource("8_3p2gp")
 
 [node name="WaterCup" type="Sprite2D" parent="Background Items" unique_id=444459109]
-position = Vector2(106.999985, 711.99994)
+position = Vector2(84, 711)
 rotation = 2.8021119
 scale = Vector2(0.30208337, 0.30208337)
 texture = ExtResource("10_mwfav")
 
 [node name="FoodCup" type="Sprite2D" parent="Background Items" unique_id=1266719174]
-position = Vector2(9, 774)
+position = Vector2(21.000038, 762.00006)
 rotation = 2.443461
 scale = Vector2(0.30208334, 0.30208334)
 texture = ExtResource("11_3p2gp")
@@ -797,20 +760,66 @@ texture = ExtResource("13_2ofn6")
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1331960576]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1891790395]
-position = Vector2(54, 673.5)
+position = Vector2(-14, 687)
 shape = SubResource("RectangleShape2D_ft6cd")
 
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="StaticBody2D" unique_id=705492800]
+position = Vector2(206.5, 756)
+shape = SubResource("RectangleShape2D_g6wdg")
+
+[node name="CollisionShape2D12" type="CollisionShape2D" parent="StaticBody2D" unique_id=872852905]
+position = Vector2(277, 734)
+rotation = 1.5707964
+shape = SubResource("RectangleShape2D_g6wdg")
+
+[node name="CollisionShape2D13" type="CollisionShape2D" parent="StaticBody2D" unique_id=456131849]
+position = Vector2(279, 678)
+rotation = 3.7838738
+shape = SubResource("RectangleShape2D_g6wdg")
+
+[node name="CollisionShape2D15" type="CollisionShape2D" parent="StaticBody2D" unique_id=838004288]
+position = Vector2(81, 712)
+rotation = 3.7838738
+shape = SubResource("CircleShape2D_hq6as")
+
+[node name="CollisionShape2D18" type="CollisionShape2D" parent="StaticBody2D" unique_id=1874031903]
+position = Vector2(19, 759.99994)
+rotation = 3.7838738
+shape = SubResource("CircleShape2D_hq6as")
+
+[node name="CollisionShape2D19" type="CollisionShape2D" parent="StaticBody2D" unique_id=1827507457]
+position = Vector2(22.15903, 662.119)
+rotation = -2.4993114
+shape = SubResource("RectangleShape2D_kxyth")
+
+[node name="CollisionShape2D20" type="CollisionShape2D" parent="StaticBody2D" unique_id=1386747565]
+position = Vector2(151.00003, 781)
+rotation = -2.4993114
+shape = SubResource("RectangleShape2D_kxyth")
+
+[node name="CollisionShape2D14" type="CollisionShape2D" parent="StaticBody2D" unique_id=1809161973]
+position = Vector2(74, 790)
+shape = SubResource("RectangleShape2D_cobve")
+
+[node name="CollisionShape2D16" type="CollisionShape2D" parent="StaticBody2D" unique_id=541656636]
+position = Vector2(198, 690)
+shape = SubResource("RectangleShape2D_cobve")
+
+[node name="CollisionShape2D17" type="CollisionShape2D" parent="StaticBody2D" unique_id=1132867370]
+position = Vector2(296, 781)
+shape = SubResource("RectangleShape2D_cobve")
+
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D" unique_id=793579476]
-position = Vector2(245, 646)
+position = Vector2(302, 687.5)
 shape = SubResource("RectangleShape2D_bb450")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=1450918657]
-position = Vector2(165, 725)
+position = Vector2(150, 796)
 rotation = -0.015707964
 shape = SubResource("RectangleShape2D_nfivy")
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D" unique_id=781036897]
-position = Vector2(187.5, 593)
+position = Vector2(128, 593)
 shape = SubResource("RectangleShape2D_nfivy")
 
 [node name="CollisionShape2D6" type="CollisionShape2D" parent="StaticBody2D" unique_id=1525697790]
@@ -1004,7 +1013,8 @@ frame_progress = 0.23164856
 speed_scale = 0.8
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=51260792]
-position = Vector2(138, 656)
+visible = false
+position = Vector2(137, 737)
 script = ExtResource("13_ebg2g")
 
 [node name="MCCharater" type="AnimatedSprite2D" parent="CharacterBody2D" unique_id=1546092177]

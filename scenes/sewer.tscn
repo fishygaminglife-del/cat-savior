@@ -53,18 +53,6 @@ animations = [{
 
 [sub_resource type="Animation" id="Animation_rtjjv"]
 length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("CatToy2:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-75, 129)]
-}
 
 [sub_resource type="Animation" id="Animation_yudd4"]
 resource_name = "ball drift"
@@ -360,7 +348,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_skxsd"]
-size = Vector2(24.5, 21)
+size = Vector2(34.5, 21)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3i3nt"]
 atlas = ExtResource("6_5bl23")
@@ -1174,7 +1162,7 @@ flip_h = true
 [node name="Scene Chang" type="Area2D" parent="." unique_id=834869982]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Scene Chang" unique_id=771897348]
-position = Vector2(1481.75, -33.5)
+position = Vector2(1486.75, -45.5)
 shape = SubResource("RectangleShape2D_skxsd")
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=51260792]
